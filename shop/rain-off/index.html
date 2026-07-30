@@ -50,8 +50,8 @@
 
   .product{background:var(--white);padding:72px 0 96px}
   .p-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:start}
-  .gallery-main{border-radius:16px;overflow:hidden;margin-bottom:14px}
-  .gallery-main img{width:100%;height:auto;display:block}
+  .gallery-main{border-radius:16px;overflow:hidden;margin-bottom:14px;display:flex;justify-content:center;background:#fff}
+  .gallery-main img{width:auto;max-width:100%;max-height:480px;display:block}
   .thumbs{display:flex;gap:12px}
   .thumbs button{flex:1;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:10px;cursor:pointer;transition:border-color .15s ease}
   .thumbs button.active{border-color:var(--purple)}
@@ -123,6 +123,7 @@
     .gallery-main img{max-height:380px}
   }
   @media (max-width:640px){
+    .gallery-main img{max-height:360px}
     .steps{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     .vids{flex-direction:column;align-items:center}

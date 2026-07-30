@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visit Us — 9NERS Detailing Studio</title>
+<style>
+  :root{
+    --noir:#14101A; --noir-2:#1D1626; --deep:#34204F; --purple:#6B34C8; --purple-d:#522798;
+    --pink:#F2AFC4; --rose:#C9678B; --lilac:#F7F4FA; --white:#FFFFFF;
+    --ink:#241D2E; --muted:#6E6878; --line:#E7E2EF; --line-dk:rgba(242,175,196,.16); --wa:#25D366;
+    --disp:'Avenir Next Condensed','HelveticaNeue-CondensedBold','Arial Narrow',sans-serif;
+    --body:'Avenir Next','Helvetica Neue',-apple-system,'Segoe UI',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--white);font-size:16px;line-height:1.65}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
+  h1,h2,h3{text-wrap:balance}
+  .h-disp{font-family:var(--disp);font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+  .btn{display:inline-block;font-weight:600;font-size:15px;padding:14px 26px;border-radius:10px;text-decoration:none;transition:background .15s ease;border:none;cursor:pointer}
+  .btn-wa{background:var(--wa);color:#08351D}
+  .btn-wa:hover{background:#1FBF5B}
+  .btn-purple{background:var(--purple);color:#fff}
+  .btn-purple:hover{background:var(--purple-d)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+  .btn-ghost:hover{border-color:var(--pink);color:var(--pink)}
+  .btn-ghost-dk{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost-dk:hover{border-color:var(--purple);color:var(--purple)}
+  .note{font-size:13px;color:var(--muted)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(20,16,26,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(242,175,196,.12)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{text-decoration:none;line-height:1}
+  .logo b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:26px;color:var(--pink);letter-spacing:.02em}
+  .logo span{display:block;font-size:9px;letter-spacing:.42em;color:#9A92A8;text-transform:uppercase;margin-top:3px}
+  .nav-links{display:flex;gap:26px;list-style:none}
+  .nav-links a{color:#D8D3E2;text-decoration:none;font-size:14px;font-weight:500}
+  .nav-links a:hover{color:var(--pink)}
+  .nav-links a.on{color:var(--pink)}
+  .nav .btn{padding:10px 18px;font-size:14px;white-space:nowrap}
+
+  .a-hero{position:relative;color:#fff;padding:150px 0 110px;overflow:hidden;background:var(--noir)}
+  .a-hero-bg{position:absolute;inset:0;background-image:url('images/visit-hero.jpg');background-size:cover;background-position:center 55%}
+  .a-hero-shade{position:absolute;inset:0;background:
+    linear-gradient(0deg, rgba(20,16,26,.9) 0%, rgba(20,16,26,.25) 45%, rgba(20,16,26,.55) 100%),
+    linear-gradient(115deg, rgba(20,16,26,.92) 0%, rgba(38,20,62,.72) 50%, rgba(82,39,152,.35) 100%)}
+  .a-hero-grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end}
+  .mega{font-family:var(--disp);font-weight:700;font-style:italic;text-transform:uppercase;line-height:.82;font-size:clamp(78px,13vw,180px);color:#fff}
+  .mega span{color:var(--pink)}
+  .a-hero-side p{color:#E4DFEC;font-size:16px;margin-bottom:26px;max-width:44ch}
+
+  .contact{background:var(--white);padding:96px 0}
+  .contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+  .contact h2{font-size:clamp(32px,4.2vw,46px);margin:14px 0 10px;color:var(--ink)}
+  .contact .sub{color:var(--muted);margin-bottom:36px;max-width:52ch}
+  .f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
+  .field label em{font-style:normal;color:var(--rose)}
+  .field input,.field select,.field textarea{width:100%;font-family:var(--body);font-size:15px;color:var(--ink);background:var(--lilac);border:1px solid var(--line);border-radius:10px;padding:13px 16px;outline:none;transition:border-color .15s ease}
+  .field input,.field select,.field textarea{font-size:16px}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--purple);background:#fff}
+  .field textarea{min-height:130px;resize:vertical}
+  .form-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+
+  .info-card{background:var(--deep);color:#fff;border-radius:20px;padding:38px 36px}
+  .info-card h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:22px;color:var(--pink);margin-bottom:10px}
+  .info-card p{font-size:15px;color:#E0D9EE;margin-bottom:4px}
+  .info-card .blk{padding:22px 0;border-bottom:1px solid rgba(242,175,196,.18)}
+  .info-card .blk:first-child{padding-top:0}
+  .info-card .blk:last-child{border-bottom:none;padding-bottom:0}
+  .info-card .mini{font-size:13px;color:#B9A8D6}
+  .info-card a{color:var(--pink);text-decoration:none}
+  .info-card a:hover{color:#fff}
+
+  .maps{background:var(--lilac);padding:88px 0}
+  .maps-head{max-width:560px;margin-bottom:44px}
+  .maps-head h2{font-size:clamp(30px,4vw,44px);margin:14px 0 10px;color:var(--ink)}
+  .maps-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .map-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px}
+  .map-card h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:22px;color:var(--ink)}
+  .map-card .tagline{font-size:13px;color:var(--muted);margin-top:-8px}
+  .gmap{width:100%;height:320px;border:0;border-radius:10px;filter:grayscale(1) contrast(1.04)}
+  .map-links{display:flex;gap:10px;flex-wrap:wrap}
+  .map-links a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 16px}
+  .map-links a:hover{border-color:var(--purple);color:var(--purple)}
+  .maps .note{margin-top:16px}
+
+  .feats{background:var(--white);padding:80px 0}
+  .feats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .feat{display:flex;gap:16px;align-items:flex-start}
+  .feat .fi{flex:0 0 52px;height:52px;border-radius:12px;background:var(--lilac);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .feat .fi svg{width:24px;height:24px;stroke:var(--purple)}
+  .feat h3{font-size:16px;font-weight:600;margin-bottom:4px}
+  .feat p{font-size:14px;color:var(--muted)}
+
+  .strip{background:var(--pink);padding:20px 0;overflow:hidden}
+  .strip p{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(16px,2.2vw,24px);color:#4B1528;text-align:center;letter-spacing:.02em}
+  .strip .sep{color:#C9678B;margin:0 14px}
+
+  footer{background:#0E0A14;color:#9A92A8;padding:64px 0 40px;font-size:14px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:44px}
+  footer h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:16px;letter-spacing:.04em}
+  footer a{color:#9A92A8;text-decoration:none;display:block;margin-bottom:9px}
+  footer a:hover{color:var(--pink)}
+  .foot-brand p{max-width:34ch;margin-top:14px}
+  .foot-base{border-top:1px solid rgba(242,175,196,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+
+  @media (max-width:900px){
+    .nav-links{display:none}
+    .a-hero-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .maps-grid{grid-template-columns:1fr}
+    .feats-grid{grid-template-columns:1fr;gap:26px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    .a-hero{padding:64px 0 72px}
+    .f-row{grid-template-columns:1fr}
+    .info-card{padding:28px 24px}
+    .foot-grid{grid-template-columns:1fr}
+  }
+
+  .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:var(--pink);margin-left:12px}
+  .menu-btn svg{width:26px;height:26px;display:block}
+  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(242,175,196,.14)}
+  .mob-menu.open{display:block}
+  .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
+  .mob-menu a:hover{color:#fff}
+  @media (max-width:900px){.menu-btn{display:block}}
+  @media (min-width:901px){.mob-menu{display:none !important}}
+
+  .soc-row{display:flex;gap:10px;margin-top:12px}
+  .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,175,196,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
+  .soc-ic svg{width:18px;height:18px;display:block}
+  .soc-ic:hover{background:var(--pink);color:#4B1528;border-color:var(--pink)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><b>9NERS</b><span>Detailing Studio</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a class="on" href="visit.html">Visit Us</a></li>
+    </ul>
+    <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </div>
+</header>
+<nav class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="shop.html">Shop</a>
+  <a href="academy.html">Academy</a>
+  <a href="visit.html">Visit Us</a>
+</nav>
+
+<section class="a-hero">
+  <div class="a-hero-bg" role="img" aria-label="Freshly detailed white BMW on the pink checkered floor of the 9NERS studio"></div>
+  <div class="a-hero-shade"></div>
+  <div class="wrap a-hero-grid">
+    <h1 class="mega">Visit<br><span>us.</span></h1>
+    <div class="a-hero-side">
+      <p>Walk in at Desa Tebrau, book Eco Cascadia by appointment — or start with a WhatsApp message. Either way, we've got you.</p>
+      <a class="btn btn-ghost" href="https://waze.com/ul?q=9NERS%20Detailing%20Studio%20Desa%20Tebrau" target="_blank" rel="noopener">Open in Waze</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">Contact us</span>
+      <h2 class="h-disp">Tell us about<br>your ride</h2>
+      <p class="sub">Fill this in and it goes straight to our WhatsApp — we'll reply with an honest recommendation and an exact quote.</p>
+      <form>
+        <div class="f-row">
+          <div class="field">
+            <label>Your name <em>*</em></label>
+            <input type="text" placeholder="Adam">
+          </div>
+          <div class="field">
+            <label>WhatsApp number <em>*</em></label>
+            <input type="tel" placeholder="012-345 6789">
+          </div>
+        </div>
+        <div class="field">
+          <label>What are you bringing in?</label>
+          <select>
+            <option>Car — wash / detailing</option>
+            <option>Car — polish / paint correction</option>
+            <option>Car — ceramic coating / PPF</option>
+            <option>Interior / leather / babygear</option>
+            <option>Bike / helmet</option>
+            <option>Not sure — need advice</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Your message</label>
+          <textarea placeholder="e.g. Myvi 2022, banyak swirl marks kat bonnet. Boleh share harga?"></textarea>
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-purple" type="button">Send message</button>
+          <span class="note">Prefer to skip the form? <a href="https://wa.me/60167565222" style="color:var(--purple);font-weight:600;text-decoration:none">WhatsApp us directly</a></span>
+        </div>
+      </form>
+    </div>
+
+    <aside class="info-card">
+      <div class="blk">
+        <h3>Desa Tebrau — walk-in</h3>
+        <p>79, Jalan Harmonium 33/1,<br>Taman Desa Tebrau, Johor Bahru</p>
+        <p class="mini"><a href="https://waze.com/ul?q=9NERS%20Detailing%20Studio%20Desa%20Tebrau" target="_blank" rel="noopener">Waze</a> · <a href="https://www.google.com/maps/search/9NERS+Detailing+Studio+Johor+Bahru" target="_blank" rel="noopener">Google Maps</a></p>
+      </div>
+      <div class="blk">
+        <h3>Eco Cascadia — appointment</h3>
+        <p>Detailing services &amp; the 9NERS Detailing Academy</p>
+        <p class="mini">WhatsApp us to book a slot</p>
+      </div>
+      <div class="blk">
+        <h3>Contact</h3>
+        <p><a href="https://wa.me/60167565222">WhatsApp 016-756 5222</a></p>
+        <p><a href="mailto:my9nersstudio@gmail.com">my9nersstudio@gmail.com</a></p>
+      </div>
+      <div class="blk">
+        <h3>Opening hours</h3>
+        <p>Tuesday – Sunday · 10 am – 7 pm</p>
+        <p>Closed on Monday</p>
+      </div>
+      <div class="blk">
+        <h3>Stay connected</h3>
+        <div class="soc-row">
+          <a class="soc-ic" href="https://www.instagram.com/9ners__studio/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a class="soc-ic" href="https://www.tiktok.com/@9ners__studio" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a class="soc-ic" href="https://www.facebook.com/9nersstudio/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.3v3.2h2.8V21h3.3z"/></svg></a>
+          <a class="soc-ic" href="https://linktr.ee/9ners" target="_blank" rel="noopener" aria-label="Linktree"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21v-8M12 13 5.5 8.7M12 13l6.5-4.3M12 13V3.5"/></svg></a>
+          </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="maps">
+  <div class="wrap">
+    <div class="maps-head">
+      <span class="eyebrow">Find us</span>
+      <h2 class="h-disp">Two studios, one standard</h2>
+    </div>
+    <div class="maps-grid">
+      <div class="map-card">
+        <h3>Desa Tebrau</h3>
+        <p class="tagline">Walk-in welcome · Tue–Sun, 10 am – 7 pm</p>
+        <iframe class="gmap" src="https://www.google.com/maps?q=9NERS%20Detailing%20Studio%2C%20Jalan%20Harmonium%2033%2F1%2C%20Taman%20Desa%20Tebrau%2C%20Johor%20Bahru&output=embed" loading="lazy" title="Map to 9NERS Desa Tebrau" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-links">
+          <a href="https://www.google.com/maps/search/9NERS+Detailing+Studio+Desa+Tebrau+Johor+Bahru" target="_blank" rel="noopener">Google Maps</a>
+          <a href="https://waze.com/ul?q=9NERS%20Detailing%20Studio%20Desa%20Tebrau" target="_blank" rel="noopener">Waze</a>
+        </div>
+      </div>
+      <div class="map-card">
+        <h3>Eco Cascadia</h3>
+        <p class="tagline">By appointment · home of the Detailing Academy</p>
+        <iframe class="gmap" src="https://www.google.com/maps?q=9NERS%20Detailing%20Studio%20Eco%20Cascadia%2C%20Johor%20Bahru&output=embed" loading="lazy" title="Map to 9NERS Eco Cascadia" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-links">
+          <a href="https://www.google.com/maps/search/9NERS+Eco+Cascadia+Johor+Bahru" target="_blank" rel="noopener">Google Maps</a>
+          <a href="https://waze.com/ul?q=9NERS%20Eco%20Cascadia" target="_blank" rel="noopener">Waze</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feats">
+  <div class="wrap feats-grid">
+    <div class="feat">
+      <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5-7h6l5 7-8 8-8-8z"/></svg></div>
+      <div><h3>Walk-in welcome</h3><p>No booking needed at Desa Tebrau — just roll in during opening hours.</p></div>
+    </div>
+    <div class="feat">
+      <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.3 5.6.6-4.2 3.9 1.2 5.6-5-2.9-5 2.9 1.2-5.6L4 8.9l5.6-.6L12 3z"/></svg></div>
+      <div><h3>5.0-star service</h3><p>Rated five stars by JB owners on Google — and we intend to keep it.</p></div>
+    </div>
+    <div class="feat">
+      <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-4.2-7.6"/><path d="M9 11l3 3 8-8"/></svg></div>
+      <div><h3>Quote before you drive</h3><p>WhatsApp a photo first — we'll confirm the price and time before you come.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <p>Signature Wash <span class="sep">✦</span> Paint Correction <span class="sep">✦</span> Ceramic Coating <span class="sep">✦</span> PPF <span class="sep">✦</span> Bike Spa <span class="sep">✦</span> Babygear Refresh</p>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="index.html"><b>9NERS</b><span>Detailing Studio</span></a>
+        <p>Professional car &amp; bike detailing in Johor Bahru. Detailed to the nines, every single time.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="services.html">All services</a><a href="index.html#prices">Price list</a><a href="shop.html">Shop</a><a href="academy.html">Academy</a>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="about.html">About us</a><a href="visit.html">Visit us</a><a href="https://linktr.ee/9ners" target="_blank" rel="noopener">Linktree</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://wa.me/60167565222">WhatsApp 016-756 5222</a>
+        <a href="mailto:my9nersstudio@gmail.com">my9nersstudio@gmail.com</a>
+        <div class="soc-row">
+          <a class="soc-ic" href="https://www.instagram.com/9ners__studio/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a class="soc-ic" href="https://www.tiktok.com/@9ners__studio" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a class="soc-ic" href="https://www.facebook.com/9nersstudio/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.3v3.2h2.8V21h3.3z"/></svg></a>
+          </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 NINERS DETAILING STUDIO (KT0551869-V)</span>
+      <span>Desa Tebrau · Eco Cascadia, Johor Bahru</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

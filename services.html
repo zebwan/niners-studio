@@ -58,8 +58,8 @@
   .mission p{color:var(--muted);max-width:60ch;margin:18px auto 0}
 
   .svc-cards{background:var(--white);padding:40px 0 96px}
-  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .svc{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:border-color .15s ease, transform .15s ease}
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+  .svc{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;transition:border-color .15s ease, transform .15s ease;cursor:pointer}
   .svc:hover{border-color:var(--purple);transform:translateY(-3px)}
   .ph{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--noir-2)}
   .ph img{width:100%;height:100%;object-fit:cover}
@@ -69,6 +69,19 @@
   .svc h3{font-size:17px;font-weight:600}
   .svc p{font-size:13px;color:var(--muted);flex:1}
   .svc-foot{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:var(--purple)}
+  .arr svg{display:block;transition:transform .25s ease}
+  .svc.open{border-color:var(--purple)}
+  .svc.open .arr svg{transform:rotate(180deg)}
+  .svc-detail{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .svc.open .svc-detail{max-height:460px}
+  .d-intro{font-size:13px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .d-rows{list-style:none;display:grid;gap:8px;margin:12px 0 0}
+  .d-rows li{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:var(--muted)}
+  .d-rows b{color:var(--ink);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .d-actions{display:flex;gap:12px;align-items:center;margin-top:16px;flex-wrap:wrap}
+  .d-actions .btn{padding:9px 16px;font-size:13px}
+  .d-link{font-size:13px;font-weight:600;color:var(--purple);text-decoration:none}
+  .d-link:hover{color:var(--purple-d)}
   .svc-foot em{font-style:normal}
   .svc-foot .arr{font-size:17px}
 
@@ -188,46 +201,158 @@
 
 <section class="svc-cards">
   <div class="wrap svc-grid">
-      <a class="svc" href="index.html#prices">
-        <!-- swap with Drive: signature wash - clean.jpg -->
-        <div class="ph"><span class="badge">Car</span><img src="images/wash-foam.jpg" alt="Car covered in thick wash foam"></div>
-        <div class="svc-body"><h3>9NERS Signature Wash</h3><p>Hand-brushed detailing wash, clay bar, fine gap &amp; edge cleaning, ceramic spray seal and reblack trim.</p><div class="svc-foot"><em>from RM 88</em><span class="arr">→</span></div></div>
-      </a>
-      <a class="svc" href="index.html#prices">
-        <!-- swap with Drive: paint correction polish - 2 step.jpg -->
-        <div class="ph"><span class="badge">Our specialty</span><img src="images/polish-hand.jpg" alt="Detailer polishing a black car bonnet"></div>
-        <div class="svc-body"><h3>Polish &amp; Paint Correction</h3><p>From 1-step gloss to 3-step advance correction — up to 70% of swirls and etchings gone.</p><div class="svc-foot"><em>from RM 330</em><span class="arr">→</span></div></div>
-      </a>
-      <a class="svc" href="index.html#prices">
-        <!-- swap with Drive: ceramic coating - water beading.jpg -->
-        <div class="ph"><span class="badge">Car</span><img src="images/ceramic-gloss.jpg" alt="Glossy white sports car in a dark studio"></div>
-        <div class="svc-body"><h3>Ceramic Coating</h3><p>8H or 9H crystallised coating — glossier than new paint, protected for 1 or 2 years.</p><div class="svc-foot"><em>from RM 850</em><span class="arr">→</span></div></div>
-      </a>
-      <a class="svc" href="index.html#prices">
-        <!-- swap with Drive: PPF job photos -->
-        <div class="ph"><span class="badge">New</span><img src="images/ppf-headlamp.jpg" alt="Headlamp with water beads on protective film"></div>
-        <div class="svc-body"><h3>Paint Protection Film</h3><p>Clear armour against stone chips, scratches and UV — full front or panel by panel.</p><div class="svc-foot"><em>from RM 120</em><span class="arr">→</span></div></div>
-      </a>
-      <a class="svc" href="index.html#prices">
-        <!-- swap with Drive: leather refresh seats.jpeg -->
-        <div class="ph"><span class="badge">Car</span><img src="images/leather-interior.jpg" alt="Dark leather car interior with red stitching"></div>
-        <div class="svc-body"><h3>Leather &amp; Fabric Interior</h3><p>Leather refresh, fabric extraction clean, or the full interior reset with seat removal.</p><div class="svc-foot"><em>from RM 180</em><span class="arr">→</span></div></div>
-      </a>
-      <a class="svc" href="index.html#prices">
-        <!-- swap with Drive: babygear refresh - all.jpeg -->
-        <div class="ph"><span class="badge">Family</span><img src="images/babygear-clean.jpg" alt="Extraction cleaning of a fabric seat"></div>
-        <div class="svc-body"><h3>Babygear Refresh</h3><p>Car seats and strollers deep-cleaned, removing dirt, stains and bacteria — hygienically fresh for your little one.</p><div class="svc-foot"><em>from RM 40</em><span class="arr">→</span></div></div>
-      </a>
-      <a class="svc" href="index.html#prices">
-        <!-- swap with Drive: watermark remove photos -->
-        <div class="ph"><span class="badge">Car</span><img src="images/watermark-squeegee.jpg" alt="Squeegee cleaning a windshield"></div>
-        <div class="svc-body"><h3>Window Watermark Removal</h3><p>Polish and coat every mirror — clear glass, safer rainy-day driving.</p><div class="svc-foot"><em>from RM 270</em><span class="arr">→</span></div></div>
-      </a>
-      <a class="svc" href="index.html#prices">
-        <!-- swap with Drive: bike spa- done close up.jpg -->
-        <div class="ph"><span class="badge bike">Bike</span><img src="images/bike-front.jpg" alt="Matte black motorcycle front close-up"></div>
-        <div class="svc-body"><h3>Bike Spa, Coating &amp; Helmet</h3><p>Tank-to-spokes spa, 1-year ceramic coating, chain care — helmets polished too.</p><div class="svc-foot"><em>from RM 40</em><span class="arr">→</span></div></div>
-      </a>
+    <article class="svc">
+      <div class="ph"><span class="badge">Car</span><img src="images/wash-foam.jpg" alt="Car covered in thick wash foam"></div>
+      <div class="svc-body">
+        <h3>9NERS Signature Wash</h3>
+        <div class="svc-foot"><em>from RM 88</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
+        <div class="svc-detail">
+          <p class="d-intro">Hand-brushed wash, tar removal, clay bar, fine gap &amp; edge cleaning, ceramic spray seal, reblack trim and interior vacuum.</p>
+          <ul class="d-rows">
+          <li><span>Cars</span><b>RM 88</b></li>
+          <li><span>SUV</span><b>RM 95</b></li>
+          <li><span>Large</span><b>RM 110</b></li>
+          <li><span>Also: Basic Wash</span><b>RM 35–50</b></li>
+          <li><span>Also: Advance Wash</span><b>RM 50–65</b></li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20Signature%20Wash." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="index.html#prices">Full price list →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="ph"><span class="badge">Our specialty</span><img src="images/polish-hand.jpg" alt="Detailer polishing a black car bonnet"></div>
+      <div class="svc-body">
+        <h3>Polish &amp; Paint Correction</h3>
+        <div class="svc-foot"><em>from RM 330</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
+        <div class="svc-detail">
+          <p class="d-intro">Every package includes the Signature Wash, sealant wax, interior UV dressing and reblack trim.</p>
+          <ul class="d-rows">
+          <li><span>Basic Polish · 3–4 hrs</span><b>RM 330–510</b></li>
+          <li><span>2-Step Correction · up to 1 day</span><b>RM 550–750</b></li>
+          <li><span>Advance Correction · 2–3 days</span><b>RM 670–850</b></li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20polish%20%2F%20paint%20correction." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="index.html#prices">Full price list →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="ph"><span class="badge">Car</span><img src="images/ceramic-gloss.jpg" alt="Glossy sports car in a dark studio"></div>
+      <div class="svc-body">
+        <h3>Ceramic Coating</h3>
+        <div class="svc-foot"><em>from RM 850</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
+        <div class="svc-detail">
+          <p class="d-intro">Crystallised coating over an advance polish — with free mirror treatments and washes thrown in.</p>
+          <ul class="d-rows">
+          <li><span>1 Year · 8H · 2 days</span><b>RM 850–1,200</b></li>
+          <li><span>2 Years · 9H · 2 days</span><b>RM 1,399–1,899</b></li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20Ceramic%20Coating." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="index.html#prices">Full price list →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="ph"><span class="badge">New</span><img src="images/ppf-headlamp.jpg" alt="Headlamp with water beads on protective film"></div>
+      <div class="svc-body">
+        <h3>Paint Protection Film</h3>
+        <div class="svc-foot"><em>from RM 120</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
+        <div class="svc-detail">
+          <p class="d-intro">Clear armour against stone chips, scratches and UV — lasts 3–5 years with proper care.</p>
+          <ul class="d-rows">
+          <li><span>Full Front · 2–3 days</span><b>RM 2,500–2,600</b></li>
+          <li><span>Front / rear bumper</span><b>RM 1,300</b></li>
+          <li><span>Front hood</span><b>RM 1,000</b></li>
+          <li><span>Mirrors or headlamps</span><b>RM 400 / both</b></li>
+          <li><span>Door handles</span><b>RM 120 / all</b></li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20PPF." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="index.html#prices">Full price list →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="ph"><span class="badge">Car</span><img src="images/leather-interior.jpg" alt="Dark leather car interior with red stitching"></div>
+      <div class="svc-body">
+        <h3>Leather &amp; Fabric Interior</h3>
+        <div class="svc-foot"><em>from RM 180</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
+        <div class="svc-detail">
+          <p class="d-intro">Deep cleans finished with interior UV dressing for a protected finish.</p>
+          <ul class="d-rows">
+          <li><span>Leather Refresh · ±2 hrs</span><b>RM 180–320</b></li>
+          <li><span>Fabric Clean · ±4 hrs</span><b>RM 250–650</b></li>
+          <li><span>Full Interior Reset · 1–2 days</span><b>from RM 650</b></li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20interior%20cleaning." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="index.html#prices">Full price list →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="ph"><span class="badge">Family</span><img src="images/babygear-clean.jpg" alt="Extraction cleaning of a fabric seat"></div>
+      <div class="svc-body">
+        <h3>Babygear Refresh</h3>
+        <div class="svc-foot"><em>from RM 40</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
+        <div class="svc-detail">
+          <p class="d-intro">Car seats and strollers deep-cleaned, steamed and sanitised — gentle products only.</p>
+          <ul class="d-rows">
+          <li><span>Seats &amp; strollers · 1 day</span><b>from RM 40</b></li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20hantar%20baby%20seat%20%2F%20stroller." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="index.html#prices">Full price list →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="ph"><span class="badge">Car</span><img src="images/watermark-squeegee.jpg" alt="Squeegee cleaning a windshield"></div>
+      <div class="svc-body">
+        <h3>Window Watermark Removal</h3>
+        <div class="svc-foot"><em>from RM 270</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
+        <div class="svc-detail">
+          <p class="d-intro">Polish and coat every mirror — clear glass, safer rainy-day driving.</p>
+          <ul class="d-rows">
+          <li><span>All mirrors · 1–2 hrs</span><b>RM 270–380</b></li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20remove%20watermark%20cermin." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="index.html#prices">Full price list →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="ph"><span class="badge bike">Bike</span><img src="images/bike-front.jpg" alt="Matte black motorcycle front close-up"></div>
+      <div class="svc-body">
+        <h3>Bike Spa, Coating &amp; Helmet</h3>
+        <div class="svc-foot"><em>from RM 40</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
+        <div class="svc-detail">
+          <p class="d-intro">Tank-to-spokes detail with chain care — helmets polished and coated too.</p>
+          <ul class="d-rows">
+          <li><span>Bike Spa</span><b>RM 40–50</b></li>
+          <li><span>Steam cleaning add-on</span><b>+ RM 30</b></li>
+          <li><span>Bike Ceramic · 3–4 hrs</span><b>RM 290–550</b></li>
+          <li><span>Helmet Polish &amp; Coating · ±2 hrs</span><b>RM 70–100</b></li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20bike%20spa." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="index.html#prices">Full price list →</a>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -336,5 +461,15 @@
     </div>
   </div>
 </footer>
+<script>
+  document.querySelectorAll('.svc').forEach(function(card){
+    card.addEventListener('click', function(e){
+      if (e.target.closest('a')) return;
+      var wasOpen = card.classList.contains('open');
+      document.querySelectorAll('.svc.open').forEach(function(o){ o.classList.remove('open'); });
+      if (!wasOpen) card.classList.add('open');
+    });
+  });
+</script>
 </body>
 </html>

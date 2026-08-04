@@ -6,9 +6,9 @@
 <title>9NERS Detailing Studio — homepage concept</title>
 <style>
   :root{
-    --noir:#14101A; --noir-2:#1D1626; --deep:#34204F; --purple:#6B34C8; --purple-d:#522798;
-    --pink:#F2AFC4; --rose:#C9678B; --lilac:#F7F4FA; --white:#FFFFFF;
-    --ink:#241D2E; --muted:#6E6878; --line:#E7E2EF; --wa:#25D366;
+    --noir:#000000; --noir-2:#111014; --deep:#1A181D; --purple:#C6246B; --purple-d:#9E1854;
+    --pink:#FF6FAF; --rose:#C6246B; --lilac:#F6F5F7; --white:#FFFFFF;
+    --ink:#141217; --muted:#6C6A73; --line:#E6E4EA; --wa:#25D366;
     --disp:'Avenir Next Condensed','HelveticaNeue-CondensedBold','Arial Narrow',sans-serif;
     --body:'Avenir Next','Helvetica Neue',-apple-system,'Segoe UI',sans-serif;
   }
@@ -29,41 +29,45 @@
   .btn-ghost:hover{border-color:var(--pink);color:var(--pink)}
   .btn-ghost-dk{border:1px solid var(--line);color:var(--ink)}
   .btn-ghost-dk:hover{border-color:var(--purple);color:var(--purple)}
-  .checker{height:10px;background:repeating-conic-gradient(var(--rose) 0% 25%, var(--noir) 0% 50%) 0 0/20px 20px}
+  .checker{height:10px;background:repeating-conic-gradient(var(--pink) 0% 25%, var(--noir) 0% 50%) 0 0/20px 20px}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(20,16,26,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(242,175,196,.12)}
+  header{position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid rgba(255,111,175,.12)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{text-decoration:none;line-height:1}
-  .logo b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:26px;color:var(--pink);letter-spacing:.02em}
-  .logo span{display:block;font-size:9px;letter-spacing:.42em;color:#9A92A8;text-transform:uppercase;margin-top:3px}
+    .logo{text-decoration:none;line-height:1;display:flex;align-items:center}
+  .logo img{height:38px;width:auto}
+  .foot-brand .logo img{height:46px}
   .nav-links{display:flex;gap:26px;list-style:none}
-  .nav-links a{color:#D8D3E2;text-decoration:none;font-size:14px;font-weight:500}
+  .nav-links a{color:#D7D5DC;text-decoration:none;font-size:14px;font-weight:500}
   .nav-links a:hover{color:var(--pink)}
   .nav-links a.on{color:var(--pink)}
   .nav .btn{padding:10px 18px;font-size:14px;white-space:nowrap}
 
   .hero{position:relative;background:var(--noir);color:#fff;overflow:hidden}
-  .hero-img{position:absolute;inset:0;background-image:url('images/hero.jpg');background-size:cover;background-position:62% center}
-  .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,10,26,.92) 0%,rgba(16,10,26,.72) 38%,rgba(16,10,26,.18) 75%,rgba(16,10,26,.35) 100%)}
-  .hero-inner{position:relative;padding:110px 0 130px;max-width:640px}
-  .hero h1{font-size:clamp(52px,8.5vw,104px);color:#fff;margin:18px 0 20px}
+  .hero-img{position:absolute;inset:0;background-image:url('images/hero-black.jpg');background-size:cover;background-position:62% center}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.8) 38%,rgba(0,0,0,.3) 75%,rgba(0,0,0,.45) 100%)}
+  .hero-inner{position:relative;padding:110px 0 130px;max-width:660px}
+  .hero .kicker{font-size:17px;color:#fff;line-height:1.4;margin-bottom:14px}
+  .hero .kicker span{color:var(--pink);display:block}
+  .hero h1{font-size:clamp(52px,8.5vw,104px);color:#fff;margin:0 0 20px}
   .hero h1 .pink{color:var(--pink)}
-  .hero p{font-size:18px;color:#CFC8DC;max-width:46ch;margin-bottom:34px}
+  .hero p{font-size:18px;color:#CCCAD2;max-width:46ch;margin-bottom:34px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-drive{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-size:14px;color:#B4B2BA;text-decoration:none}
+  .hero-drive:hover{color:var(--pink)}
 
-  .stats{background:var(--noir);color:#fff;border-top:1px solid rgba(242,175,196,.14)}
+  .stats{background:var(--noir);color:#fff;border-top:1px solid rgba(255,111,175,.14)}
   .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-  .stat{padding:26px 20px;border-left:1px solid rgba(242,175,196,.14)}
+  .stat{padding:26px 20px;border-left:1px solid rgba(255,111,175,.14)}
   .stat:first-child{border-left:none}
   .stat b{font-family:var(--disp);font-style:italic;font-size:30px;font-weight:700;color:var(--pink);display:block;line-height:1.1}
-  .stat span{font-size:13px;color:#9A92A8}
+  .stat span{font-size:13px;color:#9B99A2}
 
   section{padding:96px 0}
   .sec-head{max-width:600px;margin-bottom:52px}
   .sec-head h2{font-size:clamp(34px,4.5vw,52px);margin:14px 0 14px;color:var(--ink)}
   .sec-head.on-dark h2{color:#fff}
   .sec-head p{color:var(--muted)}
-  .sec-head.on-dark p{color:#B9B0C9}
+  .sec-head.on-dark p{color:#B4B2BA}
 
   .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .card{border-radius:16px;padding:34px 30px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:transform .15s ease}
@@ -73,16 +77,16 @@
   .card h3{font-size:20px;font-weight:600}
   .card p{font-size:14px;flex:1}
   .card .from{font-size:14px;font-weight:600;margin-top:6px}
-  .card.dark{background:var(--noir);color:#D8D3E2}
+  .card.dark{background:var(--noir);color:#D7D5DC}
   .card.dark h3{color:#fff}
-  .card.dark .ico{background:#2A2136}
+  .card.dark .ico{background:#1A181D}
   .card.dark .ico svg{stroke:var(--pink)}
   .card.dark .from{color:var(--pink)}
-  .card.feat{background:var(--pink);color:#72243E}
-  .card.feat h3{color:#4B1528}
+  .card.feat{background:var(--pink);color:#4A0F27}
+  .card.feat h3{color:#3A0A1F}
   .card.feat .ico{background:rgba(255,255,255,.55)}
-  .card.feat .ico svg{stroke:#4B1528}
-  .card.feat .from{color:#4B1528}
+  .card.feat .ico svg{stroke:#3A0A1F}
+  .card.feat .from{color:#3A0A1F}
   .card.lite{background:var(--lilac);color:var(--muted);border:1px solid var(--line)}
   .card.lite h3{color:var(--ink)}
   .card.lite .ico{background:var(--white);border:1px solid var(--line)}
@@ -108,16 +112,16 @@
   .price-foot{margin-top:26px;font-size:13px;color:var(--muted);max-width:72ch}
 
   .ba{background:var(--noir);color:#fff}
-  .ba-frame{--p:50%;border:1px solid rgba(242,175,196,.18);border-radius:16px;overflow:hidden;position:relative;aspect-ratio:16/8;user-select:none}
+  .ba-frame{--p:50%;border:1px solid rgba(255,111,175,.18);border-radius:16px;overflow:hidden;position:relative;aspect-ratio:16/8;user-select:none}
   .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
   .ba-frame img.after{clip-path:inset(0 0 0 var(--p))}
   .ba-divider{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
   .ba-handle{position:absolute;top:50%;left:var(--p);transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;color:var(--noir);display:flex;align-items:center;justify-content:center;font-weight:700;pointer-events:none}
   .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
   .ba-tag{position:absolute;bottom:18px;font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:22px}
-  .ba-tag.before{left:22px;color:#B7B0C0;pointer-events:none}
+  .ba-tag.before{left:22px;color:#B4B2BA;pointer-events:none}
   .ba-tag.after-t{right:22px;color:var(--pink);pointer-events:none}
-  .ba-note{text-align:center;margin-top:22px;font-size:13px;color:#9A92A8}
+  .ba-note{text-align:center;margin-top:22px;font-size:13px;color:#9B99A2}
 
   .shop{background:var(--white)}
   .lu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -130,20 +134,20 @@
   .lu h3{font-size:19px;font-weight:600;color:var(--ink)}
   .lu .cat{font-size:13px;color:var(--muted);margin:3px 0 12px}
   .lu .go{font-size:14px;font-weight:600;color:var(--purple)}
-  .lu.soon{background:var(--noir);border:1px solid rgba(242,175,196,.16)}
-  .lu.soon .lu-body{border-top:1px solid rgba(242,175,196,.16)}
+  .lu.soon{background:var(--noir);border:1px solid rgba(255,111,175,.16)}
+  .lu.soon .lu-body{border-top:1px solid rgba(255,111,175,.16)}
   .lu.soon h3{color:#fff}
-  .lu.soon .cat{color:#9A92A8}
-  .soon-can{width:120px;height:210px;border-radius:14px;background:var(--noir-2);border:1px solid rgba(242,175,196,.16);position:relative}
-  .soon-can::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:64px;height:30px;background:var(--noir-2);border:1px solid rgba(242,175,196,.16);border-bottom:none;border-radius:8px 8px 0 0}
-  .soon-can::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-style:italic;font-weight:700;font-size:64px;color:#3A2F4A}
+  .lu.soon .cat{color:#9B99A2}
+  .soon-can{width:120px;height:210px;border-radius:14px;background:var(--noir-2);border:1px solid rgba(255,111,175,.16);position:relative}
+  .soon-can::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:64px;height:30px;background:var(--noir-2);border:1px solid rgba(255,111,175,.16);border-bottom:none;border-radius:8px 8px 0 0}
+  .soon-can::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-style:italic;font-weight:700;font-size:64px;color:#2B2830}
   .soon-pill{display:inline-block;background:var(--deep);color:var(--pink);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:10px}
   .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .prod{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px;text-align:center}
   .prod-stage{border-radius:10px;padding:28px 0 22px;display:flex;justify-content:center;margin-bottom:18px}
   .bottle{width:58px;height:112px;border-radius:10px 10px 14px 14px;position:relative}
-  .bottle::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:18px;height:16px;background:#1D1626;border-radius:3px 3px 0 0}
-  .bottle::after{content:"9ICE";position:absolute;inset:auto 8px 20px 8px;background:rgba(255,255,255,.85);color:#241D2E;font-size:10px;font-weight:700;letter-spacing:.12em;padding:14px 0;border-radius:4px}
+  .bottle::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:18px;height:16px;background:#111014;border-radius:3px 3px 0 0}
+  .bottle::after{content:"9ICE";position:absolute;inset:auto 8px 20px 8px;background:rgba(255,255,255,.85);color:#141217;font-size:10px;font-weight:700;letter-spacing:.12em;padding:14px 0;border-radius:4px}
   .prod h3{font-size:18px;font-weight:600}
   .prod .co{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:4px 0 10px}
   .prod .price{font-size:17px;font-weight:600;color:var(--purple);margin-bottom:16px}
@@ -151,22 +155,24 @@
   .prod .links a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 16px}
   .prod .links a:hover{border-color:var(--purple);color:var(--purple)}
   .shop-note{text-align:center;margin-top:34px;font-size:14px;color:var(--muted)}
+  .wholesale{margin-top:16px;font-size:15px;color:var(--ink);background:#FFF0F7;border:1px solid #FFD3E7;border-left:3px solid var(--pink);border-radius:8px;padding:12px 16px}
+  .wholesale b{color:var(--purple)}
 
   .academy{background:var(--deep);color:#fff}
   .aca-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
   .aca-grid h2{font-size:clamp(34px,4.5vw,50px);color:#fff;margin:14px 0 18px}
-  .aca-grid .lead{color:#CFC5E0;margin-bottom:26px}
-  .aca-photo{border-radius:12px;overflow:hidden;margin-bottom:26px;border:1px solid rgba(242,175,196,.25)}
+  .aca-grid .lead{color:#CCCAD2;margin-bottom:26px}
+  .aca-photo{border-radius:12px;overflow:hidden;margin-bottom:26px;border:1px solid rgba(255,111,175,.25)}
   .aca-photo img{width:100%;height:220px;object-fit:cover}
   .aca-list{list-style:none;display:grid;gap:14px;margin-bottom:34px}
-  .aca-list li{padding-left:30px;position:relative;color:#E6DFF2;font-size:15px}
+  .aca-list li{padding-left:30px;position:relative;color:#E5E3EA;font-size:15px}
   .aca-list li::before{content:"";position:absolute;left:0;top:5px;width:14px;height:14px;background:repeating-conic-gradient(var(--pink) 0% 25%, transparent 0% 50%);background-size:7px 7px;border:1px solid var(--pink)}
-  .aca-card{background:var(--noir);border:1px solid rgba(242,175,196,.2);border-radius:16px;padding:36px}
+  .aca-card{background:var(--noir);border:1px solid rgba(255,111,175,.2);border-radius:16px;padding:36px}
   .aca-card .eyebrow{color:var(--pink)}
   .aca-price{font-family:var(--disp);font-style:italic;font-weight:700;font-size:56px;color:#fff;margin:10px 0 4px}
-  .aca-card .per{color:#9A92A8;font-size:14px;margin-bottom:22px}
+  .aca-card .per{color:#9B99A2;font-size:14px;margin-bottom:22px}
   .aca-card ul{list-style:none;display:grid;gap:10px;margin-bottom:26px}
-  .aca-card ul li{font-size:14px;color:#D8D3E2;padding-left:22px;position:relative}
+  .aca-card ul li{font-size:14px;color:#D7D5DC;padding-left:22px;position:relative}
   .aca-card ul li::before{content:"—";position:absolute;left:0;color:var(--rose)}
 
   .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -176,24 +182,31 @@
   .rev b{font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
   .rev-note{margin-top:30px;text-align:center;font-size:14px;color:var(--muted)}
 
+  .gal-band{padding:0 0 0}
+  .gal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:34px}
+  .gal-head h2{font-size:clamp(30px,4vw,46px);margin-top:12px}
+  .gal-ribbon{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;background:var(--noir)}
+  .gal-ribbon img{width:100%;height:200px;object-fit:cover;filter:grayscale(.15)}
+  .gal-ribbon img:hover{filter:none}
+
   .visit{background:var(--noir);color:#fff}
   .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px}
-  .loc{background:var(--noir-2);border:1px solid rgba(242,175,196,.14);border-radius:14px;padding:32px}
+  .loc{background:var(--noir-2);border:1px solid rgba(255,111,175,.14);border-radius:14px;padding:32px}
   .loc .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:16px}
-  .loc .tag.walkin{background:var(--pink);color:#4B1528}
+  .loc .tag.walkin{background:var(--pink);color:#3A0A1F}
   .loc .tag.appt{background:var(--deep);color:var(--pink)}
   .loc h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;margin-bottom:10px}
-  .loc p{color:#B9B0C9;font-size:15px;margin-bottom:6px}
+  .loc p{color:#B4B2BA;font-size:15px;margin-bottom:6px}
   .loc .hours{color:var(--pink);font-size:14px;margin:14px 0 20px}
   .visit-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:36px}
 
-  footer{background:#0E0A14;color:#9A92A8;padding:64px 0 40px;font-size:14px}
+  footer{background:#000000;color:#9B99A2;padding:64px 0 40px;font-size:14px}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:44px}
   footer h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:16px;letter-spacing:.04em}
-  footer a{color:#9A92A8;text-decoration:none;display:block;margin-bottom:9px}
+  footer a{color:#9B99A2;text-decoration:none;display:block;margin-bottom:9px}
   footer a:hover{color:var(--pink)}
   .foot-brand p{max-width:34ch;margin-top:14px}
-  .foot-base{border-top:1px solid rgba(242,175,196,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+  .foot-base{border-top:1px solid rgba(255,111,175,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
 
   @media (max-width:1000px){
     .cards-grid{grid-template-columns:repeat(2,1fr)}
@@ -205,7 +218,7 @@
     .aca-grid{grid-template-columns:1fr;gap:36px}
     .foot-grid{grid-template-columns:1fr 1fr}
     .stats-grid{grid-template-columns:repeat(2,1fr)}
-    .stat{border-left:none;border-top:1px solid rgba(242,175,196,.14)}
+    .stat{border-left:none;border-top:1px solid rgba(255,111,175,.14)}
   }
   @media (max-width:640px){
     section{padding:64px 0}
@@ -217,11 +230,12 @@
     .pb{padding:20px 16px 14px;overflow-x:auto}
   }
 
-  @media (max-width:900px){.lu-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:900px){.lu-grid{grid-template-columns:1fr 1fr}.gal-ribbon{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:640px){.gal-ribbon{grid-template-columns:repeat(2,1fr)}.gal-ribbon img{height:150px}}
   @media (max-width:640px){.lu-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
-  .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:var(--pink);margin-left:12px}
+  .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
-  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(242,175,196,.14)}
+  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(255,111,175,.14)}
   .mob-menu.open{display:block}
   .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
   .mob-menu a:hover{color:#fff}
@@ -229,23 +243,23 @@
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
-  .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,175,196,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
+  .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,111,175,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
   .soc-ic svg{width:18px;height:18px;display:block}
-  .soc-ic:hover{background:var(--pink);color:#4B1528;border-color:var(--pink)}
+  .soc-ic:hover{background:var(--pink);color:#3A0A1F;border-color:var(--pink)}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="./"><b>9NERS</b><span>Detailing Studio</span></a>
+    <a class="logo" href="./"><img src="images/logo-hot.png" alt="9NERS Detailing Studio"></a>
     <ul class="nav-links">
-      <li><a class="on" href="./">Home</a></li>
-      <li><a href="services/">Services</a></li>
-      <li><a href="about/">About Us</a></li>
-      <li><a href="shop/">Shop</a></li>
-      <li><a href="academy/">Academy</a></li>
-      <li><a href="visit/">Visit Us</a></li>
+      <li><a href="./services/">Services</a></li>
+      <li><a href="./academy/">Academy</a></li>
+      <li><a href="./shop/">Car Care</a></li>
+      <li><a href="./gallery/">Gallery</a></li>
+      <li><a href="./about/">About Us</a></li>
+      <li><a href="./visit/">Visit Us</a></li>
     </ul>
     <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
     <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
@@ -253,33 +267,39 @@
 </header>
 <nav class="mob-menu" id="mobMenu">
   <a href="./">Home</a>
-  <a href="services/">Services</a>
-  <a href="about/">About Us</a>
-  <a href="shop/">Shop</a>
-  <a href="academy/">Academy</a>
-  <a href="visit/">Visit Us</a>
+  <a href="./services/">Services</a>
+  <a href="./academy/">Academy</a>
+  <a href="./shop/">Car Care</a>
+  <a href="./gallery/">Gallery</a>
+  <a href="./about/">About Us</a>
+  <a href="./visit/">Visit Us</a>
 </nav>
 
 <div class="hero">
   <div class="hero-img" role="img" aria-label="White BMW inside the 9NERS studio with pink checkered floor"></div>
   <div class="hero-shade"></div>
   <div class="wrap"><div class="hero-inner">
-    <span class="eyebrow" style="color:var(--pink)">Desa Tebrau, Johor Bahru · Car &amp; bike detailing</span>
-    <h1 class="h-disp">Detailed<br>to the <span class="pink">nines.</span></h1>
-    <p>Signature wash, paint correction, ceramic coating, PPF and full interior revival — for cars, bikes and even baby gear. Rated 5.0 on Google.</p>
+    <p class="kicker">Professional car &amp; bike detailing in<span>Johor Bahru, Malaysia</span></p>
+    <h1 class="h-disp">Professional by<br><span class="pink">passion.</span></h1>
+    <p>Your trusted destination for professional detailing, certified training and car care solutions.</p>
     <div class="hero-ctas">
       <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">Book via WhatsApp</a>
       <a class="btn btn-ghost" href="#prices">See full price list</a>
     </div>
+    <!-- Price list PDFs live in Nina's Google Drive folder -->
+    <a class="hero-drive" href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4 20h16"/></svg>
+      Or open the price list PDFs on Google Drive
+    </a>
   </div></div>
 </div>
 
 <div class="stats">
   <div class="wrap stats-grid">
-    <div class="stat"><b>5.0 ★</b><span>Google rating</span></div>
+    <div class="stat"><b>5.0 ★</b><span>Google reviews</span></div>
+    <div class="stat"><b>5,000+</b><span>Cars detailed</span></div>
     <div class="stat"><b>16.6k</b><span>Instagram followers</span></div>
-    <div class="stat"><b>2</b><span>Locations in JB</span></div>
-    <div class="stat"><b>RM20k</b><span>Gloss meter, verified results</span></div>
+    <div class="stat"><b>Desa Tebrau</b><span>Johor Bahru studio</span></div>
   </div>
 </div>
 
@@ -344,6 +364,7 @@
       <span class="eyebrow">Transparent pricing</span>
       <h2 class="h-disp">Full price list</h2>
       <p>No hidden charges — what you see is what you pay. Not sure which size category your vehicle falls under? Just WhatsApp us a photo.</p>
+      <a class="btn btn-ghost-dk" style="margin-top:22px" href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">Open the price list on Google Drive ↗</a>
     </div>
     <div class="price-grid">
 
@@ -440,9 +461,10 @@
 <section class="shop" id="shop">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">9NERS Studio Line</span>
+      <span class="eyebrow">9NERS Studio Line · Car care</span>
       <h2 class="h-disp">Take the studio home</h2>
       <p>Products we developed and tested in our own bays — starting with Rain Off, our glass coating.</p>
+      <p class="wholesale"><b>Wholesale available!</b> Want to resell 9NERS car care at your own shop? WhatsApp us for wholesale pricing.</p>
     </div>
     <div class="lu-grid">
       <a class="lu real" href="shop/rain-off/">
@@ -474,6 +496,38 @@
   </div>
 </section>
 
+<section class="academy" id="academy">
+  <div class="wrap aca-grid">
+    <div>
+      <span class="eyebrow" style="color:var(--pink)">9NERS Academy</span>
+      <h2 class="h-disp">Learn. Practice.<br><span style="color:var(--pink)">Master.</span></h2>
+      <p class="lead">Hands-on training. Real skills. Real results. At 9NERS Academy we don't just teach detailing — we teach the right way, so you can build skills with confidence and stand out in the industry.</p>
+      <ul class="aca-list">
+        <li>Small classes on real cars, with real studio tools</li>
+        <li>Paint correction from wash and decontamination to masking, polishing and protection</li>
+        <li>Taught by Nina — founder and head trainer</li>
+      </ul>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20enquiry%20pasal%209NERS%20Academy." target="_blank" rel="noopener">Enquiry now</a>
+        <a class="btn btn-ghost" href="academy/">See the academy</a>
+      </div>
+    </div>
+    <div class="aca-card">
+      <div class="aca-photo"><img src="images/academy-class.jpg" alt="Nina teaching a paint correction class to students in 9NERS Academy shirts"></div>
+      <span class="eyebrow">Detailing class</span>
+      <div class="aca-price">RM 1,300</div>
+      <div class="per">per participant</div>
+      <ul>
+        <li>Wash &amp; decontamination</li>
+        <li>Masking &amp; machine polishing</li>
+        <li>Compound, polish, finish</li>
+        <li>Protection &amp; aftercare</li>
+      </ul>
+      <a class="btn btn-ghost" href="https://www.instagram.com/9ners__academy/" target="_blank" rel="noopener">Follow @9ners__academy</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="sec-head">
@@ -488,10 +542,28 @@
   </div>
 </section>
 
+<section class="gal-band">
+  <div class="wrap gal-head">
+    <div>
+      <span class="eyebrow">@9ners__studio</span>
+      <h2 class="h-disp">Straight from the studio</h2>
+    </div>
+    <a class="btn btn-ghost-dk" href="gallery/">See the gallery</a>
+  </div>
+  <div class="gal-ribbon">
+    <img src="images/studio-floor.jpg" alt="The 9NERS bay with the pink 9 on the checkered floor">
+    <img src="images/academy-class.jpg" alt="A 9NERS Academy paint correction class in session">
+    <img src="images/ba-car-after.jpg" alt="Glossy grey BMW after a full detail">
+    <img src="images/journey-outlet2.jpg" alt="The studio entrance with the pink flame wall">
+    <img src="images/nina-polish.jpg" alt="Nina machine-polishing a bonnet">
+    <img src="images/journey-outlet1.jpg" alt="The 9NERS Detailing Studio shopfront in Desa Tebrau">
+  </div>
+</section>
+
 <section class="visit" id="visit">
   <div class="wrap">
     <div class="sec-head on-dark">
-      <span class="eyebrow">Two studios in JB</span>
+      <span class="eyebrow">One studio, Johor Bahru</span>
       <h2 class="h-disp">Come say hi</h2>
     </div>
     <div class="visit-grid">
@@ -503,10 +575,10 @@
         <a class="btn btn-ghost" href="https://waze.com/ul?q=9NERS%20Detailing%20Studio%20Desa%20Tebrau" target="_blank" rel="noopener">Open in Waze</a>
       </div>
       <div class="loc">
-        <span class="tag appt">By appointment</span>
-        <h3>Eco Cascadia</h3>
-        <p>Detailing services &amp; home of the<br>9NERS Detailing Academy</p>
-        <p class="hours">Appointment only — WhatsApp to book</p>
+        <span class="tag appt">Detailing &amp; academy</span>
+        <h3>All under one roof</h3>
+        <p>Detailing, car care and the 9NERS Academy<br>all run from our Desa Tebrau studio.</p>
+        <p class="hours">Big jobs &amp; classes — WhatsApp to book a slot</p>
         <a class="btn btn-ghost" href="https://wa.me/60167565222" target="_blank" rel="noopener">Book a slot</a>
       </div>
     </div>
@@ -521,7 +593,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="./"><b>9NERS</b><span>Detailing Studio</span></a>
+        <a class="logo" href="./"><img src="images/logo-hot.png" alt="9NERS Detailing Studio"></a>
         <p>Professional car &amp; bike detailing in Johor Bahru. Detailed to the nines, every single time.</p>
       </div>
       <div>
@@ -530,7 +602,7 @@
       </div>
       <div>
         <h4>Explore</h4>
-        <a href="#prices">Price list</a><a href="#shop">9ice products</a><a href="academy/">Academy</a><a href="about/">About us</a><a href="visit/">Visit us</a>
+        <a href="#prices">Price list</a><a href="#shop">9ice products</a><a href="academy/">Academy</a><a href="about/">About us</a><a href="gallery/">Gallery</a><a href="visit/">Visit us</a>
       </div>
       <div>
         <h4>Contact</h4>
@@ -545,7 +617,7 @@
     </div>
     <div class="foot-base">
       <span>© 2026 NINERS DETAILING STUDIO (KT0551869-V)</span>
-      <span>Desa Tebrau · Eco Cascadia, Johor Bahru</span>
+      <span>79, Jalan Harmonium 33/1, Taman Desa Tebrau, Johor Bahru</span>
     </div>
   </div>
 </footer>

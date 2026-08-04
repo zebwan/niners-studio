@@ -6,9 +6,9 @@
 <title>Rain Off — Siloxane Glass Coating · 9NERS Studio Line</title>
 <style>
   :root{
-    --noir:#14101A; --noir-2:#1D1626; --deep:#34204F; --purple:#6B34C8; --purple-d:#522798;
-    --pink:#F2AFC4; --rose:#C9678B; --lilac:#F7F4FA; --white:#FFFFFF;
-    --ink:#241D2E; --muted:#6E6878; --line:#E7E2EF; --line-dk:rgba(242,175,196,.16); --wa:#25D366;
+    --noir:#000000; --noir-2:#111014; --deep:#1A181D; --purple:#C6246B; --purple-d:#9E1854;
+    --pink:#FF6FAF; --rose:#C6246B; --lilac:#F6F5F7; --white:#FFFFFF;
+    --ink:#141217; --muted:#6C6A73; --line:#E6E4EA; --line-dk:rgba(255,111,175,.16); --wa:#25D366;
     --disp:'Avenir Next Condensed','HelveticaNeue-CondensedBold','Arial Narrow',sans-serif;
     --body:'Avenir Next','Helvetica Neue',-apple-system,'Segoe UI',sans-serif;
   }
@@ -29,22 +29,22 @@
   .btn-ghost:hover{border-color:var(--pink);color:var(--pink)}
   .btn-ghost-dk{border:1px solid var(--line);color:var(--ink)}
   .btn-ghost-dk:hover{border-color:var(--purple);color:var(--purple)}
-  .checker{height:10px;background:repeating-conic-gradient(var(--rose) 0% 25%, var(--noir) 0% 50%) 0 0/20px 20px}
+  .checker{height:10px;background:repeating-conic-gradient(var(--pink) 0% 25%, var(--noir) 0% 50%) 0 0/20px 20px}
   .note{font-size:13px;color:var(--muted)}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(20,16,26,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(242,175,196,.12)}
+  header{position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid rgba(255,111,175,.12)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{text-decoration:none;line-height:1}
-  .logo b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:26px;color:var(--pink);letter-spacing:.02em}
-  .logo span{display:block;font-size:9px;letter-spacing:.42em;color:#9A92A8;text-transform:uppercase;margin-top:3px}
+    .logo{text-decoration:none;line-height:1;display:flex;align-items:center}
+  .logo img{height:38px;width:auto}
+  .foot-brand .logo img{height:46px}
   .nav-links{display:flex;gap:26px;list-style:none}
-  .nav-links a{color:#D8D3E2;text-decoration:none;font-size:14px;font-weight:500}
+  .nav-links a{color:#D7D5DC;text-decoration:none;font-size:14px;font-weight:500}
   .nav-links a:hover{color:var(--pink)}
   .nav-links a.on{color:var(--pink)}
   .nav .btn{padding:10px 18px;font-size:14px;white-space:nowrap}
 
   .crumb{background:var(--noir);padding:18px 0}
-  .crumb p{font-size:13px;color:#9A92A8}
+  .crumb p{font-size:13px;color:#9B99A2}
   .crumb a{color:var(--pink);text-decoration:none}
   .crumb a:hover{color:#fff}
 
@@ -83,17 +83,17 @@
   .ba{background:var(--noir);color:#fff;padding:96px 0}
   .ba .sec-head{max-width:560px;margin-bottom:48px}
   .ba h2{font-size:clamp(32px,4.4vw,50px);color:#fff;margin:14px 0 12px}
-  .ba .sec-head p{color:#B9B0C9}
-  .ba-frame{--p:50%;border:1px solid rgba(242,175,196,.18);border-radius:16px;overflow:hidden;position:relative;aspect-ratio:16/8;user-select:none}
+  .ba .sec-head p{color:#B4B2BA}
+  .ba-frame{--p:50%;border:1px solid rgba(255,111,175,.18);border-radius:16px;overflow:hidden;position:relative;aspect-ratio:16/8;user-select:none}
   .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
   .ba-frame .after{clip-path:inset(0 0 0 var(--p))}
   .ba-divider{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
   .ba-handle{position:absolute;top:50%;left:var(--p);transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;color:var(--noir);display:flex;align-items:center;justify-content:center;font-weight:700;pointer-events:none}
   .ba-tag{position:absolute;bottom:18px;font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:22px;pointer-events:none}
-  .ba-tag.before{left:22px;color:#B7B0C0}
+  .ba-tag.before{left:22px;color:#B4B2BA}
   .ba-tag.after-t{right:22px;color:var(--pink)}
   .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-  .ba-note{text-align:center;margin-top:20px;font-size:13px;color:#9A92A8}
+  .ba-note{text-align:center;margin-top:20px;font-size:13px;color:#9B99A2}
 
   .action{background:var(--white);padding:96px 0}
   .action-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
@@ -107,13 +107,13 @@
   .more h2{font-size:clamp(28px,3.6vw,40px);color:var(--ink);margin-bottom:12px}
   .more p{color:var(--muted);margin-bottom:26px}
 
-  footer{background:#0E0A14;color:#9A92A8;padding:64px 0 40px;font-size:14px}
+  footer{background:#000000;color:#9B99A2;padding:64px 0 40px;font-size:14px}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:44px}
   footer h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:16px;letter-spacing:.04em}
-  footer a{color:#9A92A8;text-decoration:none;display:block;margin-bottom:9px}
+  footer a{color:#9B99A2;text-decoration:none;display:block;margin-bottom:9px}
   footer a:hover{color:var(--pink)}
   .foot-brand p{max-width:34ch;margin-top:14px}
-  .foot-base{border-top:1px solid rgba(242,175,196,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+  .foot-base{border-top:1px solid rgba(255,111,175,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
 
   @media (max-width:900px){
     .nav-links{display:none}
@@ -131,9 +131,9 @@
     .ba-frame{aspect-ratio:4/3}
   }
 
-  .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:var(--pink);margin-left:12px}
+  .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
-  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(242,175,196,.14)}
+  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(255,111,175,.14)}
   .mob-menu.open{display:block}
   .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
   .mob-menu a:hover{color:#fff}
@@ -141,22 +141,22 @@
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
-  .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,175,196,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
+  .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,111,175,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
   .soc-ic svg{width:18px;height:18px;display:block}
-  .soc-ic:hover{background:var(--pink);color:#4B1528;border-color:var(--pink)}
+  .soc-ic:hover{background:var(--pink);color:#3A0A1F;border-color:var(--pink)}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="../../"><b>9NERS</b><span>Detailing Studio</span></a>
+    <a class="logo" href="../../"><img src="../../images/logo-hot.png" alt="9NERS Detailing Studio"></a>
     <ul class="nav-links">
-      <li><a href="../../">Home</a></li>
       <li><a href="../../services/">Services</a></li>
-      <li><a href="../../about/">About Us</a></li>
-      <li><a class="on" href="../../shop/">Shop</a></li>
       <li><a href="../../academy/">Academy</a></li>
+      <li><a class="on" href="../../shop/">Car Care</a></li>
+      <li><a href="../../gallery/">Gallery</a></li>
+      <li><a href="../../about/">About Us</a></li>
       <li><a href="../../visit/">Visit Us</a></li>
     </ul>
     <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20Rain%20Off." target="_blank" rel="noopener">WhatsApp us</a>
@@ -166,9 +166,10 @@
 <nav class="mob-menu" id="mobMenu">
   <a href="../../">Home</a>
   <a href="../../services/">Services</a>
-  <a href="../../about/">About Us</a>
-  <a href="../../shop/">Shop</a>
   <a href="../../academy/">Academy</a>
+  <a href="../../shop/">Car Care</a>
+  <a href="../../gallery/">Gallery</a>
+  <a href="../../about/">About Us</a>
   <a href="../../visit/">Visit Us</a>
 </nav>
 
@@ -200,7 +201,7 @@
       <div class="buy-box" id="buy">
         <div class="price-line"><b>RM —</b><span>see current price &amp; promos on Shopee</span></div>
         <div class="buy-btns">
-          <a class="btn btn-purple" href="#" target="_blank" rel="noopener">Buy on Shopee</a>
+          <a class="btn btn-purple" href="https://shopee.com.my/product/22171123/48814836782/" target="_blank" rel="noopener">Buy on Shopee</a>
           <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20beli%20Rain%20Off." target="_blank" rel="noopener">Order via WhatsApp</a>
         </div>
       </div>
@@ -273,12 +274,12 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="../../"><b>9NERS</b><span>Detailing Studio</span></a>
+        <a class="logo" href="../../"><img src="../../images/logo-hot.png" alt="9NERS Detailing Studio"></a>
         <p>Professional car &amp; bike detailing in Johor Bahru. Detailed to the nines, every single time.</p>
       </div>
       <div>
         <h4>Shop</h4>
-        <a href="../../shop/rain-off/">Rain Off</a><a href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener">9ice on Shopee</a><a href="../.#prices">Service price list</a>
+        <a href="../../shop/rain-off/">Rain Off</a><a href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener">9ice on Shopee</a><a href="../../#prices">Service price list</a>
       </div>
       <div>
         <h4>Explore</h4>
@@ -297,7 +298,7 @@
     </div>
     <div class="foot-base">
       <span>© 2026 NINERS DETAILING STUDIO (KT0551869-V)</span>
-      <span>Desa Tebrau · Eco Cascadia, Johor Bahru</span>
+      <span>79, Jalan Harmonium 33/1, Taman Desa Tebrau, Johor Bahru</span>
     </div>
   </div>
 </footer>

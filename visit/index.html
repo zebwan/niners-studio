@@ -6,9 +6,9 @@
 <title>Visit Us — 9NERS Detailing Studio</title>
 <style>
   :root{
-    --noir:#14101A; --noir-2:#1D1626; --deep:#34204F; --purple:#6B34C8; --purple-d:#522798;
-    --pink:#F2AFC4; --rose:#C9678B; --lilac:#F7F4FA; --white:#FFFFFF;
-    --ink:#241D2E; --muted:#6E6878; --line:#E7E2EF; --line-dk:rgba(242,175,196,.16); --wa:#25D366;
+    --noir:#000000; --noir-2:#111014; --deep:#1A181D; --purple:#C6246B; --purple-d:#9E1854;
+    --pink:#FF6FAF; --rose:#C6246B; --lilac:#F6F5F7; --white:#FFFFFF;
+    --ink:#141217; --muted:#6C6A73; --line:#E6E4EA; --line-dk:rgba(255,111,175,.16); --wa:#25D366;
     --disp:'Avenir Next Condensed','HelveticaNeue-CondensedBold','Arial Narrow',sans-serif;
     --body:'Avenir Next','Helvetica Neue',-apple-system,'Segoe UI',sans-serif;
   }
@@ -31,13 +31,13 @@
   .btn-ghost-dk:hover{border-color:var(--purple);color:var(--purple)}
   .note{font-size:13px;color:var(--muted)}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(20,16,26,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(242,175,196,.12)}
+  header{position:sticky;top:0;z-index:50;background:#000;border-bottom:1px solid rgba(255,111,175,.12)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .logo{text-decoration:none;line-height:1}
-  .logo b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:26px;color:var(--pink);letter-spacing:.02em}
-  .logo span{display:block;font-size:9px;letter-spacing:.42em;color:#9A92A8;text-transform:uppercase;margin-top:3px}
+    .logo{text-decoration:none;line-height:1;display:flex;align-items:center}
+  .logo img{height:38px;width:auto}
+  .foot-brand .logo img{height:46px}
   .nav-links{display:flex;gap:26px;list-style:none}
-  .nav-links a{color:#D8D3E2;text-decoration:none;font-size:14px;font-weight:500}
+  .nav-links a{color:#D7D5DC;text-decoration:none;font-size:14px;font-weight:500}
   .nav-links a:hover{color:var(--pink)}
   .nav-links a.on{color:var(--pink)}
   .nav .btn{padding:10px 18px;font-size:14px;white-space:nowrap}
@@ -45,12 +45,12 @@
   .a-hero{position:relative;color:#fff;padding:150px 0 110px;overflow:hidden;background:var(--noir)}
   .a-hero-bg{position:absolute;inset:0;background-image:url('../images/visit-hero.jpg');background-size:cover;background-position:center 55%}
   .a-hero-shade{position:absolute;inset:0;background:
-    linear-gradient(0deg, rgba(20,16,26,.9) 0%, rgba(20,16,26,.25) 45%, rgba(20,16,26,.55) 100%),
-    linear-gradient(115deg, rgba(20,16,26,.92) 0%, rgba(38,20,62,.72) 50%, rgba(82,39,152,.35) 100%)}
+    linear-gradient(0deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,.55) 100%),
+    linear-gradient(115deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.72) 50%, rgba(0,0,0,.35) 100%)}
   .a-hero-grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end}
   .mega{font-family:var(--disp);font-weight:700;font-style:italic;text-transform:uppercase;line-height:.82;font-size:clamp(78px,13vw,180px);color:#fff}
   .mega span{color:var(--pink)}
-  .a-hero-side p{color:#E4DFEC;font-size:16px;margin-bottom:26px;max-width:44ch}
+  .a-hero-side p{color:#E3E1E8;font-size:16px;margin-bottom:26px;max-width:44ch}
 
   .contact{background:var(--white);padding:96px 0}
   .contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
@@ -69,10 +69,10 @@
   .info-card{background:var(--deep);color:#fff;border-radius:20px;padding:38px 36px}
   .info-card h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:22px;color:var(--pink);margin-bottom:10px}
   .info-card p{font-size:15px;color:#E0D9EE;margin-bottom:4px}
-  .info-card .blk{padding:22px 0;border-bottom:1px solid rgba(242,175,196,.18)}
+  .info-card .blk{padding:22px 0;border-bottom:1px solid rgba(255,111,175,.18)}
   .info-card .blk:first-child{padding-top:0}
   .info-card .blk:last-child{border-bottom:none;padding-bottom:0}
-  .info-card .mini{font-size:13px;color:#B9A8D6}
+  .info-card .mini{font-size:13px;color:#B4B2BA}
   .info-card a{color:var(--pink);text-decoration:none}
   .info-card a:hover{color:#fff}
 
@@ -83,6 +83,7 @@
   .map-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px}
   .map-card h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:22px;color:var(--ink)}
   .map-card .tagline{font-size:13px;color:var(--muted);margin-top:-8px}
+  .studio-shot img{width:100%;height:320px;object-fit:cover;border-radius:10px}
   .gmap{width:100%;height:320px;border:0;border-radius:10px;filter:grayscale(1) contrast(1.04)}
   .map-links{display:flex;gap:10px;flex-wrap:wrap}
   .map-links a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 16px}
@@ -98,16 +99,16 @@
   .feat p{font-size:14px;color:var(--muted)}
 
   .strip{background:var(--pink);padding:20px 0;overflow:hidden}
-  .strip p{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(16px,2.2vw,24px);color:#4B1528;text-align:center;letter-spacing:.02em}
-  .strip .sep{color:#C9678B;margin:0 14px}
+  .strip p{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(16px,2.2vw,24px);color:#3A0A1F;text-align:center;letter-spacing:.02em}
+  .strip .sep{color:#7A0B36;margin:0 14px}
 
-  footer{background:#0E0A14;color:#9A92A8;padding:64px 0 40px;font-size:14px}
+  footer{background:#000000;color:#9B99A2;padding:64px 0 40px;font-size:14px}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:44px}
   footer h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:16px;letter-spacing:.04em}
-  footer a{color:#9A92A8;text-decoration:none;display:block;margin-bottom:9px}
+  footer a{color:#9B99A2;text-decoration:none;display:block;margin-bottom:9px}
   footer a:hover{color:var(--pink)}
   .foot-brand p{max-width:34ch;margin-top:14px}
-  .foot-base{border-top:1px solid rgba(242,175,196,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+  .foot-base{border-top:1px solid rgba(255,111,175,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
 
   @media (max-width:900px){
     .nav-links{display:none}
@@ -123,9 +124,9 @@
     .foot-grid{grid-template-columns:1fr}
   }
 
-  .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:var(--pink);margin-left:12px}
+  .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
-  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(242,175,196,.14)}
+  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(255,111,175,.14)}
   .mob-menu.open{display:block}
   .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
   .mob-menu a:hover{color:#fff}
@@ -133,22 +134,22 @@
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
-  .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,175,196,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
+  .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,111,175,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
   .soc-ic svg{width:18px;height:18px;display:block}
-  .soc-ic:hover{background:var(--pink);color:#4B1528;border-color:var(--pink)}
+  .soc-ic:hover{background:var(--pink);color:#3A0A1F;border-color:var(--pink)}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="../"><b>9NERS</b><span>Detailing Studio</span></a>
+    <a class="logo" href="../"><img src="../images/logo-hot.png" alt="9NERS Detailing Studio"></a>
     <ul class="nav-links">
-      <li><a href="../">Home</a></li>
       <li><a href="../services/">Services</a></li>
-      <li><a href="../about/">About Us</a></li>
-      <li><a href="../shop/">Shop</a></li>
       <li><a href="../academy/">Academy</a></li>
+      <li><a href="../shop/">Car Care</a></li>
+      <li><a href="../gallery/">Gallery</a></li>
+      <li><a href="../about/">About Us</a></li>
       <li><a class="on" href="../visit/">Visit Us</a></li>
     </ul>
     <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
@@ -158,9 +159,10 @@
 <nav class="mob-menu" id="mobMenu">
   <a href="../">Home</a>
   <a href="../services/">Services</a>
-  <a href="../about/">About Us</a>
-  <a href="../shop/">Shop</a>
   <a href="../academy/">Academy</a>
+  <a href="../shop/">Car Care</a>
+  <a href="../gallery/">Gallery</a>
+  <a href="../about/">About Us</a>
   <a href="../visit/">Visit Us</a>
 </nav>
 
@@ -170,7 +172,7 @@
   <div class="wrap a-hero-grid">
     <h1 class="mega">Visit<br><span>us.</span></h1>
     <div class="a-hero-side">
-      <p>Walk in at Desa Tebrau, book Eco Cascadia by appointment — or start with a WhatsApp message. Either way, we've got you.</p>
+      <p>Walk in at our Desa Tebrau studio during opening hours, or start with a WhatsApp message. Either way, we've got you.</p>
       <a class="btn btn-ghost" href="https://waze.com/ul?q=9NERS%20Detailing%20Studio%20Desa%20Tebrau" target="_blank" rel="noopener">Open in Waze</a>
     </div>
   </div>
@@ -222,9 +224,9 @@
         <p class="mini"><a href="https://waze.com/ul?q=9NERS%20Detailing%20Studio%20Desa%20Tebrau" target="_blank" rel="noopener">Waze</a> · <a href="https://www.google.com/maps/search/9NERS+Detailing+Studio+Johor+Bahru" target="_blank" rel="noopener">Google Maps</a></p>
       </div>
       <div class="blk">
-        <h3>Eco Cascadia — appointment</h3>
-        <p>Detailing services &amp; the 9NERS Detailing Academy</p>
-        <p class="mini">WhatsApp us to book a slot</p>
+        <h3>9NERS Academy</h3>
+        <p>Detailing classes run from the same studio</p>
+        <p class="mini"><a href="../academy/">See the academy</a> · WhatsApp us to book a seat</p>
       </div>
       <div class="blk">
         <h3>Contact</h3>
@@ -253,7 +255,7 @@
   <div class="wrap">
     <div class="maps-head">
       <span class="eyebrow">Find us</span>
-      <h2 class="h-disp">Two studios, one standard</h2>
+      <h2 class="h-disp">One studio,<br>one standard</h2>
     </div>
     <div class="maps-grid">
       <div class="map-card">
@@ -265,13 +267,12 @@
           <a href="https://waze.com/ul?q=9NERS%20Detailing%20Studio%20Desa%20Tebrau" target="_blank" rel="noopener">Waze</a>
         </div>
       </div>
-      <div class="map-card">
-        <h3>Eco Cascadia</h3>
-        <p class="tagline">By appointment · home of the Detailing Academy</p>
-        <iframe class="gmap" src="https://www.google.com/maps?q=9NERS%20Detailing%20Studio%20Eco%20Cascadia%2C%20Johor%20Bahru&output=embed" loading="lazy" title="Map to 9NERS Eco Cascadia" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-card studio-shot">
+        <h3>What to look for</h3>
+        <p class="tagline">Pink 9NERS signage, right on Jalan Harmonium 33/1</p>
+        <img src="../images/journey-outlet1.jpg" alt="The 9NERS Detailing Studio shopfront with pink signage">
         <div class="map-links">
-          <a href="https://www.google.com/maps/search/9NERS+Eco+Cascadia+Johor+Bahru" target="_blank" rel="noopener">Google Maps</a>
-          <a href="https://waze.com/ul?q=9NERS%20Eco%20Cascadia" target="_blank" rel="noopener">Waze</a>
+          <a href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20lokasi%20studio." target="_blank" rel="noopener">Ask us for directions</a>
         </div>
       </div>
     </div>
@@ -303,16 +304,16 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="../"><b>9NERS</b><span>Detailing Studio</span></a>
+        <a class="logo" href="../"><img src="../images/logo-hot.png" alt="9NERS Detailing Studio"></a>
         <p>Professional car &amp; bike detailing in Johor Bahru. Detailed to the nines, every single time.</p>
       </div>
       <div>
         <h4>Services</h4>
-        <a href="../services/">All services</a><a href=".#prices">Price list</a><a href="../shop/">Shop</a><a href="../academy/">Academy</a>
+        <a href="../services/">All services</a><a href="../#prices">Price list</a><a href="../shop/">Car care</a><a href="../academy/">Academy</a>
       </div>
       <div>
         <h4>Explore</h4>
-        <a href="../about/">About us</a><a href="../visit/">Visit us</a><a href="https://linktr.ee/9ners" target="_blank" rel="noopener">Linktree</a>
+        <a href="../about/">About us</a><a href="../gallery/">Gallery</a><a href="../visit/">Visit us</a><a href="https://linktr.ee/9ners" target="_blank" rel="noopener">Linktree</a>
       </div>
       <div>
         <h4>Contact</h4>
@@ -327,7 +328,7 @@
     </div>
     <div class="foot-base">
       <span>© 2026 NINERS DETAILING STUDIO (KT0551869-V)</span>
-      <span>Desa Tebrau · Eco Cascadia, Johor Bahru</span>
+      <span>79, Jalan Harmonium 33/1, Taman Desa Tebrau, Johor Bahru</span>
     </div>
   </div>
 </footer>

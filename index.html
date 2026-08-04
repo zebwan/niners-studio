@@ -67,7 +67,32 @@
   .sec-head p{color:var(--muted)}
   .sec-head.on-dark p{color:#B4B2BA}
 
-  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{border-radius:16px;padding:34px 30px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:transform .15s ease}
+  .card:hover{transform:translateY(-4px)}
+  .card .ico{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
+  .card .ico svg{width:26px;height:26px}
+  .card h3{font-size:20px;font-weight:600}
+  .card p{font-size:14px;flex:1}
+  .card .from{font-size:14px;font-weight:600;margin-top:6px}
+  .card.dark{background:var(--noir);color:#D7D5DC}
+  .card.dark h3{color:#fff}
+  .card.dark .ico{background:#1A181D}
+  .card.dark .ico svg{stroke:var(--pink)}
+  .card.dark .from{color:var(--pink)}
+  .card.feat{background:var(--pink);color:#4A0F27}
+  .card.feat h3{color:#3A0A1F}
+  .card.feat .ico{background:rgba(255,255,255,.55)}
+  .card.feat .ico svg{stroke:#3A0A1F}
+  .card.feat .from{color:#3A0A1F}
+  .card.lite{background:var(--lilac);color:var(--muted);border:1px solid var(--line)}
+  .card.lite h3{color:var(--ink)}
+  .card.lite .ico{background:var(--white);border:1px solid var(--line)}
+  .card.lite .ico svg{stroke:var(--purple)}
+  .card.lite .from{color:var(--purple)}
+  .menus{background:var(--lilac)}
+  .menu-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:stretch}
+  .menu-grid .svc-foot{margin-top:auto}
   .svc{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;text-decoration:none;transition:border-color .15s ease, transform .15s ease}
   .svc:hover{border-color:var(--purple);transform:translateY(-3px)}
   .ph{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--noir-2)}
@@ -182,8 +207,11 @@
   .foot-brand p{max-width:34ch;margin-top:14px}
   .foot-base{border-top:1px solid rgba(255,111,175,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
 
+  @media (max-width:1080px){
+    .menu-grid{grid-template-columns:repeat(3,1fr)}
+  }
   @media (max-width:1000px){
-    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .cards-grid{grid-template-columns:repeat(2,1fr)}
   }
   @media (max-width:900px){
     .nav-links{display:none}
@@ -197,8 +225,8 @@
     section{padding:64px 0}
     .hero-inner{padding:72px 0 88px}
     .hero-img{background-position:68% center}
-    .prod-grid,.rev-grid,.visit-grid{grid-template-columns:1fr}
-    .svc-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .cards-grid,.prod-grid,.rev-grid,.visit-grid{grid-template-columns:1fr}
+    .menu-grid{grid-template-columns:1fr 1fr;gap:12px}
     .ba-frame{aspect-ratio:4/3}
     .foot-grid{grid-template-columns:1fr}
   }
@@ -280,65 +308,97 @@
       <h2 class="h-disp">Pick your treatment</h2>
       <p>Every package is done in-studio by our own detailers — no shortcuts, no outsourcing.</p>
     </div>
-    <div class="svc-grid">
-      <a class="svc" href="services/">
-        <div class="ph"><span class="badge">Car</span><img src="images/wash-foam.jpg" alt="Car covered in thick wash foam"></div>
+    <div class="cards-grid">
+    <a class="card dark" href="services/">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="13.5" r="6.8"/><circle cx="11" cy="13.5" r="2.4"/><path d="M18.6 3.4l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z" fill="currentColor" stroke="none"/></svg></div>
+      <h3>Polish &amp; Paint Correction</h3>
+      <p>From 1-step gloss to 3-step advance correction for heavy swirls and acid rain etching — verified with our RM20,000 gloss meter.</p>
+      <span class="from">from RM 330 →</span>
+    </a>
+
+    <a class="card feat" href="services/">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c2.6 3.1 4.4 5.5 4.4 7.6a4.4 4.4 0 0 1-8.8 0c0-2.1 1.8-4.5 4.4-7.6z"/><path d="M5.4 3.5c.8 1 1.3 1.8 1.3 2.5a1.35 1.35 0 1 1-2.7 0c0-.7.6-1.5 1.4-2.5z" fill="currentColor" stroke="none"/><path d="M18.6 3.5c.8 1 1.3 1.8 1.3 2.5a1.35 1.35 0 1 1-2.7 0c0-.7.6-1.5 1.4-2.5z" fill="currentColor" stroke="none"/></svg></div>
+      <h3>9NERS Signature Wash</h3>
+      <p>Our baseline for every car — hand-brushed detailing wash, clay bar, fine gap &amp; edge cleaning, ceramic spray seal and reblack trim.</p>
+      <span class="from">from RM 88 →</span>
+    </a>
+
+    <a class="card dark" href="services/">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l7.2 2.7v5c0 4.7-3 8.8-7.2 10.7C7.8 19.3 4.8 15.2 4.8 10.5v-5L12 2.8z"/><path d="M12 8c1.5 1.8 2.5 3.2 2.5 4.4a2.5 2.5 0 0 1-5 0C9.5 11.2 10.5 9.8 12 8z" fill="currentColor" stroke="none"/></svg></div>
+      <h3>Ceramic Coating</h3>
+      <p>8H and 9H crystallised coatings — glossier than new paint, protected for one or two years, with free mirror treatments included.</p>
+      <span class="from">from RM 850 →</span>
+    </a>
+
+    <a class="card lite" href="services/">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="13" height="13" rx="2.2"/><path d="M8 7.5V6a2.5 2.5 0 0 1 2.5-2.5H18A2.5 2.5 0 0 1 20.5 6v7.5A2.5 2.5 0 0 1 18 16h-1.5"/></svg></div>
+      <h3>Paint Protection Film</h3>
+      <p>Clear armour against stone chips, scratches and UV. Full front in 2–3 days, or panel by panel — mirrors, headlamps, even door handles.</p>
+      <span class="from">from RM 120 →</span>
+    </a>
+
+    <a class="card lite" href="services/">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 11V7.5a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3V11"/><path d="M4.5 13.8A2.3 2.3 0 0 1 6.8 11.5h10.4a2.3 2.3 0 0 1 2.3 2.3v4.7h-15v-4.7z"/><path d="M6.8 18.5v1.7M17.2 18.5v1.7"/></svg></div>
+      <h3>Interior, Leather &amp; Babygear</h3>
+      <p>Leather refresh, fabric extraction cleans, seat-out interior resets — plus deep-cleaned and sanitised car seats and strollers.</p>
+      <span class="from">from RM 40 →</span>
+    </a>
+
+    <a class="card lite" href="services/">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5a8 8 0 0 1 16 0v2.7a2 2 0 0 1-2 2h-3.2l-1.6-2.2H6a2 2 0 0 1-2-2v-.5z"/><path d="M4.3 12.5h8.9"/><circle cx="17" cy="14.2" r=".4" fill="currentColor"/></svg></div>
+      <h3>Bike Spa, Coating &amp; Helmet</h3>
+      <p>Tank-to-spokes spa with chain care, 1-year ceramic coating for the bike — and scratch removal plus coating for your helmet.</p>
+      <span class="from">from RM 40 →</span>
+    </a>
+    </div>
+    <div class="svc-more"><a class="btn btn-ghost-dk" href="services/">See all services</a></div>
+  </div>
+</section>
+
+<section class="menus" id="prices">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Transparent pricing</span>
+      <h2 class="h-disp">Price menus</h2>
+      <p>Every package, size and duration — straight from our own menus.</p>
+    </div>
+    <div class="menu-grid">
+      <a class="svc" href="https://drive.google.com/file/d/1UOLvAGJGzJl90gwknaz9Wiwe8ryFdf1G/view" target="_blank" rel="noopener">
+        <div class="ph"><span class="badge">Wash</span><img src="images/wash-foam.jpg" alt="Car covered in thick wash foam"></div>
         <div class="svc-body">
-          <h3>9NERS Signature Wash</h3>
-          <div class="svc-foot"><em>from RM 88</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <h3>Detailing Wash</h3>
+          <div class="svc-foot"><em>Open menu</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
       </a>
-      <a class="svc" href="services/">
-        <div class="ph"><span class="badge">Our specialty</span><img src="images/polish-hand.jpg" alt="Detailer polishing a black car bonnet"></div>
+      <a class="svc" href="https://drive.google.com/file/d/17AQiYk-XgbrOcrwCU5XvAwpyGWbLXtR3/view" target="_blank" rel="noopener">
+        <div class="ph"><span class="badge">Polish</span><img src="images/polish-hand.jpg" alt="Detailer polishing a black car bonnet"></div>
         <div class="svc-body">
-          <h3>Polish &amp; Paint Correction</h3>
-          <div class="svc-foot"><em>from RM 330</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <h3>Car Polishing &amp; Coating</h3>
+          <div class="svc-foot"><em>Open menu</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
       </a>
-      <a class="svc" href="services/">
-        <div class="ph"><span class="badge">Car</span><img src="images/ceramic-gloss.jpg" alt="Glossy sports car in a dark studio"></div>
+      <a class="svc" href="https://drive.google.com/file/d/1vDQN81bvgRBIgWH3_YUu1CON7hXmoJHO/view" target="_blank" rel="noopener">
+        <div class="ph"><span class="badge">Interior</span><img src="images/leather-interior.jpg" alt="Dark leather car interior with red stitching"></div>
         <div class="svc-body">
-          <h3>Ceramic Coating</h3>
-          <div class="svc-foot"><em>from RM 850</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <h3>Detailing &amp; Interior</h3>
+          <div class="svc-foot"><em>Open menu</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
       </a>
-      <a class="svc" href="services/">
-        <div class="ph"><span class="badge">New</span><img src="images/ppf-headlamp.jpg" alt="Headlamp with water beads on protective film"></div>
+      <a class="svc" href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">
+        <div class="ph"><span class="badge">PPF</span><img src="images/ppf-headlamp.jpg" alt="Headlamp with water beads on protective film"></div>
         <div class="svc-body">
           <h3>Paint Protection Film</h3>
-          <div class="svc-foot"><em>from RM 120</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <div class="svc-foot"><em>Open menu</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
       </a>
-      <a class="svc" href="services/">
-        <div class="ph"><span class="badge">Car</span><img src="images/leather-interior.jpg" alt="Dark leather car interior with red stitching"></div>
-        <div class="svc-body">
-          <h3>Leather &amp; Fabric Interior</h3>
-          <div class="svc-foot"><em>from RM 180</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-      <a class="svc" href="services/">
-        <div class="ph"><span class="badge">Family</span><img src="images/babygear-clean.jpg" alt="Extraction cleaning of a fabric seat"></div>
-        <div class="svc-body">
-          <h3>Babygear Refresh</h3>
-          <div class="svc-foot"><em>from RM 40</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-      <a class="svc" href="services/">
-        <div class="ph"><span class="badge">Car</span><img src="images/watermark-squeegee.jpg" alt="Squeegee cleaning a windshield"></div>
-        <div class="svc-body">
-          <h3>Window Watermark Removal</h3>
-          <div class="svc-foot"><em>from RM 270</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </div>
-      </a>
-      <a class="svc" href="services/">
+      <a class="svc" href="https://drive.google.com/file/d/1I-0eqjmppTQpnp3ejYCzXSmQMuL-uQQa/view" target="_blank" rel="noopener">
         <div class="ph"><span class="badge bike">Bike</span><img src="images/bike-front.jpg" alt="Matte black motorcycle front close-up"></div>
         <div class="svc-body">
-          <h3>Bike Spa, Coating &amp; Helmet</h3>
-          <div class="svc-foot"><em>from RM 40</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          <h3>Bike Detailing</h3>
+          <div class="svc-foot"><em>Open menu</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </div>
       </a>
     </div>
-    <div class="svc-more"><a class="btn btn-ghost-dk" href="services/">See all services &amp; prices</a></div>
   </div>
 </section>
 

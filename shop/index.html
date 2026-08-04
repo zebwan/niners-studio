@@ -89,11 +89,14 @@
   .soon-can::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-style:italic;font-weight:700;font-size:64px;color:#2B2830}
   .soon-pill{display:inline-block;background:var(--deep);color:var(--pink);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:10px}
 
-  .wholesale{background:var(--noir);padding:80px 0}
-  .ws-box{border:1px solid rgba(255,111,175,.28);border-radius:16px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:34px;flex-wrap:wrap;background:var(--noir-2)}
-  .ws-pill{display:inline-block;background:var(--pink);color:#3A0A1F;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:99px;margin-bottom:14px}
-  .ws-box h3{font-size:clamp(26px,3.4vw,38px);color:#fff;margin-bottom:12px}
-  .ws-box p{color:#B4B2BA;font-size:15px;max-width:56ch}
+  .ws{background:var(--pink);color:#3A0A1F;padding:76px 0;position:relative;overflow:hidden}
+  .ws::after{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;transform:rotate(12deg);
+    background:repeating-conic-gradient(rgba(0,0,0,.14) 0% 25%, transparent 0% 50%) 0 0/34px 34px}
+  .ws-inner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:44px;flex-wrap:wrap}
+  .ws-title{font-size:clamp(46px,7.6vw,92px);color:#12060B;line-height:.9}
+  .ws p{max-width:44ch;font-size:16px;color:#4A0F27;margin-top:16px;font-weight:500}
+  .ws-btn{background:#000;color:#fff;font-size:16px;padding:18px 32px}
+  .ws-btn:hover{background:#26050F}
 
   .nice{background:var(--white);padding:80px 0}
   .nice-box{border:1px solid var(--line);border-radius:16px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
@@ -203,8 +206,7 @@
       </div>
       <div class="feat-ctas">
         <a class="btn btn-purple" href="../shop/rain-off/">View product</a>
-        <a class="btn btn-ghost-dk" href="https://shopee.com.my/product/22171123/48814836782/" target="_blank" rel="noopener">Buy on Shopee</a>
-        <span class="note">Price &amp; stock on our Shopee store.</span>
+        <a class="btn btn-ghost-dk" href="https://shopee.com.my/product/22171123/48814836782/" target="_blank" rel="noopener">Buy</a>
       </div>
     </div>
   </div>
@@ -248,14 +250,13 @@
   </div>
 </section>
 
-<section class="wholesale">
-  <div class="wrap ws-box">
+<section class="ws" id="wholesale">
+  <div class="wrap ws-inner">
     <div>
-      <span class="ws-pill">Wholesale available!</span>
-      <h3 class="h-disp">Resell 9NERS car care<br>at your own shop</h3>
-      <p>Running a detailing studio, workshop or accessories shop? You can stock the 9NERS Studio Line and sell it under your own roof. WhatsApp us and we'll send you wholesale pricing and minimum order details.</p>
+      <h2 class="h-disp ws-title">Wholesale<br>available</h2>
+      <p>Stock the 9NERS Studio Line and resell it at your own shop — detailing studios, workshops and accessory shops all welcome.</p>
     </div>
-    <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20wholesale%20price%20untuk%20produk%20car%20care." target="_blank" rel="noopener">Ask for wholesale pricing</a>
+    <a class="btn ws-btn" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20wholesale%20price%20untuk%20produk%20car%20care." target="_blank" rel="noopener">Ask for wholesale pricing</a>
   </div>
 </section>
 
@@ -264,9 +265,9 @@
     <div>
       <span class="eyebrow">Also from us</span>
       <h3>9ice — an OSREN × 9NERS collab</h3>
-      <p>Our automotive shampoos — <span class="nice-names">Pinky Gum, Oceanic Rush and Arctic White</span> — are made with OSREN and sold on Shopee, Lazada and TikTok Shop.</p>
+      <p>Our automotive shampoos — <span class="nice-names">Pinky Gum, Oceanic Rush and Arctic White</span> — made together with OSREN.</p>
     </div>
-    <a class="btn btn-purple" href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener">Get 9ice on Shopee</a>
+    <a class="btn btn-purple" href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener">Buy 9ice</a>
   </div>
 </section>
 
@@ -290,7 +291,7 @@
       </div>
       <div>
         <h4>Shop</h4>
-        <a href="../shop/rain-off/">Rain Off</a><a href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener">9ice on Shopee</a><a href="../#prices">Service price list</a>
+        <a href="../shop/rain-off/">Rain Off</a><a href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener">9ice shampoos</a><a href="../#prices">Service price list</a>
       </div>
       <div>
         <h4>Explore</h4>

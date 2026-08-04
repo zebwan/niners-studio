@@ -93,6 +93,7 @@
   .menus{background:var(--lilac)}
   .menu-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:stretch}
   .menu-grid .svc-foot{margin-top:auto;justify-content:flex-end}
+  .menu-grid h3{text-wrap:balance}
   .menu-grid .arr svg{width:20px;height:20px}
   .svc{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;text-decoration:none;transition:border-color .15s ease, transform .15s ease}
   .svc:hover{border-color:var(--purple);transform:translateY(-3px)}
@@ -221,6 +222,8 @@
     .foot-grid{grid-template-columns:1fr 1fr}
     .stats-grid{grid-template-columns:repeat(2,1fr)}
     .stat{border-left:none;border-top:1px solid rgba(255,111,175,.14)}
+    .stat:nth-child(2n){border-left:1px solid rgba(255,111,175,.14)}
+    .stat:nth-child(-n+2){border-top:none}
   }
   @media (max-width:640px){
     section{padding:64px 0}
@@ -235,6 +238,30 @@
   @media (max-width:900px){.lu-grid{grid-template-columns:1fr 1fr}.gal-ribbon{grid-template-columns:repeat(3,1fr)}}
   @media (max-width:640px){.gal-ribbon{grid-template-columns:repeat(2,1fr)}.gal-ribbon img{height:150px}}
   @media (max-width:640px){.lu-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  /* mobile: cards stack over each other as you scroll instead of running long */
+  @media (max-width:640px){
+    .cards-grid{display:block}
+    .cards-grid .card{position:sticky;top:84px;box-shadow:0 -16px 34px rgba(0,0,0,.30)}
+    .cards-grid .card:nth-child(2){top:92px}
+    .cards-grid .card:nth-child(3){top:100px}
+    .cards-grid .card:nth-child(4){top:108px}
+    .cards-grid .card:nth-child(5){top:116px}
+    .cards-grid .card:nth-child(6){top:124px}
+    .cards-grid .card{display:grid;grid-template-columns:52px 1fr;column-gap:16px;row-gap:2px;
+      align-items:center;padding:20px 22px;margin-bottom:14px}
+    .cards-grid .card p{display:none}
+    .cards-grid .card .ico{grid-column:1;grid-row:1 / span 2;width:52px;height:52px;margin:0}
+    .cards-grid .card .ico svg{width:24px;height:24px}
+    .cards-grid .card h3{grid-column:2;grid-row:1;align-self:end;font-size:17px;line-height:1.25}
+    .cards-grid .card .from{grid-column:2;grid-row:2;align-self:start;margin:0;font-size:13px}
+    .cards-grid .card:hover{transform:none}
+    .svc-more{margin-top:28px}
+  }
+  @media (max-width:640px){
+    .hero-ctas,.visit-cta,.cta-btns,.a-hero-ctas,.g-actions,.feat-ctas,.buy-btns,.banner-ctas,.svc-more,.ws-inner{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn,.visit-cta .btn,.cta-btns .btn,.a-hero-ctas .btn,.g-actions .btn,.feat-ctas .btn,.buy-btns .btn,.banner-ctas .btn,.svc-more .btn,.ws-inner .btn{display:block;width:100%;text-align:center}
+  }
+
   .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
   .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(255,111,175,.14)}
@@ -242,6 +269,10 @@
   .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
   .mob-menu a:hover{color:#fff}
   @media (max-width:900px){.menu-btn{display:block}}
+  @media (max-width:900px){.nav > .btn-wa{display:none}}
+  .mob-menu .btn-wa{display:block;width:min(320px,82%);margin:26px auto 0;padding:15px 26px;text-align:center;
+    font-family:var(--body);font-style:normal;font-weight:600;text-transform:none;font-size:16px;color:#08351D;background:var(--wa);border-radius:10px}
+  .mob-menu .btn-wa:hover{color:#08351D;background:#1FBF5B}
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
@@ -275,6 +306,7 @@
   <a href="./gallery/">Gallery</a>
   <a href="./about/">About Us</a>
   <a href="./visit/">Visit Us</a>
+  <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
 </nav>
 
 <div class="hero">
@@ -296,7 +328,7 @@
     <div class="stat"><b>5.0 ★</b><span>Google reviews</span></div>
     <div class="stat"><b>5,000+</b><span>Cars detailed</span></div>
     <div class="stat"><b>16.6k</b><span>Instagram followers</span></div>
-    <div class="stat"><b>Desa Tebrau</b><span>Johor Bahru studio</span></div>
+    <div class="stat"><b>JB</b><span>Desa Tebrau studio</span></div>
   </div>
 </div>
 
@@ -459,7 +491,7 @@
     </div>
     <a class="ws-strip" href="shop/#wholesale">
       <b>Wholesale available</b>
-      <span>Resell 9NERS car care at your own shop →</span>
+      <span>Resell 9NERS car care at your own&nbsp;shop&nbsp;→</span>
     </a>
     <p class="shop-note">Looking for our 9ice shampoos (OSREN × 9NERS)? <a href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener" style="color:var(--purple);font-weight:600;text-decoration:none">Buy 9ice →</a></p>
   </div>

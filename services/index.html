@@ -138,6 +138,11 @@
     .svc-grid,.plan-grid{grid-template-columns:1fr 1fr;max-width:none}
   }
 
+  @media (max-width:640px){
+    .hero-ctas,.visit-cta,.cta-btns,.a-hero-ctas,.g-actions,.feat-ctas,.buy-btns,.banner-ctas,.svc-more,.ws-inner{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn,.visit-cta .btn,.cta-btns .btn,.a-hero-ctas .btn,.g-actions .btn,.feat-ctas .btn,.buy-btns .btn,.banner-ctas .btn,.svc-more .btn,.ws-inner .btn{display:block;width:100%;text-align:center}
+  }
+
   .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
   .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(255,111,175,.14)}
@@ -145,6 +150,10 @@
   .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
   .mob-menu a:hover{color:#fff}
   @media (max-width:900px){.menu-btn{display:block}}
+  @media (max-width:900px){.nav > .btn-wa{display:none}}
+  .mob-menu .btn-wa{display:block;width:min(320px,82%);margin:26px auto 0;padding:15px 26px;text-align:center;
+    font-family:var(--body);font-style:normal;font-weight:600;text-transform:none;font-size:16px;color:#08351D;background:var(--wa);border-radius:10px}
+  .mob-menu .btn-wa:hover{color:#08351D;background:#1FBF5B}
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
@@ -178,6 +187,7 @@
   <a href="../gallery/">Gallery</a>
   <a href="../about/">About Us</a>
   <a href="../visit/">Visit Us</a>
+  <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
 </nav>
 
 <section class="a-hero">

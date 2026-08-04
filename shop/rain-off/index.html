@@ -95,14 +95,6 @@
   .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
   .ba-note{text-align:center;margin-top:20px;font-size:13px;color:#9B99A2}
 
-  .action{background:var(--white);padding:96px 0}
-  .action-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
-  .action h2{font-size:clamp(32px,4.4vw,50px);color:var(--ink);margin:14px 0 12px}
-  .action .lead{color:var(--muted);margin-bottom:26px;max-width:46ch}
-  .vids{display:flex;gap:18px;justify-content:center}
-  .vid{flex:0 0 46%;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--noir)}
-  .vid video{width:100%;display:block;aspect-ratio:464/832;object-fit:cover}
-
   .more{background:var(--lilac);padding:72px 0;text-align:center}
   .more h2{font-size:clamp(28px,3.6vw,40px);color:var(--ink);margin-bottom:12px}
   .more p{color:var(--muted);margin-bottom:26px}
@@ -117,7 +109,7 @@
 
   @media (max-width:900px){
     .nav-links{display:none}
-    .p-grid,.action-grid{grid-template-columns:1fr;gap:40px}
+    .p-grid{grid-template-columns:1fr;gap:40px}
     .steps{grid-template-columns:1fr 1fr}
     .foot-grid{grid-template-columns:1fr 1fr}
     .gallery-main img{max-height:380px}
@@ -126,8 +118,6 @@
     .gallery-main img{max-height:360px}
     .steps{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
-    .vids{flex-direction:column;align-items:center}
-    .vid{flex:0 0 auto;width:min(78vw,300px)}
     .ba-frame{aspect-ratio:4/3}
   }
 
@@ -246,21 +236,6 @@
 
 <div class="checker"></div>
 
-<section class="action">
-  <div class="wrap action-grid">
-    <div>
-      <span class="eyebrow">Straight from Automechanika KL</span>
-      <h2 class="h-disp">Watch it<br>in action</h2>
-      <p class="lead">Nina demoing Rain Off live at our booth — one spray, one wipe, and the glass does the rest.</p>
-      <a class="btn btn-purple" href="#buy">Get yours</a>
-    </div>
-    <div class="vids">
-      <div class="vid"><video src="../../videos/rainoff-demo-1.mp4" poster="../../videos/rainoff-demo-1-poster.jpg" autoplay muted loop playsinline></video></div>
-      <div class="vid"><video src="../../videos/rainoff-demo-2.mp4" poster="../../videos/rainoff-demo-2-poster.jpg" autoplay muted loop playsinline></video></div>
-    </div>
-  </div>
-</section>
-
 <section class="more">
   <div class="wrap">
     <h2 class="h-disp">More Studio Line on the way</h2>
@@ -278,7 +253,7 @@
       </div>
       <div>
         <h4>Shop</h4>
-        <a href="../../shop/rain-off/">Rain Off</a><a href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener">9ice shampoos</a><a href="../../#prices">Service price list</a>
+        <a href="../../shop/rain-off/">Rain Off</a><a href="https://shopee.com.my/shop/153078190" target="_blank" rel="noopener">9ice shampoos</a><a href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">Service price list</a>
       </div>
       <div>
         <h4>Explore</h4>

@@ -78,7 +78,12 @@
   .feed-head h2{font-size:clamp(30px,4vw,46px);color:#fff;margin:12px 0}
   .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
   @media (max-width:1080px){.ig-grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:760px){.ig-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  @media (max-width:760px){
+    .ig-grid{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;align-items:flex-start;max-width:none;margin:0;padding-bottom:6px;scrollbar-width:none}
+    .ig-grid::-webkit-scrollbar{display:none}
+    .ig-grid > blockquote.instagram-media,.ig-grid > iframe.instagram-media{flex:0 0 88%!important;scroll-snap-align:center}
+  }
   blockquote.instagram-media,iframe.instagram-media{width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;border-radius:12px!important}
 
   .cta{background:var(--deep);color:#fff;padding:88px 0;text-align:center}

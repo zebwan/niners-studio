@@ -238,24 +238,16 @@
   @media (max-width:900px){.lu-grid{grid-template-columns:1fr 1fr}.gal-ribbon{grid-template-columns:repeat(3,1fr)}}
   @media (max-width:640px){.gal-ribbon{grid-template-columns:repeat(2,1fr)}.gal-ribbon img{height:150px}}
   @media (max-width:640px){.lu-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
-  /* mobile: cards stack over each other as you scroll instead of running long */
+  /* mobile: original cards, stacking over each other as you scroll */
   @media (max-width:640px){
     .cards-grid{display:block}
-    .cards-grid .card{position:sticky;top:84px;box-shadow:0 -16px 34px rgba(0,0,0,.30)}
+    .cards-grid .card{position:sticky;top:84px;margin-bottom:16px}
     .cards-grid .card:nth-child(2){top:92px}
     .cards-grid .card:nth-child(3){top:100px}
     .cards-grid .card:nth-child(4){top:108px}
     .cards-grid .card:nth-child(5){top:116px}
     .cards-grid .card:nth-child(6){top:124px}
-    .cards-grid .card{display:grid;grid-template-columns:52px 1fr;column-gap:16px;row-gap:2px;
-      align-items:center;padding:20px 22px;margin-bottom:14px}
-    .cards-grid .card p{display:none}
-    .cards-grid .card .ico{grid-column:1;grid-row:1 / span 2;width:52px;height:52px;margin:0}
-    .cards-grid .card .ico svg{width:24px;height:24px}
-    .cards-grid .card h3{grid-column:2;grid-row:1;align-self:end;font-size:17px;line-height:1.25}
-    .cards-grid .card .from{grid-column:2;grid-row:2;align-self:start;margin:0;font-size:13px}
     .cards-grid .card:hover{transform:none}
-    .svc-more{margin-top:28px}
   }
   @media (max-width:640px){
     .hero-ctas,.visit-cta,.cta-btns,.a-hero-ctas,.g-actions,.feat-ctas,.buy-btns,.banner-ctas,.svc-more,.ws-inner{flex-direction:column;align-items:stretch}

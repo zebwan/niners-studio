@@ -59,21 +59,48 @@
 
   .svc-cards{background:var(--white);padding:40px 0 96px}
   .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
-  .svc{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;transition:border-color .15s ease, transform .15s ease;cursor:pointer}
-  .svc:hover{border-color:var(--purple);transform:translateY(-3px)}
-  .ph{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--noir-2)}
+  .svc{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;cursor:pointer;background:var(--noir-2);transition:transform .15s ease;outline:2px solid transparent;outline-offset:-2px}
+  .svc:hover{transform:translateY(-3px)}
+  .svc.active{outline-color:var(--purple)}
+  .ph{position:absolute;inset:0;overflow:hidden}
   .ph img{width:100%;height:100%;object-fit:cover}
-  .badge{position:absolute;top:12px;left:12px;background:var(--pink);color:#3A0A1F;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
-  .badge.bike{background:var(--deep);color:var(--pink)}
-  .svc-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:7px;flex:1}
-  .svc h3{font-size:17px;font-weight:600}
-  .svc p{font-size:13px;color:var(--muted);flex:1}
-  .svc-foot{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:var(--purple)}
+  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,12,.62),rgba(10,8,12,.26) 34%,rgba(10,8,12,.24))}
+  .badge{position:absolute;top:14px;left:16px;z-index:1;color:#fff;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+  .svc-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 16px}
+  .svc h3{font-size:17px;font-weight:600;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+  .svc-foot{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:#fff;margin-top:4px}
   .arr svg{display:block;transition:transform .25s ease}
-  .svc.open{border-color:var(--purple)}
-  .svc.open .arr svg{transform:rotate(180deg)}
-  .svc-detail{max-height:0;overflow:hidden;transition:max-height .3s ease}
-  .svc.open .svc-detail{max-height:460px}
+  .svc.active .arr svg{transform:rotate(180deg)}
+  .arr svg{transition:transform .2s ease}
+  .svc-detail{display:none}
+
+  .svc-panel{grid-column:1/-1;display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+  .svc-panel.open{grid-template-rows:1fr}
+  .svc-panel-in{overflow:hidden;min-height:0}
+  .svc-panel-box{position:relative;background:var(--lilac);border:1px solid var(--line);border-radius:16px;padding:30px 34px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px}
+  .svc-panel-box h3{font-size:22px;font-weight:600;margin-bottom:10px}
+  .svc-panel .d-intro{border-top:none;padding-top:0;margin-top:0;font-size:14px}
+  .svc-panel .d-rows{margin:14px 0 0;gap:10px}
+  .svc-panel .d-rows li{font-size:14px}
+  .svc-panel .d-actions{margin-top:22px}
+  .svc-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;padding:0}
+  .svc-close:hover{border-color:var(--purple);color:var(--purple)}
+
+  .svc-sheet{position:fixed;inset:0;z-index:200;background:var(--white);overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}
+  .svc-sheet.open{display:block}
+  .sheet-ph{position:relative;aspect-ratio:4/3;background:var(--noir-2)}
+  .sheet-ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .sheet-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,12,.66),rgba(10,8,12,.08) 45%)}
+  .sheet-title{position:absolute;left:20px;right:20px;bottom:16px;z-index:1;color:#fff;font-size:24px;font-weight:600;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+  .sheet-close{position:absolute;top:16px;right:16px;z-index:2;width:38px;height:38px;border-radius:50%;border:none;background:rgba(10,8,12,.55);color:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+  .sheet-body{padding:22px 20px 36px}
+  .sheet-body .d-intro{border-top:none;padding-top:0;margin:0 0 16px;font-size:14.5px}
+  .sheet-body .d-rows{margin:0}
+  .sheet-body .d-rows li{font-size:14.5px}
+  .sheet-body .d-actions{margin-top:24px;flex-direction:column;align-items:stretch}
+  .sheet-body .d-actions .btn{text-align:center;padding:13px;font-size:15px}
+  .sheet-body .d-link{text-align:center}
+  body.sheet-lock{overflow:hidden}
   .d-intro{font-size:13px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
   .d-rows{list-style:none;display:grid;gap:8px;margin:12px 0 0}
   .d-rows li{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:var(--muted)}
@@ -472,15 +499,93 @@
     </div>
   </div>
 </footer>
+<div class="svc-sheet" id="svcSheet" role="dialog" aria-modal="true" aria-label="Service details">
+  <div class="sheet-ph">
+    <img id="sheetImg" src="" alt="">
+    <button class="sheet-close" id="sheetClose" aria-label="Close">✕</button>
+    <h3 class="sheet-title" id="sheetTitle"></h3>
+  </div>
+  <div class="sheet-body" id="sheetBody"></div>
+</div>
+
 <script>
-  document.querySelectorAll('.svc').forEach(function(card){
-    card.addEventListener('click', function(e){
-      if (e.target.closest('a')) return;
-      var wasOpen = card.classList.contains('open');
-      document.querySelectorAll('.svc.open').forEach(function(o){ o.classList.remove('open'); });
-      if (!wasOpen) card.classList.add('open');
+  (function(){
+    var grid = document.querySelector('.svc-grid');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.svc'));
+    var mqMobile = window.matchMedia('(max-width:640px)');
+    var panel = null, activeCard = null;
+
+    function cols(){ return getComputedStyle(grid).gridTemplateColumns.split(' ').length; }
+    function rowEndCard(card){
+      var i = cards.indexOf(card), c = cols();
+      return cards[Math.min(cards.length - 1, Math.floor(i / c) * c + c - 1)];
+    }
+    function closePanel(){
+      if (!panel) return;
+      var p = panel; panel = null;
+      p.classList.remove('open');
+      if (activeCard){ activeCard.classList.remove('active'); activeCard = null; }
+      setTimeout(function(){ if (p.parentNode) p.parentNode.removeChild(p); }, 360);
+    }
+    function openPanel(card){
+      if (panel){ var old = panel; panel = null; if (old.parentNode) old.parentNode.removeChild(old); }
+      if (activeCard) activeCard.classList.remove('active');
+      var d = card.querySelector('.svc-detail');
+      var el = document.createElement('div');
+      el.className = 'svc-panel';
+      el.innerHTML = '<div class="svc-panel-in"><div class="svc-panel-box"><button class="svc-close" aria-label="Close">✕</button><div class="svc-panel-l"><h3></h3></div><div class="svc-panel-r"></div></div></div>';
+      el.querySelector('h3').textContent = card.querySelector('.svc-body h3').textContent;
+      var L = el.querySelector('.svc-panel-l'), R = el.querySelector('.svc-panel-r');
+      L.appendChild(d.querySelector('.d-intro').cloneNode(true));
+      L.appendChild(d.querySelector('.d-actions').cloneNode(true));
+      R.appendChild(d.querySelector('.d-rows').cloneNode(true));
+      el.querySelector('.svc-close').addEventListener('click', function(e){ e.stopPropagation(); closePanel(); });
+      var anchor = rowEndCard(card);
+      anchor.parentNode.insertBefore(el, anchor.nextSibling);
+      panel = el; activeCard = card; card.classList.add('active');
+      el.getBoundingClientRect();
+      el.classList.add('open');
+      setTimeout(function(){ el.style.transition = 'none'; el.style.gridTemplateRows = '1fr'; }, 450);
+      setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 250);
+    }
+
+    var sheet = document.getElementById('svcSheet');
+    function openSheet(card){
+      var d = card.querySelector('.svc-detail');
+      var img = card.querySelector('.ph img');
+      document.getElementById('sheetImg').src = img.src;
+      document.getElementById('sheetImg').alt = img.alt;
+      document.getElementById('sheetTitle').textContent = card.querySelector('.svc-body h3').textContent;
+      var body = document.getElementById('sheetBody'); body.innerHTML = '';
+      body.appendChild(d.querySelector('.d-intro').cloneNode(true));
+      body.appendChild(d.querySelector('.d-rows').cloneNode(true));
+      body.appendChild(d.querySelector('.d-actions').cloneNode(true));
+      sheet.scrollTop = 0;
+      sheet.classList.add('open');
+      document.body.classList.add('sheet-lock');
+    }
+    function closeSheet(){
+      sheet.classList.remove('open');
+      document.body.classList.remove('sheet-lock');
+    }
+    document.getElementById('sheetClose').addEventListener('click', closeSheet);
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ closeSheet(); closePanel(); } });
+
+    cards.forEach(function(card){
+      card.addEventListener('click', function(e){
+        if (e.target.closest('a')) return;
+        if (mqMobile.matches){ openSheet(card); return; }
+        if (activeCard === card){ closePanel(); return; }
+        openPanel(card);
+      });
     });
-  });
+    window.addEventListener('resize', function(){
+      if (panel && activeCard){
+        var anchor = rowEndCard(activeCard);
+        if (anchor.nextSibling !== panel) anchor.parentNode.insertBefore(panel, anchor.nextSibling);
+      }
+    });
+  })();
 </script>
 </body>
 </html>

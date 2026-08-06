@@ -81,15 +81,17 @@
   .jr h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;margin:10px 0 10px;color:#fff}
   .jr p{color:#B4B2BA;font-size:16px;max-width:46ch}
   .press-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:38px}
-  .press{background:var(--noir-2);border:1px solid var(--line-dk);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
-  .press img{width:100%;height:100%;min-height:210px;object-fit:cover}
-  .press-txt{padding:26px}
+  .press{background:var(--noir-2);border:1px solid var(--line-dk);border-radius:14px;overflow:hidden}
+  .press img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+  .press img.p-metro{object-position:center 30%}
+  .press-txt{padding:24px 26px 28px}
   .press h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:22px;color:#fff;margin:8px 0 8px}
   .press p{color:#B4B2BA;font-size:14px}
 
   .founders{background:var(--noir);color:#fff;padding:20px 0 100px}
   .fnd{display:grid;grid-template-columns:.72fr 1.28fr;align-items:center;background:var(--noir-2);border:1px solid var(--line-dk);border-radius:16px;overflow:hidden;margin-bottom:22px}
   .fnd img{width:100%;height:400px;object-fit:cover;object-position:center 22%}
+  .fnd.flip{grid-template-columns:1.28fr .72fr}
   .fnd.flip img{order:2}
   .fnd-txt{padding:38px}
   .fnd-name{font-family:'Allura','Snell Roundhand','Brush Script MT',cursive;font-style:normal;font-weight:400;text-transform:none;font-size:clamp(48px,5.4vw,64px);color:var(--pink);line-height:1.05}
@@ -159,12 +161,11 @@
 
   @media (max-width:900px){
     .nav-links{display:none}
-    .jr,.press,.fnd{grid-template-columns:1fr;gap:22px}
+    .jr,.fnd,.fnd.flip{grid-template-columns:1fr;gap:22px}
     .jr.flip img,.fnd.flip img{order:0}
     .jr img{height:260px}
     .fnd img{height:280px;object-position:center 22%}
     .fnd-txt{padding:26px}
-    .press img{min-height:190px}
     .press-grid,.vals{grid-template-columns:1fr 1fr}
     .a-hero-grid,.story-grid,.five-grid{grid-template-columns:1fr;gap:40px}
     .grev-grid{grid-template-columns:1fr}
@@ -307,7 +308,7 @@
 
     <div class="press-grid">
       <div class="press">
-        <img src="../images/press-metro.jpg" alt="Nina holding the Harian Metro newspaper feature about 9NERS">
+        <img class="p-metro" src="../images/press-metro.jpg" alt="Nina holding the Harian Metro newspaper feature about 9NERS">
         <div class="press-txt">
           <span class="eyebrow">Newspaper feature</span>
           <h3>Harian Metro</h3>

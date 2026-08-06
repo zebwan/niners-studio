@@ -55,8 +55,8 @@
 
   .featured{background:var(--white);padding:96px 0}
   .feat-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
-  .feat-stage{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;aspect-ratio:4/5;align-self:start}
-  .feat-stage video,.feat-stage img{width:100%;height:100%;object-fit:cover;display:block}
+  .feat-stage{aspect-ratio:4/5;align-self:start}
+  .feat-stage video,.feat-stage img{width:100%;height:100%;object-fit:contain;display:block}
   .feat-info h2{font-size:clamp(44px,6vw,72px);color:var(--ink);margin:12px 0 4px}
   .feat-info .sub{font-size:16px;color:var(--muted);margin-bottom:20px}
   .feat-info .desc{color:var(--muted);max-width:52ch;margin-bottom:24px}
@@ -201,7 +201,10 @@
 <section class="featured" id="rainoff">
   <div class="wrap feat-grid">
     <div class="feat-stage">
-      <video src="../videos/rainoff-360.mp4" poster="../videos/rainoff-360-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees"></video>
+      <video poster="../videos/rainoff-360-alpha-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees">
+        <source src="../videos/rainoff-360-alpha.mov" type="video/quicktime">
+        <source src="../videos/rainoff-360-alpha.webm" type="video/webm">
+      </video>
     </div>
     <div class="feat-info">
       <span class="eyebrow">New · 9NERS Studio Line</span>

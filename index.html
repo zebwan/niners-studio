@@ -43,7 +43,7 @@
   .nav .btn{padding:10px 18px;font-size:14px;white-space:nowrap}
 
   .hero{position:relative;background:var(--noir);color:#fff;overflow:hidden}
-  .hero-img{position:absolute;inset:0;background-image:url('images/hero-black.jpg');background-size:cover;background-position:62% center}
+  .hero-img{position:absolute;inset:0;background-image:url('images/hero-dark-wide.jpg');background-size:cover;background-position:right center}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.8) 38%,rgba(0,0,0,.3) 75%,rgba(0,0,0,.45) 100%)}
   .hero-inner{position:relative;padding:110px 0 130px;max-width:660px}
   .hero .kicker{font-size:17px;color:#fff;line-height:1.4;margin-bottom:14px}
@@ -91,19 +91,17 @@
   .card.lite .ico svg{stroke:var(--purple)}
   .card.lite .from{color:var(--purple)}
   .menus{background:var(--lilac)}
-  .menu-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:stretch}
-  .menu-grid .svc-foot{margin-top:auto;justify-content:flex-end}
-  .menu-grid h3{text-wrap:balance}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .menu-grid .arr svg{width:20px;height:20px}
-  .svc{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;text-decoration:none;transition:border-color .15s ease, transform .15s ease}
-  .svc:hover{border-color:var(--purple);transform:translateY(-3px)}
-  .ph{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--noir-2)}
+  .svc{position:relative;border-radius:16px;overflow:hidden;display:block;text-decoration:none;aspect-ratio:1/1;transition:transform .15s ease}
+  .svc:hover{transform:translateY(-3px)}
+  .ph{position:absolute;inset:0;overflow:hidden;background:var(--noir-2)}
   .ph img{width:100%;height:100%;object-fit:cover}
-  .badge{position:absolute;top:12px;left:12px;background:var(--pink);color:#3A0A1F;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
-  .badge.bike{background:var(--deep);color:var(--pink)}
-  .svc-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:7px;flex:1}
-  .svc h3{font-size:17px;font-weight:600}
-  .svc-foot{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:var(--purple)}
+  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,12,.6),rgba(10,8,12,.26) 32%,rgba(10,8,12,.24))}
+  .badge{position:absolute;top:16px;left:20px;z-index:1;color:#fff;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+  .svc-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:18px 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+  .svc h3{font-size:19px;font-weight:600;color:#fff;text-wrap:balance;text-shadow:0 1px 14px rgba(0,0,0,.45)}
+  .svc-foot{display:flex;align-items:center;font-size:14px;font-weight:600;color:#fff}
   .svc-foot em{font-style:normal}
   .arr svg{display:block;transition:transform .2s ease}
   .svc:hover .arr svg{transform:translateX(3px)}
@@ -123,17 +121,18 @@
 
   .shop{background:var(--white)}
   .lu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .lu{border-radius:16px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .15s ease}
+  .lu{position:relative;border-radius:16px;overflow:hidden;text-decoration:none;aspect-ratio:1/1;transition:transform .15s ease}
   .lu:hover{transform:translateY(-4px)}
-  .lu-stage{height:300px;display:flex;align-items:center;justify-content:center}
+  .lu-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
   .lu.real{background:var(--white);border:1px solid var(--line)}
-  .lu.real .lu-stage img{max-height:240px;width:auto}
-  .lu-body{padding:22px 24px 26px;border-top:1px solid var(--line)}
-  .lu h3{font-size:19px;font-weight:600;color:var(--ink)}
-  .lu .cat{font-size:13px;color:var(--muted);margin:3px 0 12px}
-  .lu .go{font-size:14px;font-weight:600;color:var(--purple)}
+  .lu.real .lu-stage video,.lu.real .lu-stage img{width:100%;height:100%;object-fit:cover;display:block}
+  .lu.real .lu-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,26,.84),rgba(20,16,26,.38) 32%,rgba(20,16,26,0) 58%)}
+  .lu-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:20px 24px 22px}
+  .lu h3{font-size:19px;font-weight:600;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+  .lu .cat{font-size:13px;color:#D7D5DC;margin:3px 0 10px}
+  .lu .go{font-size:14px;font-weight:600;color:var(--pink)}
   .lu.soon{background:var(--noir);border:1px solid rgba(255,111,175,.16)}
-  .lu.soon .lu-body{border-top:1px solid rgba(255,111,175,.16)}
+  .lu.soon .lu-stage{padding-bottom:74px}
   .lu.soon h3{color:#fff}
   .lu.soon .cat{color:#9B99A2}
   .soon-can{width:120px;height:210px;border-radius:14px;background:var(--noir-2);border:1px solid rgba(255,111,175,.16);position:relative}
@@ -176,8 +175,15 @@
   .aca-card ul li{font-size:14px;color:#D7D5DC;padding-left:22px;position:relative}
   .aca-card ul li::before{content:"—";position:absolute;left:0;color:var(--rose)}
 
-  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .rev{background:var(--lilac);border-radius:14px;padding:28px}
+  .rev-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+  .rev-head .sec-head{margin-bottom:52px}
+  .rev-nav{display:flex;gap:10px;margin-bottom:52px}
+  .rev-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s ease,transform .15s ease}
+  .rev-nav button:hover{border-color:var(--purple);transform:translateY(-2px)}
+  .rev-nav svg{width:18px;height:18px;display:block}
+  .rev-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;padding-bottom:4px}
+  .rev-track::-webkit-scrollbar{display:none}
+  .rev{flex:0 0 calc((100% - 44px)/3);scroll-snap-align:start;background:var(--lilac);border-radius:14px;padding:28px}
   .stars{color:var(--rose);letter-spacing:3px;font-size:15px;margin-bottom:14px}
   .rev p{font-size:15px;margin-bottom:18px}
   .rev b{font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
@@ -210,14 +216,15 @@
   .foot-base{border-top:1px solid rgba(255,111,175,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
 
   @media (max-width:1080px){
-    .menu-grid{grid-template-columns:repeat(3,1fr)}
+    .menu-grid{gap:16px}
   }
   @media (max-width:1000px){
     .cards-grid{grid-template-columns:repeat(2,1fr)}
   }
   @media (max-width:900px){
     .nav-links{display:none}
-    .prod-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
+    .prod-grid{grid-template-columns:repeat(2,1fr)}
+    .rev{flex-basis:calc((100% - 22px)/2)}
     .aca-grid{grid-template-columns:1fr;gap:36px}
     .foot-grid{grid-template-columns:1fr 1fr}
     .stats-grid{grid-template-columns:repeat(2,1fr)}
@@ -228,9 +235,12 @@
   @media (max-width:640px){
     section{padding:64px 0}
     .hero-inner{padding:72px 0 88px}
-    .hero-img{background-position:68% center}
-    .cards-grid,.prod-grid,.rev-grid,.visit-grid{grid-template-columns:1fr}
-    .menu-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .hero-img{background-image:url('images/studio-dark.jpg');background-position:center}
+    .cards-grid,.prod-grid,.visit-grid{grid-template-columns:1fr}
+    .rev{flex-basis:86%}
+    .menu-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px;padding:0 24px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .menu-grid::-webkit-scrollbar{display:none}
+    .menu-grid .svc{flex:0 0 76%;scroll-snap-align:center}
     .ba-frame{aspect-ratio:4/3}
     .foot-grid{grid-template-columns:1fr}
   }
@@ -302,7 +312,7 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-img" role="img" aria-label="White BMW inside the 9NERS studio with pink checkered floor"></div>
+  <div class="hero-img" role="img" aria-label="The dark 9NERS studio bay with the pink neon sign and product shelf"></div>
   <div class="hero-shade"></div>
   <div class="wrap"><div class="hero-inner">
     <p class="kicker">Professional car &amp; bike detailing in<span>Johor Bahru, Malaysia</span></p>
@@ -457,7 +467,7 @@
     </div>
     <div class="lu-grid">
       <a class="lu real" href="shop/rain-off/">
-        <div class="lu-stage"><img src="images/rainoff-can.jpg" alt="Rain Off siloxane glass coating can"></div>
+        <div class="lu-stage"><video src="videos/rainoff-360-sq.mp4" poster="videos/rainoff-360-sq-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees"></video></div>
         <div class="lu-body">
           <h3>Rain Off</h3>
           <div class="cat">Siloxane glass coating</div>
@@ -523,14 +533,27 @@
 
 <section>
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">5.0 on Google</span>
-      <h2 class="h-disp">What owners say</h2>
+    <div class="rev-head">
+      <div class="sec-head">
+        <span class="eyebrow">5.0 on Google · 187 reviews</span>
+        <h2 class="h-disp">What owners say</h2>
+      </div>
+      <div class="rev-nav">
+        <button id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button id="revNext" aria-label="Next reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
     </div>
-    <div class="rev-grid">
-      <div class="rev"><div class="stars">★★★★★</div><p>“Hasil memang padu. Swirl marks semua hilang, kereta macam baru keluar showroom.”</p><b>Google review · paint correction</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“Sent my bike for the spa — every corner spotless, even parts I never reach. Worth every ringgit.”</p><b>Google review · bike spa</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“Baby car seat came back like new. Very detailed team and they explain everything they do.”</p><b>Google review · babygear refresh</b></div>
+    <div class="rev-track" id="revTrack">
+      <div class="rev"><div class="stars">★★★★★</div><p>“I chose the 2-year coating package and leather seat cleaning, and the results were excellent. The car is now much shinier and smoother, with all the heavy watermarks removed through polishing.”</p><b>Afif Jefri · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“My car shine back like new! Dulu just nampak 9NERS keep posting, end up try the signature wash — its damn worth my money! Surprisingly all the nail scratch gone. Will repeat? For sure 🫡”</p><b>Sahrul Nizam · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“The level of care and attention to detail really stood out. Nina was friendly, attentive, and recommended only the necessary services without any pressure to upsell.”</p><b>Iskan · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“My wrapped car had quite a lot of watermarks and swirl marks, and they took the time to carefully polish it properly. Appreciate that the boss personally worked on the car as well.”</p><b>Keith Wong · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“Left my bike with them and trusted the process. Came back four hours later to find my beautifully groomed bike ready for pickup. Four hours for a year worth of ceramic coating — can’t ask for a better deal.”</p><b>Farhan Mazlan · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“The team is very professional and knowledgeable when it comes to car care and paint condition. Before starting, they patiently explained the condition of my paint and what contamination was on the surface.”</p><b>Zhen Yu · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“My car look brand new again, thank you team 9NERS. All professional and friendly — they even sent before &amp; after photos and videos. Overall very satisfied 💯”</p><b>R F · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“My first time here after a whole year following them on TikTok. I love the result on my 10-year-old car — worth the money and would definitely recommend their signature detailing wash!”</p><b>Sarah Ibrahim · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“Excellent bike wash service! My motorcycle looks spotless. Friendly staff and great attention to detail. Highly recommended!”</p><b>Faiq Fadhlullah · Google review</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>“First time washing my car here and I would say they did a great job. The owners were friendly and have extensive knowledge about detailing cars. 10/10 recommended.”</p><b>Hidayat Mohd · Google review</b></div>
     </div>
   </div>
 </section>
@@ -615,6 +638,12 @@
   </div>
 </footer>
 <script>
+  var revTrack = document.getElementById('revTrack');
+  if (revTrack) {
+    var revStep = function(){ var c = revTrack.querySelector('.rev'); return c ? c.offsetWidth + 22 : 300; };
+    document.getElementById('revPrev').addEventListener('click', function(){ revTrack.scrollBy({left: -revStep(), behavior: 'smooth'}); });
+    document.getElementById('revNext').addEventListener('click', function(){ revTrack.scrollBy({left: revStep(), behavior: 'smooth'}); });
+  }
   var baFrame = document.getElementById('baFrame');
   if (baFrame) {
     var baRange = baFrame.querySelector('.ba-range');

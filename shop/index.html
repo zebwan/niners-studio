@@ -55,8 +55,8 @@
 
   .featured{background:var(--white);padding:96px 0}
   .feat-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
-  .feat-stage{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:40px;display:flex;justify-content:center}
-  .feat-stage img{max-height:520px;width:auto}
+  .feat-stage{background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;aspect-ratio:4/5;align-self:start}
+  .feat-stage video,.feat-stage img{width:100%;height:100%;object-fit:cover;display:block}
   .feat-info h2{font-size:clamp(44px,6vw,72px);color:var(--ink);margin:12px 0 4px}
   .feat-info .sub{font-size:16px;color:var(--muted);margin-bottom:20px}
   .feat-info .desc{color:var(--muted);max-width:52ch;margin-bottom:24px}
@@ -70,18 +70,18 @@
   .lineup-head h2{font-size:clamp(32px,4.4vw,50px);margin:14px 0 12px;color:var(--ink)}
   .lineup-head p{color:var(--muted)}
   .lu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .lu{border-radius:16px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .15s ease}
+  .lu{position:relative;border-radius:16px;overflow:hidden;text-decoration:none;aspect-ratio:1/1;transition:transform .15s ease}
   .lu:hover{transform:translateY(-4px)}
-  .lu-stage{height:300px;display:flex;align-items:center;justify-content:center}
+  .lu-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
   .lu.real{background:var(--white);border:1px solid var(--line)}
-  .lu.real .lu-stage{background:var(--white)}
-  .lu.real .lu-stage img{max-height:240px;width:auto}
-  .lu-body{padding:22px 24px 26px;border-top:1px solid var(--line)}
-  .lu h3{font-size:19px;font-weight:600;color:var(--ink)}
-  .lu .cat{font-size:13px;color:var(--muted);margin:3px 0 12px}
-  .lu .go{font-size:14px;font-weight:600;color:var(--purple)}
+  .lu.real .lu-stage video,.lu.real .lu-stage img{width:100%;height:100%;object-fit:cover;display:block}
+  .lu.real .lu-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,26,.84),rgba(20,16,26,.38) 32%,rgba(20,16,26,0) 58%)}
+  .lu-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:20px 24px 22px}
+  .lu h3{font-size:19px;font-weight:600;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+  .lu .cat{font-size:13px;color:#D7D5DC;margin:3px 0 10px}
+  .lu .go{font-size:14px;font-weight:600;color:var(--pink)}
   .lu.soon{background:var(--noir);border:1px solid var(--line-dk)}
-  .lu.soon .lu-body{border-top:1px solid var(--line-dk)}
+  .lu.soon .lu-stage{padding-bottom:74px}
   .lu.soon h3{color:#fff}
   .lu.soon .cat{color:#9B99A2}
   .soon-can{width:120px;height:210px;border-radius:14px;background:var(--noir-2);border:1px solid var(--line-dk);position:relative}
@@ -121,7 +121,7 @@
     .nav-links{display:none}
     .a-hero-grid{grid-template-columns:1fr;gap:40px}
     .feat-grid{grid-template-columns:1fr;gap:36px}
-    .feat-stage img{max-height:380px}
+    .feat-stage{max-width:480px;margin:0 auto;width:100%}
     .lu-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
     .foot-grid{grid-template-columns:1fr 1fr}
   }
@@ -201,7 +201,7 @@
 <section class="featured" id="rainoff">
   <div class="wrap feat-grid">
     <div class="feat-stage">
-      <img src="../images/rainoff-can.jpg" alt="9NERS Rain Off siloxane glass coating aerosol can">
+      <video src="../videos/rainoff-360.mp4" poster="../videos/rainoff-360-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees"></video>
     </div>
     <div class="feat-info">
       <span class="eyebrow">New · 9NERS Studio Line</span>
@@ -233,7 +233,7 @@
     </div>
     <div class="lu-grid">
       <a class="lu real" href="../shop/rain-off/">
-        <div class="lu-stage"><img src="../images/rainoff-can.jpg" alt="Rain Off glass coating can"></div>
+        <div class="lu-stage"><video src="../videos/rainoff-360-sq.mp4" poster="../videos/rainoff-360-sq-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees"></video></div>
         <div class="lu-body">
           <h3>Rain Off</h3>
           <div class="cat">Siloxane glass coating</div>

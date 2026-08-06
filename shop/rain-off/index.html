@@ -50,12 +50,14 @@
 
   .product{background:var(--white);padding:72px 0 96px}
   .p-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:start}
-  .gallery-main{border-radius:16px;overflow:hidden;margin-bottom:14px;display:flex;justify-content:center;background:#fff}
-  .gallery-main img{width:auto;max-width:100%;max-height:480px;display:block}
-  .thumbs{display:flex;gap:12px}
-  .thumbs button{flex:1;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:10px;cursor:pointer;transition:border-color .15s ease}
+  .gallery-main{border-radius:16px;overflow:hidden;margin-bottom:14px;aspect-ratio:4/5;max-width:500px;background:#ECEAE8}
+  .gallery-main img,.gallery-main video{width:100%;height:100%;object-fit:cover;display:block}
+  .gallery-main [hidden]{display:none}
+  .thumbs{display:flex;gap:12px;max-width:500px}
+  .thumbs button{flex:1;position:relative;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:6px;cursor:pointer;transition:border-color .15s ease}
   .thumbs button.active{border-color:var(--purple)}
-  .thumbs img{height:74px;width:100%;object-fit:contain}
+  .thumbs img{height:74px;width:100%;object-fit:cover;display:block;border-radius:8px}
+  .thumbs .t360{position:absolute;left:6px;right:6px;bottom:6px;font-size:10px;font-weight:700;letter-spacing:.04em;color:#fff;background:rgba(20,16,26,.55);padding:3px 0;text-align:center;border-radius:0 0 8px 8px;pointer-events:none}
   .p-info h1{font-size:clamp(48px,6vw,76px);color:var(--ink);margin:12px 0 4px}
   .p-info .sub{font-size:17px;color:var(--muted);margin-bottom:22px}
   .p-info .desc{color:var(--muted);max-width:54ch;margin-bottom:26px}
@@ -112,10 +114,9 @@
     .p-grid{grid-template-columns:1fr;gap:40px}
     .steps{grid-template-columns:1fr 1fr}
     .foot-grid{grid-template-columns:1fr 1fr}
-    .gallery-main img{max-height:380px}
+    .gallery-main,.thumbs{margin-left:auto;margin-right:auto}
   }
   @media (max-width:640px){
-    .gallery-main img{max-height:360px}
     .steps{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     .ba-frame{aspect-ratio:4/3}
@@ -180,11 +181,16 @@
 <section class="product">
   <div class="wrap p-grid">
     <div>
-      <div class="gallery-main"><img id="galMain" src="../../images/rainoff-can.jpg" alt="9NERS Rain Off siloxane glass coating can"></div>
+      <div class="gallery-main">
+        <video id="galVid" src="../../videos/rainoff-360.mp4" poster="../../videos/rainoff-360-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees"></video>
+        <img id="galMain" src="../../images/rainoff-front.jpg" alt="9NERS Rain Off siloxane glass coating can" hidden>
+      </div>
       <div class="thumbs">
-        <button class="active" data-src="../../images/rainoff-can.jpg" aria-label="Product photo"><img src="../../images/rainoff-can.jpg" alt=""></button>
-        <button data-src="../../images/rainoff-info.jpg" aria-label="Product benefits"><img src="../../images/rainoff-info.jpg" alt=""></button>
-        <button data-src="../../images/ba-after.jpg" aria-label="Water beading result"><img src="../../images/ba-after.jpg" alt=""></button>
+        <button class="active" data-type="video" aria-label="360 degree view"><img src="../../videos/rainoff-360-poster.jpg" alt=""><span class="t360">360°</span></button>
+        <button data-src="../../images/rainoff-front.jpg" aria-label="Front of can"><img src="../../images/rainoff-front.jpg" alt=""></button>
+        <button data-src="../../images/rainoff-back.jpg" aria-label="Back of can with directions"><img src="../../images/rainoff-back.jpg" alt=""></button>
+        <button data-src="../../images/rainoff-group.jpg" aria-label="Rain Off cans on the studio bench"><img src="../../images/rainoff-group.jpg" alt=""></button>
+        <button data-src="../../images/rainoff-macro.jpg" aria-label="Label close-up"><img src="../../images/rainoff-macro.jpg" alt=""></button>
       </div>
     </div>
     <div class="p-info">
@@ -288,11 +294,18 @@
 </footer>
 
 <script>
+  var galVid = document.getElementById('galVid');
+  var galMain = document.getElementById('galMain');
   document.querySelectorAll('.thumbs button').forEach(function(btn){
     btn.addEventListener('click', function(){
-      document.getElementById('galMain').src = btn.dataset.src;
       document.querySelectorAll('.thumbs button').forEach(function(b){ b.classList.remove('active'); });
       btn.classList.add('active');
+      if (btn.dataset.type === 'video') {
+        galMain.hidden = true; galVid.hidden = false; galVid.play();
+      } else {
+        galVid.pause(); galVid.hidden = true;
+        galMain.src = btn.dataset.src; galMain.hidden = false;
+      }
     });
   });
   var baFrame = document.getElementById('baFrame');

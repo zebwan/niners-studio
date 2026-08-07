@@ -268,15 +268,34 @@
 
   .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
-  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(255,111,175,.14)}
-  .mob-menu.open{display:block}
-  .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
-  .mob-menu a:hover{color:#fff}
   @media (max-width:900px){.menu-btn{display:block}}
   @media (max-width:900px){.nav > .btn-wa{display:none}}
-  .mob-menu .btn-wa{display:block;width:min(320px,82%);margin:26px auto 0;padding:15px 26px;text-align:center;
-    font-family:var(--body);font-style:normal;font-weight:600;text-transform:none;font-size:16px;color:#08351D;background:var(--wa);border-radius:10px}
-  .mob-menu .btn-wa:hover{color:#08351D;background:#1FBF5B}
+  .mob-menu{position:fixed;inset:0;background:var(--white);z-index:100;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .5s cubic-bezier(.22,.61,.36,1),visibility 0s linear .5s}
+  .mob-menu.open{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+  body.mm-lock{overflow:hidden}
+  .mm-close{position:absolute;top:20px;right:20px;display:flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;font-family:var(--body);font-size:13px;font-weight:600;color:var(--ink);padding:8px}
+  .mm-close svg{width:17px;height:17px;display:block;transition:transform .3s ease}
+  .mm-close:hover{color:var(--purple)}
+  .mm-close:hover svg{transform:rotate(90deg)}
+  .mm-links{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:64px 24px 0}
+  .mm-links a{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-weight:700;font-size:36px;line-height:1.3;color:var(--ink);text-decoration:none;opacity:0;transform:translateX(30px);transition:opacity .4s ease,transform .4s ease,color .15s ease}
+  .mm-links a:hover{color:var(--purple)}
+  .mm-links a.on{color:var(--pink)}
+  .mob-menu.open .mm-links a{opacity:1;transform:none}
+  .mob-menu.open .mm-links a:nth-child(1){transition-delay:.10s}
+  .mob-menu.open .mm-links a:nth-child(2){transition-delay:.14s}
+  .mob-menu.open .mm-links a:nth-child(3){transition-delay:.18s}
+  .mob-menu.open .mm-links a:nth-child(4){transition-delay:.22s}
+  .mob-menu.open .mm-links a:nth-child(5){transition-delay:.26s}
+  .mob-menu.open .mm-links a:nth-child(6){transition-delay:.30s}
+  .mob-menu.open .mm-links a:nth-child(7){transition-delay:.34s}
+  .mm-foot{padding:0 24px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .4s ease .4s,transform .4s ease .4s}
+  .mob-menu.open .mm-foot{opacity:1;transform:none}
+  .mm-dash{width:26px;height:3px;background:var(--pink)}
+  .mm-foot p{font-size:13px;color:var(--muted);text-align:center;max-width:30ch}
+  .mm-foot .btn-wa{display:block;width:min(320px,100%);padding:15px 26px;text-align:center;font-size:16px;font-weight:600;color:#08351D;background:var(--wa);border-radius:10px;text-decoration:none}
+  .mm-checker{height:10px;flex:none;background:repeating-conic-gradient(var(--pink) 0% 25%, var(--noir) 0% 50%) 0 0/20px 20px}
+  @media (prefers-reduced-motion:reduce){.mob-menu,.mm-links a,.mm-foot{transition:none}}
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
@@ -299,18 +318,26 @@
       <li><a href="./visit/">Visit Us</a></li>
     </ul>
     <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
-    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open');document.body.classList.toggle('mm-lock')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
 <nav class="mob-menu" id="mobMenu">
-  <a href="./">Home</a>
-  <a href="./services/">Services</a>
-  <a href="./academy/">Academy</a>
-  <a href="./shop/">Car Care</a>
-  <a href="./gallery/">Gallery</a>
-  <a href="./about/">About Us</a>
-  <a href="./visit/">Visit Us</a>
-  <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
+  <button class="mm-close" onclick="document.getElementById('mobMenu').classList.remove('open');document.body.classList.remove('mm-lock')">Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="mm-links">
+    <a class="on" href="./">Home</a>
+    <a href="services/">Services</a>
+    <a href="academy/">Academy</a>
+    <a href="shop/">Car Care</a>
+    <a href="gallery/">Gallery</a>
+    <a href="about/">About Us</a>
+    <a href="visit/">Visit Us</a>
+  </div>
+  <div class="mm-foot">
+    <span class="mm-dash"></span>
+    <p>Detailed to the nines, every single time.</p>
+    <a class="btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+  <div class="mm-checker"></div>
 </nav>
 
 <div class="hero">
@@ -343,7 +370,7 @@
     <div class="sec-head">
       <span class="eyebrow">What we do</span>
       <h2 class="h-disp">Pick your treatment</h2>
-      <p>Every package is done in-studio by our own detailers — no shortcuts, no outsourcing.</p>
+      <p>Every package is done in-studio by our own detailers. No shortcuts, no outsourcing.</p>
     </div>
     <div class="cards-grid">
     <a class="card dark" href="services/">
@@ -356,35 +383,35 @@
     <a class="card feat" href="services/">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c2.6 3.1 4.4 5.5 4.4 7.6a4.4 4.4 0 0 1-8.8 0c0-2.1 1.8-4.5 4.4-7.6z"/><path d="M5.4 3.5c.8 1 1.3 1.8 1.3 2.5a1.35 1.35 0 1 1-2.7 0c0-.7.6-1.5 1.4-2.5z" fill="currentColor" stroke="none"/><path d="M18.6 3.5c.8 1 1.3 1.8 1.3 2.5a1.35 1.35 0 1 1-2.7 0c0-.7.6-1.5 1.4-2.5z" fill="currentColor" stroke="none"/></svg></div>
       <h3>9NERS Signature Wash</h3>
-      <p>Our baseline for every car — hand-brushed detailing wash, clay bar, fine gap &amp; edge cleaning, ceramic spray seal and reblack trim.</p>
+      <p>Our baseline for every car: hand-brushed detailing wash, clay bar, fine gap &amp; edge cleaning, ceramic spray seal and reblack trim.</p>
       <span class="from">from RM 88 →</span>
     </a>
 
     <a class="card dark" href="services/">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l7.2 2.7v5c0 4.7-3 8.8-7.2 10.7C7.8 19.3 4.8 15.2 4.8 10.5v-5L12 2.8z"/><path d="M12 8c1.5 1.8 2.5 3.2 2.5 4.4a2.5 2.5 0 0 1-5 0C9.5 11.2 10.5 9.8 12 8z" fill="currentColor" stroke="none"/></svg></div>
       <h3>Ceramic Coating</h3>
-      <p>8H and 9H crystallised coatings — glossier than new paint, protected for one or two years, with free mirror treatments included.</p>
+      <p>8H and 9H crystallised coatings. Glossier than new paint, protected for one or two years, with free mirror treatments included.</p>
       <span class="from">from RM 850 →</span>
     </a>
 
     <a class="card lite" href="services/">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="13" height="13" rx="2.2"/><path d="M8 7.5V6a2.5 2.5 0 0 1 2.5-2.5H18A2.5 2.5 0 0 1 20.5 6v7.5A2.5 2.5 0 0 1 18 16h-1.5"/></svg></div>
       <h3>Paint Protection Film</h3>
-      <p>Clear armour against stone chips, scratches and UV. Full front in 2–3 days, or panel by panel — mirrors, headlamps, even door handles.</p>
+      <p>Clear armour against stone chips, scratches and UV. Full front in 2–3 days, or panel by panel: mirrors, headlamps, even door handles.</p>
       <span class="from">from RM 120 →</span>
     </a>
 
     <a class="card lite" href="services/">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 11V7.5a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3V11"/><path d="M4.5 13.8A2.3 2.3 0 0 1 6.8 11.5h10.4a2.3 2.3 0 0 1 2.3 2.3v4.7h-15v-4.7z"/><path d="M6.8 18.5v1.7M17.2 18.5v1.7"/></svg></div>
       <h3>Interior, Leather &amp; Babygear</h3>
-      <p>Leather refresh, fabric extraction cleans, seat-out interior resets — plus deep-cleaned and sanitised car seats and strollers.</p>
-      <span class="from">from RM 55 →</span>
+      <p>Leather refresh, fabric extraction cleans, seat-out interior resets, plus deep-cleaned and sanitised car seats and strollers.</p>
+      <span class="from">from RM 40 →</span>
     </a>
 
     <a class="card lite" href="services/">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5a8 8 0 0 1 16 0v2.7a2 2 0 0 1-2 2h-3.2l-1.6-2.2H6a2 2 0 0 1-2-2v-.5z"/><path d="M4.3 12.5h8.9"/><circle cx="17" cy="14.2" r=".4" fill="currentColor"/></svg></div>
       <h3>Bike Spa, Coating &amp; Helmet</h3>
-      <p>Tank-to-spokes spa with chain care, 1-year ceramic coating for the bike — and scratch removal plus coating for your helmet.</p>
+      <p>Tank-to-spokes spa with chain care, 1-year ceramic coating for the bike, and scratch removal plus coating for your helmet.</p>
       <span class="from">from RM 40 →</span>
     </a>
     </div>
@@ -397,7 +424,7 @@
     <div class="sec-head">
       <span class="eyebrow">Transparent pricing</span>
       <h2 class="h-disp">Price menus</h2>
-      <p>Every package, size and duration — straight from our own menus.</p>
+      <p>Every package, size and duration, straight from our own menus.</p>
     </div>
     <div class="menu-grid">
       <a class="svc" href="https://drive.google.com/file/d/1UOLvAGJGzJl90gwknaz9Wiwe8ryFdf1G/view" target="_blank" rel="noopener">
@@ -444,7 +471,7 @@
     <div class="sec-head on-dark">
       <span class="eyebrow">Proof, not promises</span>
       <h2 class="h-disp">Before / after</h2>
-      <p>Drag the handle — real results, straight from the studio.</p>
+      <p>Drag the handle. Real results, straight from the studio.</p>
     </div>
     <div class="ba-frame" id="baFrame">
       <img src="images/ba-car-before.jpg" alt="Grey BMW covered in mud and dirt before detailing">
@@ -465,7 +492,7 @@
     <div class="sec-head">
       <span class="eyebrow">9NERS Studio Line · Car care</span>
       <h2 class="h-disp">Take the studio home</h2>
-      <p>Products we developed and tested in our own bays — starting with Rain Off, our glass coating.</p>
+      <p>Products we developed and tested in our own bays, starting with Rain Off.</p>
     </div>
     <div class="lu-grid">
       <a class="lu real" href="shop/rain-off/">
@@ -506,11 +533,11 @@
     <div>
       <span class="eyebrow" style="color:var(--pink)">9NERS Academy</span>
       <h2 class="h-disp">Learn. Practice.<br><span style="color:var(--pink)">Master.</span></h2>
-      <p class="lead">Hands-on training. Real skills. Real results. At 9NERS Academy we don't just teach detailing — we teach the right way, so you can build skills with confidence and stand out in the industry.</p>
+      <p class="lead">Hands-on training. Real skills. Real results. At 9NERS Academy we don't just teach detailing. We teach the right way, so you can build skills with confidence and stand out in the industry.</p>
       <ul class="aca-list">
         <li>Small classes on real cars, with real studio tools</li>
         <li>Paint correction from wash and decontamination to masking, polishing and protection</li>
-        <li>Taught by Nina — founder and head trainer</li>
+        <li>Taught by Nina, founder and head trainer</li>
       </ul>
       <div class="hero-ctas">
         <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20enquiry%20pasal%209NERS%20Academy." target="_blank" rel="noopener">Enquiry now</a>
@@ -596,7 +623,7 @@
         <span class="tag appt">Detailing &amp; academy</span>
         <h3>All under one roof</h3>
         <p>Detailing, car care and the 9NERS Academy<br>all run from our Desa Tebrau studio.</p>
-        <p class="hours">Big jobs &amp; classes — WhatsApp to book a slot</p>
+        <p class="hours">Big jobs &amp; classes: WhatsApp to book a slot</p>
         <a class="btn btn-ghost" href="https://wa.me/60167565222" target="_blank" rel="noopener">Book a slot</a>
       </div>
     </div>

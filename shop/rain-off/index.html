@@ -140,15 +140,34 @@
 
   .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
-  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(255,111,175,.14)}
-  .mob-menu.open{display:block}
-  .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
-  .mob-menu a:hover{color:#fff}
   @media (max-width:900px){.menu-btn{display:block}}
   @media (max-width:900px){.nav > .btn-wa{display:none}}
-  .mob-menu .btn-wa{display:block;width:min(320px,82%);margin:26px auto 0;padding:15px 26px;text-align:center;
-    font-family:var(--body);font-style:normal;font-weight:600;text-transform:none;font-size:16px;color:#08351D;background:var(--wa);border-radius:10px}
-  .mob-menu .btn-wa:hover{color:#08351D;background:#1FBF5B}
+  .mob-menu{position:fixed;inset:0;background:var(--white);z-index:100;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .5s cubic-bezier(.22,.61,.36,1),visibility 0s linear .5s}
+  .mob-menu.open{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+  body.mm-lock{overflow:hidden}
+  .mm-close{position:absolute;top:20px;right:20px;display:flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;font-family:var(--body);font-size:13px;font-weight:600;color:var(--ink);padding:8px}
+  .mm-close svg{width:17px;height:17px;display:block;transition:transform .3s ease}
+  .mm-close:hover{color:var(--purple)}
+  .mm-close:hover svg{transform:rotate(90deg)}
+  .mm-links{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:64px 24px 0}
+  .mm-links a{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-weight:700;font-size:36px;line-height:1.3;color:var(--ink);text-decoration:none;opacity:0;transform:translateX(30px);transition:opacity .4s ease,transform .4s ease,color .15s ease}
+  .mm-links a:hover{color:var(--purple)}
+  .mm-links a.on{color:var(--pink)}
+  .mob-menu.open .mm-links a{opacity:1;transform:none}
+  .mob-menu.open .mm-links a:nth-child(1){transition-delay:.10s}
+  .mob-menu.open .mm-links a:nth-child(2){transition-delay:.14s}
+  .mob-menu.open .mm-links a:nth-child(3){transition-delay:.18s}
+  .mob-menu.open .mm-links a:nth-child(4){transition-delay:.22s}
+  .mob-menu.open .mm-links a:nth-child(5){transition-delay:.26s}
+  .mob-menu.open .mm-links a:nth-child(6){transition-delay:.30s}
+  .mob-menu.open .mm-links a:nth-child(7){transition-delay:.34s}
+  .mm-foot{padding:0 24px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .4s ease .4s,transform .4s ease .4s}
+  .mob-menu.open .mm-foot{opacity:1;transform:none}
+  .mm-dash{width:26px;height:3px;background:var(--pink)}
+  .mm-foot p{font-size:13px;color:var(--muted);text-align:center;max-width:30ch}
+  .mm-foot .btn-wa{display:block;width:min(320px,100%);padding:15px 26px;text-align:center;font-size:16px;font-weight:600;color:#08351D;background:var(--wa);border-radius:10px;text-decoration:none}
+  .mm-checker{height:10px;flex:none;background:repeating-conic-gradient(var(--pink) 0% 25%, var(--noir) 0% 50%) 0 0/20px 20px}
+  @media (prefers-reduced-motion:reduce){.mob-menu,.mm-links a,.mm-foot{transition:none}}
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
@@ -171,18 +190,26 @@
       <li><a href="../../visit/">Visit Us</a></li>
     </ul>
     <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20Rain%20Off." target="_blank" rel="noopener">WhatsApp us</a>
-    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open');document.body.classList.toggle('mm-lock')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
 <nav class="mob-menu" id="mobMenu">
-  <a href="../../">Home</a>
-  <a href="../../services/">Services</a>
-  <a href="../../academy/">Academy</a>
-  <a href="../../shop/">Car Care</a>
-  <a href="../../gallery/">Gallery</a>
-  <a href="../../about/">About Us</a>
-  <a href="../../visit/">Visit Us</a>
-  <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20Rain%20Off." target="_blank" rel="noopener">WhatsApp us</a>
+  <button class="mm-close" onclick="document.getElementById('mobMenu').classList.remove('open');document.body.classList.remove('mm-lock')">Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="mm-links">
+    <a href="../../">Home</a>
+    <a href="../../services/">Services</a>
+    <a href="../../academy/">Academy</a>
+    <a class="on" href="../../shop/">Car Care</a>
+    <a href="../../gallery/">Gallery</a>
+    <a href="../../about/">About Us</a>
+    <a href="../../visit/">Visit Us</a>
+  </div>
+  <div class="mm-foot">
+    <span class="mm-dash"></span>
+    <p>Detailed to the nines, every single time.</p>
+    <a class="btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20Rain%20Off." target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+  <div class="mm-checker"></div>
 </nav>
 
 <div class="crumb">
@@ -210,21 +237,21 @@
     <div class="p-info">
       <span class="eyebrow">9NERS Studio Line</span>
       <h1 class="h-disp">Rain Off</h1>
-      <p class="sub">Hydrophobic glass coating spray — clear vision, better driving.</p>
-      <p class="desc">Rain Off puts a strong hydrophobic layer on your windscreen and glass: rain beads up and rolls away with the airflow, wipers work less, and night driving in a downpour stops being a guessing game. Spray, spread, buff — wipe and go.</p>
+      <p class="sub">Hydrophobic glass coating spray for clear vision and better driving.</p>
+      <p class="desc">Rain Off puts a strong hydrophobic layer on your windscreen and glass: rain beads up and rolls away with the airflow, wipers work less, and night driving in a downpour stops being a guessing game. Spray, spread, buff, wipe and go.</p>
       <ul class="bene">
-        <li><b>End-user friendly</b> — easy to use, perfect for first-timers</li>
-        <li><b>Strong water repellent</b> — powerful beading for better visibility</li>
-        <li><b>Lasts up to 3 months</b> — from a single application</li>
-        <li><b>Safe to use</b> — on all automotive glass and windscreens</li>
-        <li><b>Compact 100g can</b> — easy to keep in the car</li>
+        <li><b>End-user friendly</b>, perfect for first-timers</li>
+        <li><b>Strong water repellent</b> for better visibility in the rain</li>
+        <li><b>Lasts up to 3 months</b> from a single application</li>
+        <li><b>Safe to use</b> on all automotive glass and windscreens</li>
+        <li><b>Compact 100g can</b> that's easy to keep in the car</li>
       </ul>
       <div class="buy-box" id="buy">
         <div class="buy-btns">
           <a class="btn btn-purple" href="https://shopee.com.my/product/22171123/48814836782/" target="_blank" rel="noopener">Buy</a>
           <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20beli%20Rain%20Off." target="_blank" rel="noopener">Order via WhatsApp</a>
         </div>
-        <p class="note">Net weight 100g · Ships within West Malaysia only — <a href="../../shipping/">shipping policy</a></p>
+        <p class="note">Net weight 100g · Ships within West Malaysia only · <a href="../../shipping/">Shipping policy</a></p>
       </div>
     </div>
   </div>
@@ -235,10 +262,10 @@
     <div class="howto-head">
       <span class="eyebrow">How to use</span>
       <h2 class="h-disp">Six easy steps</h2>
-      <p>Work panel by panel on clean, dry glass — out of direct sun.</p>
+      <p>Work panel by panel on clean, dry glass, out of direct sun.</p>
     </div>
     <div class="steps">
-      <div class="step"><b>1</b><h3>Prep</h3><p>Start with clean, dry glass — free of watermarks.</p></div>
+      <div class="step"><b>1</b><h3>Prep</h3><p>Start with clean, dry glass, free of watermarks.</p></div>
       <div class="step"><b>2</b><h3>Spray</h3><p>Spray Rain Off onto the glass.</p></div>
       <div class="step"><b>3</b><h3>Spread</h3><p>Spread it evenly with a clean microfiber cloth.</p></div>
       <div class="step"><b>4</b><h3>Wait</h3><p>Give it about 1 minute to form a light haze.</p></div>
@@ -258,7 +285,7 @@
     <div class="sec-head">
       <span class="eyebrow">@9ners__official</span>
       <h2 class="h-disp">See it in action</h2>
-      <p>Straight from the 9NERS Instagram — Rain Off applied, tested and beading on real cars.</p>
+      <p>Straight from the 9NERS Instagram: Rain Off applied, tested and beading on real cars.</p>
     </div>
     <div class="igr-grid">
       <a class="igr-card" href="https://www.instagram.com/9ners__official/reel/Dbh-tNBBW4g/" target="_blank" rel="noopener"><img src="../../images/ig-rainoff/Dbh-tNBBW4g.jpg" alt="Applying Rain Off to a windscreen — made for clear and rainy days"><span class="igr-handle">@9ners__official</span><svg class="igr-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg></a>

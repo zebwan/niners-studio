@@ -148,15 +148,34 @@
 
   .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
-  .mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--noir);z-index:49;padding:26px 0;overflow:auto;border-top:1px solid rgba(255,111,175,.14)}
-  .mob-menu.open{display:block}
-  .mob-menu a{display:block;text-align:center;padding:15px 0;font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;font-weight:700;color:var(--pink);text-decoration:none}
-  .mob-menu a:hover{color:#fff}
   @media (max-width:900px){.menu-btn{display:block}}
   @media (max-width:900px){.nav > .btn-wa{display:none}}
-  .mob-menu .btn-wa{display:block;width:min(320px,82%);margin:26px auto 0;padding:15px 26px;text-align:center;
-    font-family:var(--body);font-style:normal;font-weight:600;text-transform:none;font-size:16px;color:#08351D;background:var(--wa);border-radius:10px}
-  .mob-menu .btn-wa:hover{color:#08351D;background:#1FBF5B}
+  .mob-menu{position:fixed;inset:0;background:var(--white);z-index:100;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .5s cubic-bezier(.22,.61,.36,1),visibility 0s linear .5s}
+  .mob-menu.open{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+  body.mm-lock{overflow:hidden}
+  .mm-close{position:absolute;top:20px;right:20px;display:flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;font-family:var(--body);font-size:13px;font-weight:600;color:var(--ink);padding:8px}
+  .mm-close svg{width:17px;height:17px;display:block;transition:transform .3s ease}
+  .mm-close:hover{color:var(--purple)}
+  .mm-close:hover svg{transform:rotate(90deg)}
+  .mm-links{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:64px 24px 0}
+  .mm-links a{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-weight:700;font-size:36px;line-height:1.3;color:var(--ink);text-decoration:none;opacity:0;transform:translateX(30px);transition:opacity .4s ease,transform .4s ease,color .15s ease}
+  .mm-links a:hover{color:var(--purple)}
+  .mm-links a.on{color:var(--pink)}
+  .mob-menu.open .mm-links a{opacity:1;transform:none}
+  .mob-menu.open .mm-links a:nth-child(1){transition-delay:.10s}
+  .mob-menu.open .mm-links a:nth-child(2){transition-delay:.14s}
+  .mob-menu.open .mm-links a:nth-child(3){transition-delay:.18s}
+  .mob-menu.open .mm-links a:nth-child(4){transition-delay:.22s}
+  .mob-menu.open .mm-links a:nth-child(5){transition-delay:.26s}
+  .mob-menu.open .mm-links a:nth-child(6){transition-delay:.30s}
+  .mob-menu.open .mm-links a:nth-child(7){transition-delay:.34s}
+  .mm-foot{padding:0 24px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .4s ease .4s,transform .4s ease .4s}
+  .mob-menu.open .mm-foot{opacity:1;transform:none}
+  .mm-dash{width:26px;height:3px;background:var(--pink)}
+  .mm-foot p{font-size:13px;color:var(--muted);text-align:center;max-width:30ch}
+  .mm-foot .btn-wa{display:block;width:min(320px,100%);padding:15px 26px;text-align:center;font-size:16px;font-weight:600;color:#08351D;background:var(--wa);border-radius:10px;text-decoration:none}
+  .mm-checker{height:10px;flex:none;background:repeating-conic-gradient(var(--pink) 0% 25%, var(--noir) 0% 50%) 0 0/20px 20px}
+  @media (prefers-reduced-motion:reduce){.mob-menu,.mm-links a,.mm-foot{transition:none}}
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
@@ -179,18 +198,26 @@
       <li><a href="../visit/">Visit Us</a></li>
     </ul>
     <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20shipping." target="_blank" rel="noopener">WhatsApp us</a>
-    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open');document.body.classList.toggle('mm-lock')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
 <nav class="mob-menu" id="mobMenu">
-  <a href="../">Home</a>
-  <a href="../services/">Services</a>
-  <a href="../academy/">Academy</a>
-  <a href="../shop/">Car Care</a>
-  <a href="../gallery/">Gallery</a>
-  <a href="../about/">About Us</a>
-  <a href="../visit/">Visit Us</a>
-  <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20shipping." target="_blank" rel="noopener">WhatsApp us</a>
+  <button class="mm-close" onclick="document.getElementById('mobMenu').classList.remove('open');document.body.classList.remove('mm-lock')">Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="mm-links">
+    <a href="../">Home</a>
+    <a href="../services/">Services</a>
+    <a href="../academy/">Academy</a>
+    <a href="../shop/">Car Care</a>
+    <a href="../gallery/">Gallery</a>
+    <a href="../about/">About Us</a>
+    <a href="../visit/">Visit Us</a>
+  </div>
+  <div class="mm-foot">
+    <span class="mm-dash"></span>
+    <p>Detailed to the nines, every single time.</p>
+    <a class="btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20shipping." target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
+  <div class="mm-checker"></div>
 </nav>
 
 <section class="a-hero">
@@ -221,12 +248,12 @@
     <div class="sec-head">
       <span class="eyebrow">From our bay to your door</span>
       <h2 class="h-disp">How your order moves</h2>
-      <p>Every order leaves the studio in Johor Bahru — here's the trip it takes.</p>
+      <p>Every order leaves the studio in Johor Bahru. Here's the trip it takes.</p>
     </div>
     <div class="tl">
       <div class="tl-step rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.3l2.4 2.4 4.6-4.9"/></svg></span><h3>Order confirmed</h3><p>Once payment clears, your order joins the packing queue.</p></div>
       <div class="tl-step rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/></svg></span><h3>Packed in 1–2 working days</h3><p>Processed and packed after payment is confirmed.</p></div>
-      <div class="tl-step rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="14" height="12" rx="1.5"/><path d="M15 9h4l3.4 3.4V16H15V9z"/><circle cx="6" cy="18.6" r="2"/><circle cx="18" cy="18.6" r="2"/></svg></span><h3>Shipped from Johor Bahru</h3><p>Handed to the courier — tracking details sent to you.</p></div>
+      <div class="tl-step rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="14" height="12" rx="1.5"/><path d="M15 9h4l3.4 3.4V16H15V9z"/><circle cx="6" cy="18.6" r="2"/><circle cx="18" cy="18.6" r="2"/></svg></span><h3>Shipped from Johor Bahru</h3><p>Handed to the courier, with tracking details sent to you.</p></div>
       <div class="tl-step rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6.5-9 12.5-9 12.5S3 16.5 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><h3>Delivered in 1–3 working days</h3><p>Anywhere in West Malaysia.</p></div>
     </div>
   </div>
@@ -240,7 +267,7 @@
     </div>
     <div class="el-grid" style="grid-template-columns:repeat(2,1fr)">
       <div class="el rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="14" height="12" rx="1.5"/><path d="M15 9h4l3.4 3.4V16H15V9z"/><circle cx="6" cy="18.6" r="2"/><circle cx="18" cy="18.6" r="2"/></svg></span><h3>Peak periods</h3><p>During festive seasons, big sale days or courier backlogs, delivery can take a little longer than the estimate.</p></div>
-      <div class="el rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6.5-9 12.5-9 12.5S3 16.5 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><h3>Check your details</h3><p>Make sure your shipping address and contact number are correct before placing the order — it's the number the courier will call.</p></div>
+      <div class="el rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6.5-9 12.5-9 12.5S3 16.5 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><h3>Check your details</h3><p>Make sure your shipping address and contact number are correct before placing the order. It's the number the courier will call.</p></div>
     </div>
   </div>
 </section>
@@ -251,7 +278,7 @@
 <section class="cta">
   <div class="wrap">
     <h2 class="h-disp">Questions about<br>an order?</h2>
-    <p>WhatsApp us with your order number — we'll check on it straight away.</p>
+    <p>WhatsApp us with your order number. We'll check on it straight away.</p>
     <div class="cta-btns">
       <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20check%20status%20order%20saya." target="_blank" rel="noopener">WhatsApp us</a>
       <a class="btn btn-ghost" href="../returns/">Returns &amp; refunds</a>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rain Off — Siloxane Glass Coating · 9NERS Studio Line</title>
+<title>Rain Off — Hydrophobic Glass Coating Spray · 9NERS Studio Line</title>
 <style>
   :root{
     --noir:#000000; --noir-2:#111014; --deep:#1A181D; --purple:#C6246B; --purple-d:#9E1854;
@@ -74,16 +74,24 @@
   .buy-box .price-line span{font-size:13px;color:var(--muted)}
   .buy-btns{display:flex;gap:12px;flex-wrap:wrap}
   .buy-box .note{margin-top:12px}
+  .buy-box .note a{color:var(--purple);font-weight:600;text-decoration:none}
+  .buy-box .note a:hover{color:var(--purple-d)}
 
   .howto{background:var(--lilac);padding:96px 0}
   .howto-head{max-width:560px;margin-bottom:52px}
   .howto-head h2{font-size:clamp(32px,4.4vw,50px);margin:14px 0 12px;color:var(--ink)}
   .howto-head p{color:var(--muted)}
-  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .step{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px 20px}
   .step b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:44px;color:var(--pink);display:block;line-height:1;margin-bottom:12px}
   .step h3{font-size:15px;font-weight:600;margin-bottom:4px}
   .step p{font-size:13px;color:var(--muted)}
+  .warns{margin-top:26px;background:var(--noir);border-radius:16px;padding:28px 30px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .warn{display:flex;gap:14px;align-items:flex-start}
+  .warn svg{width:22px;height:22px;flex:none;color:var(--pink);margin-top:2px}
+  .warn b{display:block;color:#fff;font-size:14.5px;font-weight:600;margin-bottom:2px}
+  .warn p{font-size:13px;color:#B4B2BA}
+  @media (max-width:900px){.warns{grid-template-columns:1fr;gap:20px}}
 
   .ig-band{background:var(--noir);color:#fff;padding:96px 0}
   .ig-band .sec-head{max-width:560px;margin-bottom:48px}
@@ -109,6 +117,8 @@
   footer a:hover{color:var(--pink)}
   .foot-brand p{max-width:34ch;margin-top:14px}
   .foot-base{border-top:1px solid rgba(255,111,175,.1);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px}
+  .foot-legal{display:flex;gap:18px;flex-wrap:wrap}
+  .foot-legal a{display:inline;margin:0}
 
   @media (max-width:900px){
     .nav-links{display:none}
@@ -187,7 +197,7 @@
           <source src="../../videos/rainoff-360-alpha.mov" type="video/quicktime">
           <source src="../../videos/rainoff-360-alpha.webm" type="video/webm">
         </video>
-        <img id="galMain" src="../../images/rainoff-front-cut.webp" alt="9NERS Rain Off siloxane glass coating can" hidden>
+        <img id="galMain" src="../../images/rainoff-front-cut.webp" alt="9NERS Rain Off hydrophobic glass coating can" hidden>
       </div>
       <div class="thumbs">
         <button class="active" data-type="video" aria-label="360 degree view"><img class="t-cut" src="../../videos/rainoff-360-alpha-poster.webp" alt=""><span class="t360">360°</span></button>
@@ -200,19 +210,21 @@
     <div class="p-info">
       <span class="eyebrow">9NERS Studio Line</span>
       <h1 class="h-disp">Rain Off</h1>
-      <p class="sub">Siloxane glass coating — clear vision, better driving.</p>
+      <p class="sub">Hydrophobic glass coating spray — clear vision, better driving.</p>
       <p class="desc">Rain Off puts a strong hydrophobic layer on your windscreen and glass: rain beads up and rolls away with the airflow, wipers work less, and night driving in a downpour stops being a guessing game. Spray, spread, buff — wipe and go.</p>
       <ul class="bene">
         <li><b>End-user friendly</b> — easy to use, perfect for first-timers</li>
         <li><b>Strong water repellent</b> — powerful beading for better visibility</li>
         <li><b>Lasts up to 3 months</b> — from a single application</li>
         <li><b>Safe to use</b> — on all automotive glass and windscreens</li>
+        <li><b>Compact 100g can</b> — easy to keep in the car</li>
       </ul>
       <div class="buy-box" id="buy">
         <div class="buy-btns">
           <a class="btn btn-purple" href="https://shopee.com.my/product/22171123/48814836782/" target="_blank" rel="noopener">Buy</a>
           <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20beli%20Rain%20Off." target="_blank" rel="noopener">Order via WhatsApp</a>
         </div>
+        <p class="note">Net weight 100g · Ships within West Malaysia only — <a href="../../shipping/">shipping policy</a></p>
       </div>
     </div>
   </div>
@@ -222,15 +234,21 @@
   <div class="wrap">
     <div class="howto-head">
       <span class="eyebrow">How to use</span>
-      <h2 class="h-disp">Five easy steps</h2>
+      <h2 class="h-disp">Six easy steps</h2>
       <p>Work panel by panel on clean, dry glass — out of direct sun.</p>
     </div>
     <div class="steps">
-      <div class="step"><b>1</b><h3>Spray</h3><p>Spray Rain Off onto the clean mirror or glass.</p></div>
-      <div class="step"><b>2</b><h3>Spread</h3><p>Spread it evenly across the surface.</p></div>
-      <div class="step"><b>3</b><h3>Wait</h3><p>Give it 1 minute to haze over.</p></div>
-      <div class="step"><b>4</b><h3>Buff</h3><p>Buff with a damp cloth.</p></div>
-      <div class="step"><b>5</b><h3>Wipe</h3><p>Wipe off any excess with a dry cloth — done.</p></div>
+      <div class="step"><b>1</b><h3>Prep</h3><p>Start with clean, dry glass — free of watermarks.</p></div>
+      <div class="step"><b>2</b><h3>Spray</h3><p>Spray Rain Off onto the glass.</p></div>
+      <div class="step"><b>3</b><h3>Spread</h3><p>Spread it evenly with a clean microfiber cloth.</p></div>
+      <div class="step"><b>4</b><h3>Wait</h3><p>Give it about 1 minute to form a light haze.</p></div>
+      <div class="step"><b>5</b><h3>Buff</h3><p>Buff with a damp microfiber cloth.</p></div>
+      <div class="step"><b>6</b><h3>Wipe dry</h3><p>Finish with a dry cloth until the glass is crystal clear.</p></div>
+    </div>
+    <div class="warns">
+      <div class="warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.9 18.4a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v5"/><circle cx="12" cy="17.5" r=".4" fill="currentColor"/></svg><div><b>Not under direct sun</b><p>Don't apply in direct sunlight or on hot glass.</p></div></div>
+      <div class="warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.9 18.4a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v5"/><circle cx="12" cy="17.5" r=".4" fill="currentColor"/></svg><div><b>Shade &amp; airflow</b><p>Work in a shaded, well-ventilated area.</p></div></div>
+      <div class="warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.9 18.4a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v5"/><circle cx="12" cy="17.5" r=".4" fill="currentColor"/></svg><div><b>Watermarks off first</b><p>Coating bonds best on glass that's free of watermarks.</p></div></div>
     </div>
   </div>
 </section>
@@ -289,6 +307,7 @@
     </div>
     <div class="foot-base">
       <span>© 2026 NINERS DETAILING STUDIO (KT0551869-V)</span>
+      <span class="foot-legal"><a href="../../shipping/">Shipping</a><a href="../../returns/">Returns &amp; refunds</a><a href="../../terms/">Terms</a></span>
       <span>79, Jalan Harmonium 33/1, Taman Desa Tebrau, Johor Bahru</span>
     </div>
   </div>

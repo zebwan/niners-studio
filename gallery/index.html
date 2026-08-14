@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=2">
-<link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=2">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=2">
+<link rel="icon" href="/favicon.ico?v=3" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=3">
 <title>Gallery — 9NERS Detailing Studio, Johor Bahru</title>
 <style>
   :root{
@@ -289,5 +289,38 @@
   </div>
 </footer>
 <script async src="//www.instagram.com/embed.js"></script>
+<style>
+  html.lenis,html.lenis body{height:auto}
+  .lenis.lenis-smooth{scroll-behavior:auto!important}
+  .lenis.lenis-stopped{overflow:hidden}
+</style>
+<script src="/js/lenis.min.js"></script>
+<script>
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!window.Lenis)return;
+  var lenis=new Lenis({
+    duration:1.4,
+    easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))},
+    smoothWheel:true
+  });
+  function raf(t){lenis.raf(t);requestAnimationFrame(raf)}
+  requestAnimationFrame(raf);
+  new MutationObserver(function(){
+    document.body.classList.contains('mm-lock')?lenis.stop():lenis.start();
+  }).observe(document.body,{attributes:true,attributeFilter:['class']});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');
+    if(!a)return;
+    var href=a.getAttribute('href');
+    if(href==='#')return;
+    var el=document.querySelector(href);
+    if(!el)return;
+    e.preventDefault();
+    var hd=document.querySelector('header');
+    lenis.scrollTo(el,{offset:hd?-hd.offsetHeight-8:0});
+  });
+  window.__lenis=lenis;
+})();
+</script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var r=document.documentElement;r.className+=" js-rv";setTimeout(function(){if(!window.__rv)r.className+=" rv-all"},2600)})()</script>
 <link rel="icon" href="/favicon.ico?v=3" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
@@ -19,7 +20,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:var(--body);color:var(--ink);background:var(--white);font-size:16px;line-height:1.65}
-  img{max-width:100%;display:block}
+  img{max-width:100%;height:auto;display:block}
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
   .eyebrow{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--rose)}
   h1,h2,h3{text-wrap:balance}
@@ -46,7 +47,7 @@
   .nav .btn{padding:10px 18px;font-size:14px;white-space:nowrap}
 
   .a-hero{position:relative;color:#fff;padding:150px 0 110px;overflow:hidden;background:var(--noir)}
-  .a-hero-bg{position:absolute;inset:0;background-image:url('../images/services-hero.jpg');background-size:cover;background-position:center 45%}
+  .a-hero-bg{position:absolute;inset:0;background-image:url('../images/services-hero.webp');background-size:cover;background-position:center 45%}
   .a-hero-shade{position:absolute;inset:0;background:
     linear-gradient(0deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,.55) 100%),
     linear-gradient(115deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.72) 50%, rgba(0,0,0,.35) 100%)}
@@ -212,13 +213,26 @@
   .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,111,175,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
   .soc-ic svg{width:18px;height:18px;display:block}
   .soc-ic:hover{background:var(--pink);color:#3A0A1F;border-color:var(--pink)}
+
+/* title entry reveals */
+html.js-rv .eyebrow,html.js-rv .kicker,html.js-rv .lead{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+html.js-rv .eyebrow.in,html.js-rv .kicker.in,html.js-rv .lead.in{opacity:1;transform:none}
+html.js-rv h1.h-disp,html.js-rv h2.h-disp,html.js-rv h1.mega,html.js-rv h2.mega-2{opacity:0}
+html.js-rv h1.rv-title,html.js-rv h2.rv-title{opacity:1}
+html.js-rv .rv-title{display:flex;flex-direction:column;align-items:stretch}
+html.js-rv h1.rv-show,html.js-rv h2.rv-show{opacity:1}
+html.js-rv .ln{display:block;overflow:hidden;padding:.16em .12em;margin:-.16em -.12em;color:inherit}
+html.js-rv .ln-in{display:block;transform:translateY(118%);transition:transform .9s cubic-bezier(.22,1,.36,1);color:inherit}
+html.js-rv .ln.in .ln-in{transform:translateY(0)}
+html.rv-all .eyebrow,html.rv-all .kicker,html.rv-all .lead,html.rv-all h1.h-disp,html.rv-all h2.h-disp,html.rv-all h1.mega,html.rv-all h2.mega-2,html.rv-all .ln-in{opacity:1!important;transform:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){html.js-rv .eyebrow,html.js-rv .kicker,html.js-rv .lead,html.js-rv h1.h-disp,html.js-rv h2.h-disp,html.js-rv h1.mega,html.js-rv h2.mega-2,html.js-rv .ln-in{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="../"><img src="../images/logo-hot.png" alt="9NERS Detailing Studio"></a>
+    <a class="logo" href="../"><img src="../images/logo-hot.webp" alt="9NERS Detailing Studio" width="1475" height="569" decoding="async"></a>
     <ul class="nav-links">
       <li><a class="on" href="../services/">Services</a></li>
       <li><a href="../academy/">Academy</a></li>
@@ -273,7 +287,7 @@
 <section class="svc-cards">
   <div class="wrap svc-grid">
     <article class="svc">
-      <div class="ph"><span class="badge">Car</span><img src="../images/wash-foam.jpg" alt="Car covered in thick wash foam"></div>
+      <div class="ph"><span class="badge">Car</span><img src="../images/wash-foam.webp" alt="Car covered in thick wash foam" width="1200" height="800" decoding="async"></div>
       <div class="svc-body">
         <h3>9NERS Signature Wash</h3>
         <div class="svc-foot"><em>from RM 88</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
@@ -293,7 +307,7 @@
       </div>
     </article>
     <article class="svc">
-      <div class="ph"><span class="badge">Our specialty</span><img src="../images/paint-correction.webp" alt="The 9NERS team machine-polishing a red sports car in the studio"></div>
+      <div class="ph"><span class="badge">Our specialty</span><img src="../images/paint-correction.webp" alt="The 9NERS team machine-polishing a red sports car in the studio" width="1042" height="1280" decoding="async" loading="lazy"></div>
       <div class="svc-body">
         <h3>Polish &amp; Paint Correction</h3>
         <div class="svc-foot"><em>from RM 330</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
@@ -312,7 +326,7 @@
       </div>
     </article>
     <article class="svc">
-      <div class="ph"><span class="badge">Car</span><img src="../images/ceramic-gloss.jpg" alt="Glossy sports car in a dark studio"></div>
+      <div class="ph"><span class="badge">Car</span><img src="../images/ceramic-gloss.webp" alt="Glossy sports car in a dark studio" width="1200" height="800" decoding="async" loading="lazy"></div>
       <div class="svc-body">
         <h3>Ceramic Coating</h3>
         <div class="svc-foot"><em>from RM 850</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
@@ -330,7 +344,7 @@
       </div>
     </article>
     <article class="svc">
-      <div class="ph"><span class="badge">New</span><img src="../images/ppf-headlamp.jpg" alt="Headlamp with water beads on protective film"></div>
+      <div class="ph"><span class="badge">New</span><img src="../images/ppf-headlamp.webp" alt="Headlamp with water beads on protective film" width="1200" height="800" decoding="async" loading="lazy"></div>
       <div class="svc-body">
         <h3>Paint Protection Film</h3>
         <div class="svc-foot"><em>from RM 120</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
@@ -351,7 +365,7 @@
       </div>
     </article>
     <article class="svc">
-      <div class="ph"><span class="badge">Car</span><img src="../images/leather-interior.jpg" alt="Dark leather car interior with red stitching"></div>
+      <div class="ph"><span class="badge">Car</span><img src="../images/leather-interior.webp" alt="Dark leather car interior with red stitching" width="1200" height="1800" decoding="async" loading="lazy"></div>
       <div class="svc-body">
         <h3>Leather &amp; Fabric Interior</h3>
         <div class="svc-foot"><em>from RM 180</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
@@ -370,7 +384,7 @@
       </div>
     </article>
     <article class="svc">
-      <div class="ph"><span class="badge">Family</span><img src="../images/babygear-refresh.webp" alt="Steam-cleaning a child car seat at the 9NERS studio"></div>
+      <div class="ph"><span class="badge">Family</span><img src="../images/babygear-refresh.webp" alt="Steam-cleaning a child car seat at the 9NERS studio" width="810" height="1080" decoding="async" loading="lazy"></div>
       <div class="svc-body">
         <h3>Babygear Refresh</h3>
         <div class="svc-foot"><em>from RM 40</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
@@ -387,7 +401,7 @@
       </div>
     </article>
     <article class="svc">
-      <div class="ph"><span class="badge">Car</span><img src="../images/watermark-removal.webp" alt="Machine-polishing watermarks off a windscreen"></div>
+      <div class="ph"><span class="badge">Car</span><img src="../images/watermark-removal.webp" alt="Machine-polishing watermarks off a windscreen" width="1280" height="853" decoding="async" loading="lazy"></div>
       <div class="svc-body">
         <h3>Window Watermark Removal</h3>
         <div class="svc-foot"><em>from RM 270</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
@@ -404,7 +418,7 @@
       </div>
     </article>
     <article class="svc">
-      <div class="ph"><span class="badge bike">Bike</span><img src="../images/bike-front.jpg" alt="Matte black motorcycle front close-up"></div>
+      <div class="ph"><span class="badge bike">Bike</span><img src="../images/bike-front.webp" alt="Matte black motorcycle front close-up" width="1200" height="800" decoding="async" loading="lazy"></div>
       <div class="svc-body">
         <h3>Bike Spa, Coating &amp; Helmet</h3>
         <div class="svc-foot"><em>from RM 40</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
@@ -503,7 +517,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="../"><img src="../images/logo-hot.png" alt="9NERS Detailing Studio"></a>
+        <a class="logo" href="../"><img src="../images/logo-hot.webp" alt="9NERS Detailing Studio" width="1475" height="569" decoding="async" loading="lazy"></a>
         <p>Professional car &amp; bike detailing in Johor Bahru. Detailed to the nines, every single time.</p>
       </div>
       <div>
@@ -653,5 +667,6 @@
   window.__lenis=lenis;
 })();
 </script>
+<script src="../js/reveal.js"></script>
 </body>
 </html>

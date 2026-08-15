@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var r=document.documentElement;r.className+=" js-rv";setTimeout(function(){if(!window.__rv)r.className+=" rv-all"},2600)})()</script>
 <link rel="icon" href="/favicon.ico?v=3" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
@@ -19,7 +20,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:var(--body);color:#fff;background:var(--noir);font-size:16px;line-height:1.65}
-  img{max-width:100%;display:block}
+  img{max-width:100%;height:auto;display:block}
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
   .eyebrow{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--pink)}
   h1,h2,h3{text-wrap:balance}
@@ -139,13 +140,26 @@
   .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,111,175,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
   .soc-ic svg{width:18px;height:18px;display:block}
   .soc-ic:hover{background:var(--pink);color:#3A0A1F;border-color:var(--pink)}
+
+/* title entry reveals */
+html.js-rv .eyebrow,html.js-rv .kicker,html.js-rv .lead{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+html.js-rv .eyebrow.in,html.js-rv .kicker.in,html.js-rv .lead.in{opacity:1;transform:none}
+html.js-rv h1.h-disp,html.js-rv h2.h-disp,html.js-rv h1.mega,html.js-rv h2.mega-2{opacity:0}
+html.js-rv h1.rv-title,html.js-rv h2.rv-title{opacity:1}
+html.js-rv .rv-title{display:flex;flex-direction:column;align-items:stretch}
+html.js-rv h1.rv-show,html.js-rv h2.rv-show{opacity:1}
+html.js-rv .ln{display:block;overflow:hidden;padding:.16em .12em;margin:-.16em -.12em;color:inherit}
+html.js-rv .ln-in{display:block;transform:translateY(118%);transition:transform .9s cubic-bezier(.22,1,.36,1);color:inherit}
+html.js-rv .ln.in .ln-in{transform:translateY(0)}
+html.rv-all .eyebrow,html.rv-all .kicker,html.rv-all .lead,html.rv-all h1.h-disp,html.rv-all h2.h-disp,html.rv-all h1.mega,html.rv-all h2.mega-2,html.rv-all .ln-in{opacity:1!important;transform:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){html.js-rv .eyebrow,html.js-rv .kicker,html.js-rv .lead,html.js-rv h1.h-disp,html.js-rv h2.h-disp,html.js-rv h1.mega,html.js-rv h2.mega-2,html.js-rv .ln-in{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="../"><img src="../images/logo-hot.png" alt="9NERS Detailing Studio"></a>
+    <a class="logo" href="../"><img src="../images/logo-hot.webp" alt="9NERS Detailing Studio" width="1475" height="569" decoding="async"></a>
     <ul class="nav-links">
       <li><a href="../services/">Services</a></li>
       <li><a href="../academy/">Academy</a></li>
@@ -195,23 +209,23 @@
     <div class="masonry">
       <div class="tile">
         <span class="vid-pill">Video</span>
-        <video src="../videos/rainoff-demo-1.mp4" poster="../videos/rainoff-demo-1-poster.jpg" autoplay muted loop playsinline></video>
+        <video src="../videos/rainoff-demo-1.mp4" poster="../videos/rainoff-demo-1-poster.jpg" muted loop playsinline preload="none" data-lazy></video>
         <span class="cap">Rain Off, tested on glass</span>
       </div>
-      <div class="tile"><img src="../images/press-metro.jpg" alt="Nina holding the Harian Metro feature about 9NERS"><span class="cap">Harian Metro feature</span></div>
-      <div class="tile"><img src="../images/journey-outlet1.jpg" alt="The 9NERS shopfront with pink signage"><span class="cap">Come find us</span></div>
-      <div class="tile"><img src="../images/academy-class.jpg" alt="A 9NERS Academy paint correction class in session"><span class="cap">9NERS Academy class</span></div>
-      <div class="tile"><img src="../images/studio-floor.jpg" alt="The 9NERS bay with the pink 9 on the checkered floor"><span class="cap">Our bay in Desa Tebrau</span></div>
+      <div class="tile"><img src="../images/press-metro.webp" alt="Nina holding the Harian Metro feature about 9NERS" width="900" height="1125" decoding="async"><span class="cap">Harian Metro feature</span></div>
+      <div class="tile"><img src="../images/journey-outlet1.webp" alt="The 9NERS shopfront with pink signage" width="900" height="722" decoding="async" loading="lazy"><span class="cap">Come find us</span></div>
+      <div class="tile"><img src="../images/academy-class.webp" alt="A 9NERS Academy paint correction class in session" width="1280" height="1024" decoding="async" loading="lazy"><span class="cap">9NERS Academy class</span></div>
+      <div class="tile"><img src="../images/studio-floor.webp" alt="The 9NERS bay with the pink 9 on the checkered floor" width="960" height="1280" decoding="async" loading="lazy"><span class="cap">Our bay in Desa Tebrau</span></div>
       <div class="tile">
         <span class="vid-pill">Video</span>
-        <video src="../videos/rainoff-demo-2.mp4" poster="../videos/rainoff-demo-2-poster.jpg" autoplay muted loop playsinline></video>
+        <video src="../videos/rainoff-demo-2.mp4" poster="../videos/rainoff-demo-2-poster.jpg" muted loop playsinline preload="none" data-lazy></video>
         <span class="cap">Water beading demo</span>
       </div>
-      <div class="tile"><img src="../images/nina-polish.jpg" alt="Nina machine-polishing a bonnet"><span class="cap">Machine polishing</span></div>
-      <div class="tile"><img src="../images/nina-booth.jpg" alt="Nina at the 9NERS booth with a polisher"><span class="cap">Automechanika KL</span></div>
-      <div class="tile"><img src="../images/rainoff-group.jpg" alt="Rain Off hydrophobic glass coating cans on the studio bench"><span class="cap">Rain Off, our own glass coating</span></div>
-      <div class="tile"><img src="../images/journey-outlet2.jpg" alt="Studio entrance with the pink flame wall"><span class="cap">Welcome to 9NERS</span></div>
-      <div class="tile"><img src="../images/journey-home.jpg" alt="Nina cleaning a wheel in the early home-based days"><span class="cap">Where it started</span></div>
+      <div class="tile"><img src="../images/nina-polish.webp" alt="Nina machine-polishing a bonnet" width="854" height="1138" decoding="async" loading="lazy"><span class="cap">Machine polishing</span></div>
+      <div class="tile"><img src="../images/nina-booth.webp" alt="Nina at the 9NERS booth with a polisher" width="900" height="1200" decoding="async" loading="lazy"><span class="cap">Automechanika KL</span></div>
+      <div class="tile"><img src="../images/rainoff-group.webp" alt="Rain Off hydrophobic glass coating cans on the studio bench" width="1200" height="1500" decoding="async" loading="lazy"><span class="cap">Rain Off, our own glass coating</span></div>
+      <div class="tile"><img src="../images/journey-outlet2.webp" alt="Studio entrance with the pink flame wall" width="900" height="985" decoding="async" loading="lazy"><span class="cap">Welcome to 9NERS</span></div>
+      <div class="tile"><img src="../images/journey-home.webp" alt="Nina cleaning a wheel in the early home-based days" width="800" height="822" decoding="async" loading="lazy"><span class="cap">Where it started</span></div>
     </div>
   </div>
 </section>
@@ -259,7 +273,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="logo" href="../"><img src="../images/logo-hot.png" alt="9NERS Detailing Studio"></a>
+        <a class="logo" href="../"><img src="../images/logo-hot.webp" alt="9NERS Detailing Studio" width="1475" height="569" decoding="async" loading="lazy"></a>
         <p>Professional car &amp; bike detailing in Johor Bahru. Detailed to the nines, every single time.</p>
       </div>
       <div>
@@ -288,7 +302,7 @@
     </div>
   </div>
 </footer>
-<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
 <style>
   html.lenis,html.lenis body{height:auto}
   .lenis.lenis-smooth{scroll-behavior:auto!important}
@@ -322,5 +336,6 @@
   window.__lenis=lenis;
 })();
 </script>
+<script src="../js/reveal.js"></script>
 </body>
 </html>

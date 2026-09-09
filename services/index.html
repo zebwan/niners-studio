@@ -180,33 +180,44 @@
   .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
   .menu-btn svg{width:26px;height:26px;display:block}
   @media (max-width:900px){.menu-btn{display:block}}
-  @media (max-width:900px){.nav > .btn-wa{display:none}}
-  .mob-menu{position:fixed;inset:0;background:var(--white);z-index:100;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .5s cubic-bezier(.22,.61,.36,1),visibility 0s linear .5s}
-  .mob-menu.open{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+
+  /* mobile menu: black panel floods open from the burger corner, links stack left and rise in one after another */
+  .mob-menu{position:fixed;inset:0;z-index:100;background:var(--noir);color:#fff;display:flex;flex-direction:column;visibility:hidden;opacity:0;transition:opacity .25s ease,visibility 0s linear .25s}
+  .mob-menu.open{visibility:visible;opacity:1;transition:none;animation:mmflood .6s cubic-bezier(.22,.61,.36,1) both}
+  @keyframes mmflood{from{clip-path:circle(30px at calc(100% - 43px) 34px)}to{clip-path:circle(180% at calc(100% - 43px) 34px)}}
   body.mm-lock{overflow:hidden}
-  .mm-close{position:absolute;top:20px;right:20px;display:flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;font-family:var(--body);font-size:13px;font-weight:600;color:var(--ink);padding:8px}
+  .mm-in{flex:1;display:flex;flex-direction:column;min-height:0;padding:0 24px calc(18px + env(safe-area-inset-bottom,0px));overflow-y:auto}
+  .mm-top{display:flex;align-items:center;justify-content:space-between;height:68px;flex:none}
+  .mm-logo{display:flex;align-items:center;line-height:1}
+  .mm-logo img{height:34px;width:auto;display:block}
+  .mm-close{display:flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;font-family:var(--body);font-size:13px;font-weight:600;color:#fff;padding:8px;margin-right:-8px}
   .mm-close svg{width:17px;height:17px;display:block;transition:transform .3s ease}
-  .mm-close:hover{color:var(--purple)}
+  .mm-close:hover{color:var(--pink)}
   .mm-close:hover svg{transform:rotate(90deg)}
-  .mm-links{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;padding:64px 24px 0}
-  .mm-links a{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-weight:700;font-size:36px;line-height:1.3;color:var(--ink);text-decoration:none;opacity:0;transform:translateX(30px);transition:opacity .4s ease,transform .4s ease,color .15s ease}
-  .mm-links a:hover{color:var(--purple)}
+  .mm-links{display:flex;flex-direction:column;align-items:flex-start;margin-top:26px}
+  .mm-links a{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-weight:700;font-size:clamp(40px,11vw,66px);line-height:1.08;letter-spacing:.01em;color:#fff;text-decoration:none;padding:3px 0;opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s cubic-bezier(.22,.61,.36,1),color .15s ease}
+  .mm-links a:hover{color:var(--pink)}
   .mm-links a.on{color:var(--pink)}
   .mob-menu.open .mm-links a{opacity:1;transform:none}
-  .mob-menu.open .mm-links a:nth-child(1){transition-delay:.10s}
-  .mob-menu.open .mm-links a:nth-child(2){transition-delay:.14s}
-  .mob-menu.open .mm-links a:nth-child(3){transition-delay:.18s}
-  .mob-menu.open .mm-links a:nth-child(4){transition-delay:.22s}
-  .mob-menu.open .mm-links a:nth-child(5){transition-delay:.26s}
-  .mob-menu.open .mm-links a:nth-child(6){transition-delay:.30s}
-  .mob-menu.open .mm-links a:nth-child(7){transition-delay:.34s}
-  .mm-foot{padding:0 24px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;transform:translateY(14px);transition:opacity .4s ease .4s,transform .4s ease .4s}
-  .mob-menu.open .mm-foot{opacity:1;transform:none}
-  .mm-dash{width:26px;height:3px;background:var(--pink)}
-  .mm-foot p{font-size:13px;color:var(--muted);text-align:center;max-width:30ch}
-  .mm-foot .btn-wa{display:block;width:min(320px,100%);padding:15px 26px;text-align:center;font-size:16px;font-weight:600;color:#08351D;background:var(--wa);border-radius:10px;text-decoration:none}
+  .mob-menu.open .mm-links a:nth-child(1){transition-delay:.16s}
+  .mob-menu.open .mm-links a:nth-child(2){transition-delay:.22s}
+  .mob-menu.open .mm-links a:nth-child(3){transition-delay:.28s}
+  .mob-menu.open .mm-links a:nth-child(4){transition-delay:.34s}
+  .mob-menu.open .mm-links a:nth-child(5){transition-delay:.40s}
+  .mob-menu.open .mm-links a:nth-child(6){transition-delay:.46s}
+  .mob-menu.open .mm-links a:nth-child(7){transition-delay:.52s}
+  .mm-foot{margin-top:auto;padding-top:28px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding-bottom:18px;opacity:0;transform:translateY(12px);transition:opacity .45s ease .5s,transform .45s ease .5s}
+  .mm-label{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--pink);padding-bottom:3px}
+  .mm-contact{display:flex;flex-direction:column;gap:6px;text-align:right}
+  .mm-contact a{color:#fff;font-size:15px;font-weight:600;text-decoration:none;transition:color .15s ease}
+  .mm-contact a:hover{color:var(--pink)}
+  .mm-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid rgba(255,111,175,.28);padding-top:18px;color:var(--wa);text-decoration:none;font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(22px,6vw,28px);line-height:1;letter-spacing:.01em;opacity:0;transform:translateY(12px);transition:opacity .45s ease .58s,transform .45s ease .58s,color .15s ease}
+  .mm-cta:hover{color:#fff}
+  .mm-cta em{font-style:normal;font-size:1.15em;line-height:1}
+  .mob-menu.open .mm-foot,.mob-menu.open .mm-cta{opacity:1;transform:none}
   .mm-checker{height:10px;flex:none;background:repeating-conic-gradient(var(--pink) 0% 25%, var(--noir) 0% 50%) 0 0/20px 20px}
-  @media (prefers-reduced-motion:reduce){.mob-menu,.mm-links a,.mm-foot{transition:none}}
+  @media (max-height:600px){.mm-links{margin-top:14px}.mm-links a{font-size:clamp(30px,8vw,40px)}.mm-foot{padding-top:16px}}
+  @media (prefers-reduced-motion:reduce){.mob-menu,.mob-menu.open,.mm-links a,.mm-foot,.mm-cta{transition:none;animation:none}}
   @media (min-width:901px){.mob-menu{display:none !important}}
 
   .soc-row{display:flex;gap:10px;margin-top:12px}
@@ -224,35 +235,50 @@
   <div class="wrap nav">
     <a class="logo" href="../"><img src="../images/logo-hot.webp" alt="9NERS Detailing Studio" width="1475" height="569" decoding="async"></a>
     <ul class="nav-links">
+      <li><a href="../about/">About Us</a></li>
       <li><a class="on" href="../services/">Services</a></li>
       <li><a href="../academy/">Academy</a></li>
       <li><a href="../shop/">Car Care</a></li>
       <li><a href="../gallery/">Gallery</a></li>
-      <li><a href="../about/">About Us</a></li>
       <li><a href="../visit/">Visit Us</a></li>
     </ul>
     <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
-    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mobMenu').classList.toggle('open');document.body.classList.toggle('mm-lock')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobMenu" data-mm-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
   </div>
 </header>
-<nav class="mob-menu" id="mobMenu">
-  <button class="mm-close" onclick="document.getElementById('mobMenu').classList.remove('open');document.body.classList.remove('mm-lock')">Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  <div class="mm-links">
-    <a href="../">Home</a>
-    <a class="on" href="../services/">Services</a>
-    <a href="../academy/">Academy</a>
-    <a href="../shop/">Car Care</a>
-    <a href="../gallery/">Gallery</a>
-    <a href="../about/">About Us</a>
-    <a href="../visit/">Visit Us</a>
-  </div>
-  <div class="mm-foot">
-    <span class="mm-dash"></span>
-    <p>Detailed to the nines, every single time.</p>
-    <a class="btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp us</a>
+<nav class="mob-menu" id="mobMenu" aria-label="Menu">
+  <div class="mm-in">
+    <div class="mm-top">
+      <a class="mm-logo" href="../" aria-label="9NERS home"><img src="../images/logo-hot.webp" alt="9NERS Detailing Studio" width="1475" height="569" decoding="async" loading="lazy"></a>
+      <button class="mm-close" type="button" data-mm-close>Close <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="mm-links">
+      <a href="../">Home</a>
+      <a href="../about/">About Us</a>
+      <a class="on" href="../services/">Services</a>
+      <a href="../academy/">Academy</a>
+      <a href="../shop/">Car Care</a>
+      <a href="../gallery/">Gallery</a>
+      <a href="../visit/">Visit Us</a>
+    </div>
+    <div class="mm-foot">
+      <span class="mm-label">Contact</span>
+      <div class="mm-contact"><a href="tel:+60167565222">016-756 5222</a><a href="mailto:my9nersstudio@gmail.com">my9nersstudio@gmail.com</a></div>
+    </div>
+    <a class="mm-cta" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener"><span>WhatsApp us</span><em aria-hidden="true">&#8599;</em></a>
   </div>
   <div class="mm-checker"></div>
 </nav>
+<script>(function(){
+  var m=document.getElementById('mobMenu'),b=document.querySelector('.menu-btn');
+  function set(o){m.classList.toggle('open',o);document.body.classList.toggle('mm-lock',o);if(b)b.setAttribute('aria-expanded',o?'true':'false')}
+  document.addEventListener('click',function(e){
+    if(e.target.closest('[data-mm-open]')){set(!m.classList.contains('open'));return}
+    if(e.target.closest('[data-mm-close]')||e.target.closest('.mm-links a')){set(false)}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))set(false)});
+  window.addEventListener('pageshow',function(e){if(e.persisted&&m.classList.contains('open'))set(false)});
+})();</script>
 
 <section class="a-hero">
   <div class="a-hero-bg" role="img" aria-label="Detailer hand-polishing a black car in the 9NERS studio"></div>

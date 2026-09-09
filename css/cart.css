@@ -51,12 +51,10 @@
 .cd-remove{margin-top:12px;background:none;border:none;padding:0;cursor:pointer;font-family:var(--body);font-size:13px;color:var(--muted);text-decoration:underline;text-underline-offset:3px;transition:color .15s ease}
 .cd-remove:hover{color:var(--purple)}
 .cd-empty{padding:56px 0 36px;text-align:center}
-.cd-empty h3{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:30px;line-height:1;margin:0 0 10px;color:var(--ink)}
-.cd-empty p{font-size:14px;color:var(--muted);margin:0 0 24px;line-height:1.55}
+.cd-empty h3{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:30px;line-height:1;margin:0 0 22px;color:var(--ink)}
 .cd-foot{padding:18px 24px 20px;border-top:1px solid var(--line);background:var(--white)}
-.cd-row{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--muted)}
+.cd-row{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--muted);margin-bottom:16px}
 .cd-row b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:32px;line-height:1;color:var(--ink)}
-.cd-note{font-size:13px;color:var(--muted);margin:10px 0 16px;line-height:1.5}
 .cd-foot .btn{display:block;width:100%;text-align:center;box-sizing:border-box;font-family:var(--body);cursor:pointer}
 .cd-foot .btn + .btn{margin-top:10px}
 .cd-foot button.btn{background:none}

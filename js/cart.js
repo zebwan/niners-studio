@@ -68,7 +68,6 @@
         '<div class="cd-body"></div>' +
         '<div class="cd-foot">' +
           '<div class="cd-row"><span>Subtotal</span><b class="cd-sub"></b></div>' +
-          '<p class="cd-note">Delivery is RM 8 within West Malaysia, or free if you collect at the studio. You choose at checkout.</p>' +
           '<a class="btn btn-purple cd-checkout" href="' + RELAY + '">Checkout</a>' +
           '<button type="button" class="btn btn-ghost-dk cd-continue">Continue shopping</button>' +
         '</div>' +
@@ -97,7 +96,7 @@
     if (!drawer) return;
     if (!slugs.length){
       drawer.setAttribute('data-empty', '1');
-      body.innerHTML = '<div class="cd-empty"><h3>Your cart is empty</h3><p>Add Rain Off and it will show up here.</p><a class="btn btn-ghost-dk" href="/shop/">Browse car care</a></div>';
+      body.innerHTML = '<div class="cd-empty"><h3>Your cart is empty</h3><a class="btn btn-ghost-dk" href="/shop/">Browse car care</a></div>';
       return;
     }
     drawer.removeAttribute('data-empty');

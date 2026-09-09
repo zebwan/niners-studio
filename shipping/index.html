@@ -188,19 +188,9 @@
   .soc-ic svg{width:18px;height:18px;display:block}
   .soc-ic:hover{background:var(--pink);color:#3A0A1F;border-color:var(--pink)}
 
-/* title entry reveals */
-html.js-rv .eyebrow,html.js-rv .kicker,html.js-rv .lead{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
-html.js-rv .eyebrow.in,html.js-rv .kicker.in,html.js-rv .lead.in{opacity:1;transform:none}
-html.js-rv h1.h-disp,html.js-rv h2.h-disp,html.js-rv h1.mega,html.js-rv h2.mega-2{opacity:0}
-html.js-rv h1.rv-title,html.js-rv h2.rv-title{opacity:1}
-html.js-rv .rv-title{display:flex;flex-direction:column;align-items:stretch}
-html.js-rv h1.rv-show,html.js-rv h2.rv-show{opacity:1}
-html.js-rv .ln{display:block;overflow:hidden;padding:.16em .12em;margin:-.16em -.12em;color:inherit}
-html.js-rv .ln-in{display:block;transform:translateY(118%);transition:transform .9s cubic-bezier(.22,1,.36,1);color:inherit}
-html.js-rv .ln.in .ln-in{transform:translateY(0)}
-html.rv-all .eyebrow,html.rv-all .kicker,html.rv-all .lead,html.rv-all h1.h-disp,html.rv-all h2.h-disp,html.rv-all h1.mega,html.rv-all h2.mega-2,html.rv-all .ln-in{opacity:1!important;transform:none!important;transition:none!important}
-@media (prefers-reduced-motion:reduce){html.js-rv .eyebrow,html.js-rv .kicker,html.js-rv .lead,html.js-rv h1.h-disp,html.js-rv h2.h-disp,html.js-rv h1.mega,html.js-rv h2.mega-2,html.js-rv .ln-in{opacity:1;transform:none;transition:none}}
 </style>
+<link rel="stylesheet" href="/css/reveal.css">
+<link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
 
@@ -392,5 +382,6 @@ html.rv-all .eyebrow,html.rv-all .kicker,html.rv-all .lead,html.rv-all h1.h-disp
 })();
 </script>
 <script src="../js/reveal.js"></script>
+<script src="/js/cart.js" defer></script>
 </body>
 </html>

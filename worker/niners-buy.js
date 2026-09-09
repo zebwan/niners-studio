@@ -1,8 +1,9 @@
 // niners-buy — Cloudflare Worker
-// Turns a plain link on 9nersstudio.com into a HitPay checkout with the product already in the cart.
-//   GET /rain-off            -> 1 can
-//   GET /rain-off?qty=2      -> 2 cans (1..10)
-// Flow: mint a cart id, create the cart on HitPay's storefront API with the item, 302 the customer
+// Turns a plain link on 9nersstudio.com into a HitPay checkout with the products already in the cart.
+//   GET /rain-off                      -> 1 can
+//   GET /rain-off?qty=2                -> 2 cans (1..10)
+//   GET /checkout?items=rain-off:2     -> any number of lines, "slug:qty" comma-separated (the site's cart drawer)
+// Flow: mint a cart id, create the cart on HitPay's storefront API with the lines, 302 the customer
 // to https://hitpay.shop/9ners/checkout/<cart>. If anything fails, fall back to the normal product URL.
 // No secrets: the two headers HitPay's own storefront sends are the store domain and the public business id.
 
@@ -10,6 +11,7 @@ const STORE = 'https://hitpay.shop/9ners';
 const API = 'https://api-shop.hit-pay.com/v1/carts/';
 const BUSINESS_ID = 'a29a5c63-2b9d-4358-b3c7-26bb5e821846';
 const SITE = 'https://9nersstudio.com';
+const MAX_QTY = 10;
 
 const PRODUCTS = {
   'rain-off': {
@@ -33,39 +35,60 @@ function redirect(url) {
   return new Response(null, { status: 302, headers: { Location: url, 'Cache-Control': 'no-store' } });
 }
 
+function clampQty(v) {
+  return Math.min(MAX_QTY, Math.max(1, parseInt(v || '1', 10) || 1));
+}
+
+// Resolve the request into [{product, qty}] or null.
+function linesFor(url) {
+  const slug = url.pathname.replace(/^\/+|\/+$/g, '');
+  if (slug === 'checkout') {
+    const lines = [];
+    for (const part of (url.searchParams.get('items') || '').split(',')) {
+      const [s, q] = part.split(':');
+      if (Object.hasOwn(PRODUCTS, s)) lines.push({ product: PRODUCTS[s], qty: clampQty(q) });
+    }
+    return lines.length ? lines.slice(0, 20) : null;
+  }
+  if (Object.hasOwn(PRODUCTS, slug)) return [{ product: PRODUCTS[slug], qty: clampQty(url.searchParams.get('qty')) }];
+  return null;
+}
+
+async function addLine(cart, line, signal) {
+  const res = await fetch(API + cart, {
+    method: 'POST',
+    signal,
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      'hitpay-domain': 'hitpay.shop',
+      'hitpay-identifier': BUSINESS_ID,
+    },
+    body: JSON.stringify({ product_id: line.product.id, quantity: line.qty, product_item_name: line.product.name, remark: null }),
+  });
+  if (!res.ok) throw new Error('cart create ' + res.status);
+  const data = await res.json();
+  if (data.cart_id !== cart) throw new Error('cart id mismatch');
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    const slug = url.pathname.replace(/^\/+|\/+$/g, '');
-    if (!slug) return redirect(SITE + '/shop/');
-    const product = Object.hasOwn(PRODUCTS, slug) ? PRODUCTS[slug] : undefined;
-    if (!product) return redirect(SITE + '/shop/');
+    const lines = linesFor(url);
+    if (!lines) return redirect(SITE + '/shop/');
 
-    const qty = Math.min(10, Math.max(1, parseInt(url.searchParams.get('qty') || '1', 10) || 1));
     const cart = ulid();
-
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8000);
     try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 6000);
-      const res = await fetch(API + cart, {
-        method: 'POST',
-        signal: controller.signal,
-        headers: {
-          accept: 'application/json',
-          'content-type': 'application/json',
-          'hitpay-domain': 'hitpay.shop',
-          'hitpay-identifier': BUSINESS_ID,
-        },
-        body: JSON.stringify({ product_id: product.id, quantity: qty, product_item_name: product.name, remark: null }),
-      });
+      // HitPay merges repeat POSTs of the same product into one line, so sequential adds are safe.
+      for (const line of lines) await addLine(cart, line, controller.signal);
       clearTimeout(timer);
-      if (!res.ok) throw new Error('cart create ' + res.status);
-      const data = await res.json();
-      if (data.cart_id !== cart) throw new Error('cart id mismatch');
       return redirect(STORE + '/checkout/' + cart);
     } catch (err) {
-      // Never strand a customer: send them to the product on the store instead.
-      return redirect(product.fallback);
+      clearTimeout(timer);
+      // Never strand a customer: send them to the first product on the store instead.
+      return redirect(lines[0].product.fallback);
     }
   },
 };

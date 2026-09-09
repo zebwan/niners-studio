@@ -1,0 +1,25 @@
+/* Entry reveals, all left to right.
+   Titles: each word rises out of its own mask, staggered in reading order.
+   Everything else: words sit dim and light up in sequence, like a highlighter running across the line.
+   The head gate adds html.js-rv before first paint; js/reveal.js wraps the words and sets the delays.
+   html.rv-all is the failsafe (script failed, no IntersectionObserver): show everything, no motion. */
+
+@media (prefers-reduced-motion: no-preference){
+  html.js-rv h1.h-disp,html.js-rv h2.h-disp,html.js-rv h1.mega,html.js-rv h2.mega-2{opacity:0}
+  html.js-rv :is(section,footer) :is(p,li,h3,h4,dt,dd,figcaption,.eyebrow,.kicker,.lead,.price-line){opacity:0}
+}
+html.js-rv h1.rv-title,html.js-rv h2.rv-title,html.js-rv h1.rv-show,html.js-rv h2.rv-show{opacity:1}
+html.js-rv.js-rv .rv-ready{opacity:1}
+
+/* the wrappers are spans, and some pages style spans by element (.kicker span{display:block}, .price-line span{font-size}),
+   so the wrappers reset everything they could inherit from such rules and take their look from the word's real parent */
+html.js-rv .tw.tw{display:inline-block;overflow:hidden;vertical-align:top;padding:.06em .1em .2em .03em;margin:-.06em -.1em -.2em -.03em;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;width:auto;height:auto}
+html.js-rv .twi.twi{display:inline-block;transform:translateY(115%);transition:transform .9s cubic-bezier(.22,1,.36,1);font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;margin:0;padding:0;will-change:transform}
+html.js-rv .rv-title.in .twi{transform:none}
+
+html.js-rv .hw.hw{display:inline;opacity:.16;transition:opacity .45s ease;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;text-decoration:inherit;background:none;border:0;margin:0;padding:0}
+html.js-rv .rv-ready.on .hw{opacity:1}
+
+html.rv-all .tw,html.rv-all .twi,html.rv-all .hw,
+html.rv-all :is(section,footer) :is(p,li,h3,h4,dt,dd,figcaption,.eyebrow,.kicker,.lead,.price-line),
+html.rv-all h1.h-disp,html.rv-all h2.h-disp,html.rv-all h1.mega,html.rv-all h2.mega-2{opacity:1!important;transform:none!important;transition:none!important}

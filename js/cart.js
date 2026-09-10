@@ -128,6 +128,18 @@
     if (!(mm && mm.classList.contains('open'))) document.body.classList.remove('mm-lock');
   }
 
+  /* a buy box with a quantity stepper shows the total for that quantity;
+     the unit line next to it ("per 100g can") is left alone */
+  function syncPrice(el){
+    var scope = el.closest('.buy-box') || el.closest('.stage-copy') || el.closest('section');
+    if (!scope) return;
+    var out = scope.querySelector('.price-line b'), addBtn = scope.querySelector('[data-add]');
+    if (!out || !addBtn) return;
+    var item = CATALOG[addBtn.getAttribute('data-add')]; if (!item) return;
+    var input = scope.querySelector('[data-qty] input');
+    out.textContent = rm(item.price * (input ? (clamp(input.value) || 1) : 1));
+  }
+
   /* add-to-cart links and quantity steppers anywhere on the page */
   document.addEventListener('click', function(e){
     var addBtn = e.target.closest('[data-add]');
@@ -137,7 +149,7 @@
       var inp = box && box.querySelector('[data-qty] input');
       if (inp) q = clamp(inp.value) || 1;
       add(addBtn.getAttribute('data-add'), q);
-      if (inp) inp.value = 1;
+      if (inp){ inp.value = 1; syncPrice(inp); }
       open();
       return;
     }
@@ -147,11 +159,16 @@
       var v = clamp(input.value) || 1;
       v = step.textContent.trim() === '+' ? v + 1 : v - 1;
       input.value = Math.max(1, Math.min(MAX, v));
+      syncPrice(input);
     }
+  });
+  document.addEventListener('input', function(e){
+    var typed = e.target.closest('[data-qty] input'); if (typed) syncPrice(typed);
   });
   document.addEventListener('change', function(e){
     var input = e.target.closest('[data-qty] input'); if (!input) return;
     input.value = Math.max(1, clamp(input.value) || 1);
+    syncPrice(input);
   });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
   window.addEventListener('storage', function(e){ if (e.key === KEY){ state = load(); render(); } });

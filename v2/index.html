@@ -211,7 +211,8 @@
 
   /* tagline band */
   .tag-band{background:var(--noir);border-top:1px solid rgba(255,111,175,.14);padding:34px 0 18px;overflow:hidden;text-align:center}
-  .tag-band span{display:inline-block;white-space:nowrap;font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(40px,10.2vw,168px);line-height:1;color:transparent;-webkit-text-stroke:2px var(--pink);letter-spacing:.01em;padding:0 .04em}
+  .tb-in{display:inline-block;white-space:nowrap;font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(40px,10.2vw,168px);line-height:1;color:transparent;-webkit-text-stroke:2px var(--pink);letter-spacing:.01em}
+  .tb-line{display:inline}
   .tag-band em{font-style:italic;color:var(--pink);-webkit-text-stroke:0}
 
   footer{background:#000000;color:#9B99A2;padding:64px 0 40px;font-size:14px}
@@ -262,7 +263,9 @@
     .hero-ctas,.visit-cta,.stage-btns{flex-direction:column;align-items:stretch}
     .hero-ctas .btn,.visit-cta .btn,.stage-btns .btn{display:block;width:100%;text-align:center}
     .aca-tag b{font-size:34px}
-    .tag-band{padding:22px 0 10px}
+    .tag-band{padding:26px 0 16px;text-align:left}
+    .tb-in{display:block;-webkit-text-stroke-width:1.6px}
+    .tb-line{display:block;width:-webkit-fit-content;width:fit-content;line-height:1.04}
   }
   @media (prefers-reduced-motion:reduce){
     .tk-set,.rev-set,.gal-set,.hero-ring,.hero-ring i,.hero-img{animation:none}
@@ -603,7 +606,7 @@
   </div>
 </section>
 
-<div class="tag-band" aria-hidden="true"><div class="wrap"><span>Detailed to the <em>nines.</em></span></div></div>
+<div class="tag-band" aria-hidden="true"><div class="wrap"><span class="tb-in"><span class="tb-line">Detailed to the</span> <span class="tb-line"><em>nines.</em></span></span></div></div>
 
 <footer>
   <div class="wrap">
@@ -686,11 +689,32 @@
       row.addEventListener('mouseleave', function(){ on = false; fl.classList.remove('on'); });
     });
   })();
-  /* tagline fits the width of the page */
+  /* the closing tagline fills the column: one line on a desktop, two stacked lines on a phone.
+     Measured with a Range so the text width is real, and against the wrap's CONTENT width,
+     otherwise the 24px side padding is counted as usable space and the last word is clipped. */
   (function(){
-    var s = document.querySelector('.tag-band span'); if (!s) return;
-    function fit(){ s.style.fontSize = ''; var w = s.parentElement.clientWidth, sw = s.getBoundingClientRect().width, fs = parseFloat(getComputedStyle(s).fontSize); if (sw > 0 && w > 0) s.style.fontSize = (fs * w / sw * .985) + 'px'; }
-    fit(); addEventListener('resize', fit); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    var band = document.querySelector('.tag-band'); if (!band) return;
+    var wrap = band.querySelector('.wrap'), inner = band.querySelector('.tb-in'),
+        lines = band.querySelectorAll('.tb-line'), rng = document.createRange();
+    function textWidth(el){ rng.selectNodeContents(el); return rng.getBoundingClientRect().width; }
+    function fit(){
+      var cs = getComputedStyle(wrap);
+      var w = wrap.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      if (!(w > 0)) return;
+      inner.style.fontSize = '';
+      for (var i = 0; i < lines.length; i++) lines[i].style.fontSize = '';
+      if (getComputedStyle(lines[0]).display === 'block'){
+        for (var j = 0; j < lines.length; j++){
+          var el = lines[j], fs = parseFloat(getComputedStyle(el).fontSize), tw = textWidth(el);
+          if (tw > 0) el.style.fontSize = (fs * w / tw * .97) + 'px';
+        }
+      } else {
+        var f0 = parseFloat(getComputedStyle(inner).fontSize), iw = textWidth(inner);
+        if (iw > 0) inner.style.fontSize = (f0 * w / iw * .98) + 'px';
+      }
+    }
+    fit(); addEventListener('resize', fit); addEventListener('load', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
   })();
 </script>
 <style>

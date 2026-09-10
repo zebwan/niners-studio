@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=3">
+<link rel="stylesheet" href="/css/pages.css">
 <title>9NERS Detailing Studio — homepage concept</title>
 <style>
   :root{
@@ -47,170 +48,78 @@
   .nav-links a.on{color:var(--pink)}
   .nav .btn{padding:10px 18px;font-size:14px;white-space:nowrap}
 
-  .hero{position:relative;background:var(--noir);color:#fff;overflow:hidden}
-  .hero-img{position:absolute;inset:0;background-image:url('images/hero-dark-wide.webp');background-size:cover;background-position:right center}
+  /* hero */
+  .hero{position:relative;background:var(--noir);color:#fff;overflow:hidden;min-height:min(86vh,820px);display:flex;align-items:center}
+  .hero-img{position:absolute;inset:0;background-image:url('images/hero-dark-wide.webp');background-size:cover;background-position:right center;transform:scale(1.08);animation:heroZoom 9s cubic-bezier(.22,.61,.36,1) forwards}
+  @keyframes heroZoom{to{transform:none}}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.8) 38%,rgba(0,0,0,.3) 75%,rgba(0,0,0,.45) 100%)}
-  .hero-inner{position:relative;padding:110px 0 130px;max-width:660px}
+  .hero .wrap{width:100%}
+  .hero-inner{position:relative;padding:96px 0 120px;max-width:760px}
   .hero .kicker{font-size:17px;color:#fff;line-height:1.4;margin-bottom:14px}
   .hero .kicker span{color:var(--pink);display:block}
-  .hero h1{font-size:clamp(52px,8.5vw,104px);color:#fff;margin:0 0 20px}
+  .hero h1{font-size:clamp(60px,9.6vw,128px);color:#fff;margin:0 0 20px}
   .hero h1 .pink{color:var(--pink)}
   .hero p{font-size:18px;color:#CCCAD2;max-width:46ch;margin-bottom:34px}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-ring{position:absolute;right:56px;bottom:48px;width:156px;height:156px;animation:spin 20s linear infinite}
+  .hero-ring svg{width:100%;height:100%;display:block;overflow:visible}
+  .hero-ring text{font-family:var(--disp);font-style:italic;font-weight:700;font-size:16.2px;letter-spacing:.05em;text-transform:uppercase;fill:var(--pink)}
+  .hero-ring i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-style:italic;font-weight:700;font-size:58px;color:#fff;animation:spin 20s linear infinite reverse}
+  @keyframes spin{to{transform:rotate(360deg)}}
 
-  .stats{background:var(--noir);color:#fff;border-top:1px solid rgba(255,111,175,.14)}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-  .stat{padding:26px 20px;border-left:1px solid rgba(255,111,175,.14)}
-  .stat:first-child{border-left:none}
-  .stat b{font-family:var(--disp);font-style:italic;font-size:30px;font-weight:700;color:var(--pink);display:block;line-height:1.1}
-  .stat span{font-size:13px;color:#9B99A2}
 
   section{padding:96px 0}
-  .sec-head{max-width:600px;margin-bottom:52px}
-  .sec-head h2{font-size:clamp(34px,4.5vw,52px);margin:14px 0 14px;color:var(--ink)}
+  .sec-head{max-width:620px;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(38px,5vw,60px);margin:14px 0 14px;color:var(--ink)}
   .sec-head.on-dark h2{color:#fff}
   .sec-head p{color:var(--muted)}
   .sec-head.on-dark p{color:#B4B2BA}
 
-  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{border-radius:16px;padding:34px 30px;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:transform .15s ease}
-  .card:hover{transform:translateY(-4px)}
-  .card .ico{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
-  .card .ico svg{width:26px;height:26px}
-  .card h3{font-size:20px;font-weight:600}
-  .card p{font-size:14px;flex:1}
-  .card .from{font-size:14px;font-weight:600;margin-top:6px}
-  .card.dark{background:var(--noir);color:#D7D5DC}
-  .card.dark h3{color:#fff}
-  .card.dark .ico{background:#1A181D}
-  .card.dark .ico svg{stroke:var(--pink)}
-  .card.dark .from{color:var(--pink)}
-  .card.feat{background:var(--pink);color:#4A0F27}
-  .card.feat h3{color:#3A0A1F}
-  .card.feat .ico{background:rgba(255,255,255,.55)}
-  .card.feat .ico svg{stroke:#3A0A1F}
-  .card.feat .from{color:#3A0A1F}
-  .card.lite{background:var(--lilac);color:var(--muted);border:1px solid var(--line)}
-  .card.lite h3{color:var(--ink)}
-  .card.lite .ico{background:var(--white);border:1px solid var(--line)}
-  .card.lite .ico svg{stroke:var(--purple)}
-  .card.lite .from{color:var(--purple)}
+
+  /* price menus */
   .menus{background:var(--lilac)}
-  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .menu-grid .arr svg{width:20px;height:20px}
-  .svc{position:relative;border-radius:16px;overflow:hidden;display:block;text-decoration:none;aspect-ratio:1/1;transition:transform .15s ease}
-  .svc:hover{transform:translateY(-3px)}
-  .ph{position:absolute;inset:0;overflow:hidden;background:var(--noir-2)}
-  .ph img{width:100%;height:100%;object-fit:cover}
-  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,12,.6),rgba(10,8,12,.26) 32%,rgba(10,8,12,.24))}
-  .badge{position:absolute;top:16px;left:20px;z-index:1;color:#fff;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
-  .svc-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:18px 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-  .svc h3{font-size:19px;font-weight:600;color:#fff;text-wrap:balance;text-shadow:0 1px 14px rgba(0,0,0,.45)}
-  .svc-foot{display:flex;align-items:center;font-size:14px;font-weight:600;color:#fff}
-  .svc-foot em{font-style:normal}
-  .arr svg{display:block;transition:transform .2s ease}
-  .svc:hover .arr svg{transform:translateX(3px)}
-  .svc-more{text-align:center;margin-top:40px}
 
-  .ba{background:var(--noir);color:#fff}
-  .ba-frame{--p:50%;border:1px solid rgba(255,111,175,.18);border-radius:16px;overflow:hidden;position:relative;aspect-ratio:16/8;user-select:none}
-  .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-  .ba-frame img.after{clip-path:inset(0 0 0 var(--p))}
-  .ba-divider{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
-  .ba-handle{position:absolute;top:50%;left:var(--p);transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;color:var(--noir);display:flex;align-items:center;justify-content:center;font-weight:700;pointer-events:none}
-  .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-  .ba-tag{position:absolute;bottom:18px;font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:22px}
-  .ba-tag.before{left:22px;color:#B4B2BA;pointer-events:none}
-  .ba-tag.after-t{right:22px;color:var(--pink);pointer-events:none}
-  .ba-note{text-align:center;margin-top:22px;font-size:13px;color:#9B99A2}
 
-  .shop{background:var(--white)}
-  .lu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .lu{position:relative;border-radius:16px;overflow:hidden;text-decoration:none;aspect-ratio:1/1;transition:transform .15s ease}
-  .lu:hover{transform:translateY(-4px)}
-  .lu-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-  .lu.real{background:var(--white);border:1px solid var(--line)}
-  .lu.real .lu-stage video,.lu.real .lu-stage img{width:100%;height:100%;object-fit:cover;display:block}
-  .lu.real .lu-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,26,.84),rgba(20,16,26,.38) 32%,rgba(20,16,26,0) 58%)}
-  .lu-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:20px 24px 22px}
-  .lu h3{font-size:19px;font-weight:600;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
-  .lu .cat{font-size:13px;color:#D7D5DC;margin:3px 0 10px}
-  .lu .go{font-size:14px;font-weight:600;color:var(--pink)}
-  .lu.soon{background:var(--noir);border:1px solid rgba(255,111,175,.16)}
-  .lu.soon .lu-stage{padding-bottom:74px}
-  .lu.soon h3{color:#fff}
-  .lu.soon .cat{color:#9B99A2}
-  .soon-can{width:120px;height:210px;border-radius:14px;background:var(--noir-2);border:1px solid rgba(255,111,175,.16);position:relative}
-  .soon-can::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:64px;height:30px;background:var(--noir-2);border:1px solid rgba(255,111,175,.16);border-bottom:none;border-radius:8px 8px 0 0}
-  .soon-can::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-style:italic;font-weight:700;font-size:64px;color:#2B2830}
-  .soon-pill{display:inline-block;background:var(--deep);color:var(--pink);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:10px}
-  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .prod{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px;text-align:center}
-  .prod-stage{border-radius:10px;padding:28px 0 22px;display:flex;justify-content:center;margin-bottom:18px}
-  .bottle{width:58px;height:112px;border-radius:10px 10px 14px 14px;position:relative}
-  .bottle::before{content:"";position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:18px;height:16px;background:#111014;border-radius:3px 3px 0 0}
-  .bottle::after{content:"9ICE";position:absolute;inset:auto 8px 20px 8px;background:rgba(255,255,255,.85);color:#141217;font-size:10px;font-weight:700;letter-spacing:.12em;padding:14px 0;border-radius:4px}
-  .prod h3{font-size:18px;font-weight:600}
-  .prod .co{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:4px 0 10px}
-  .prod .price{font-size:17px;font-weight:600;color:var(--purple);margin-bottom:16px}
-  .prod .links{display:flex;gap:10px;justify-content:center}
-  .prod .links a{font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 16px}
-  .prod .links a:hover{border-color:var(--purple);color:var(--purple)}
-  .shop-note{text-align:center;margin-top:34px;font-size:14px;color:var(--muted)}
-  .ws-strip{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;text-align:center;
-    background:var(--pink);border-radius:14px;padding:22px 28px;margin-top:30px;text-decoration:none;transition:transform .15s ease}
-  .ws-strip:hover{transform:translateY(-3px)}
-  .ws-strip b{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(24px,3vw,32px);color:#12060B;line-height:1}
-  .ws-strip span{font-weight:600;font-size:15px;color:#4A0F27}
+  /* the product stage */
+  .shop{background:var(--white);overflow:hidden}
+  .shop-note{text-align:center;margin-top:30px;font-size:14px;color:var(--muted)}
 
+  /* academy */
   .academy{background:var(--deep);color:#fff}
-  .aca-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-  .aca-grid h2{font-size:clamp(34px,4.5vw,50px);color:#fff;margin:14px 0 18px}
-  .aca-grid .lead{color:#CCCAD2;margin-bottom:26px}
-  .aca-photo{border-radius:12px;overflow:hidden;margin-bottom:26px;border:1px solid rgba(255,111,175,.25)}
-  .aca-photo img{width:100%;height:220px;object-fit:cover}
-  .aca-list{list-style:none;display:grid;gap:14px;margin-bottom:34px}
+  .aca-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .aca-grid h2{font-size:clamp(38px,5vw,60px);color:#fff;margin:14px 0 18px}
+  .aca-grid .lead{color:#CCCAD2;margin-bottom:24px}
+  .aca-photo{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:5/4;background:var(--noir)}
+  .aca-photo img{width:100%;height:100%;object-fit:cover}
+  .aca-tag{position:absolute;left:0;bottom:0;background:var(--pink);color:#12060B;padding:18px 26px 16px 24px;border-radius:0 12px 0 0}
+  .aca-tag b{display:block;font-family:var(--disp);font-style:italic;font-weight:700;font-size:46px;line-height:1}
+  .aca-tag span{font-size:13px;font-weight:600;color:#4A0F27}
+  .aca-list{list-style:none;display:grid;gap:14px;margin-bottom:22px}
   .aca-list li{padding-left:30px;position:relative;color:#E5E3EA;font-size:15px}
   .aca-list li::before{content:"";position:absolute;left:0;top:5px;width:14px;height:14px;background:repeating-conic-gradient(var(--pink) 0% 25%, transparent 0% 50%);background-size:7px 7px;border:1px solid var(--pink)}
-  .aca-card{background:var(--noir);border:1px solid rgba(255,111,175,.2);border-radius:16px;padding:36px}
-  .aca-card .eyebrow{color:var(--pink)}
-  .aca-price{font-family:var(--disp);font-style:italic;font-weight:700;font-size:56px;color:#fff;margin:10px 0 4px}
-  .aca-card .per{color:#9B99A2;font-size:14px;margin-bottom:22px}
-  .aca-card ul{list-style:none;display:grid;gap:10px;margin-bottom:26px}
-  .aca-card ul li{font-size:14px;color:#D7D5DC;padding-left:22px;position:relative}
-  .aca-card ul li::before{content:"—";position:absolute;left:0;color:var(--rose)}
+  .aca-covers{font-size:14px;color:#B4B2BA;max-width:52ch;margin-bottom:30px}
+  .aca-follow{display:inline-block;margin-top:18px;color:var(--pink);font-size:14px;font-weight:600;text-decoration:none}
+  .aca-follow:hover{color:#fff}
 
-  .rev-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
-  .rev-head .sec-head{margin-bottom:52px}
-  .rev-nav{display:flex;gap:10px;margin-bottom:52px}
-  .rev-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s ease,transform .15s ease}
-  .rev-nav button:hover{border-color:var(--purple);transform:translateY(-2px)}
-  .rev-nav svg{width:18px;height:18px;display:block}
-  .rev-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;padding-bottom:4px}
-  .rev-track::-webkit-scrollbar{display:none}
-  .rev{flex:0 0 calc((100% - 44px)/3);scroll-snap-align:start;background:var(--lilac);border-radius:14px;padding:28px}
-  .stars{color:var(--rose);letter-spacing:3px;font-size:15px;margin-bottom:14px}
-  .rev p{font-size:15px;margin-bottom:18px}
-  .rev b{font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
-  .rev-note{margin-top:30px;text-align:center;font-size:14px;color:var(--muted)}
 
-  .gal-band{padding:0 0 0}
+  /* gallery drift */
+  .gal-band{padding:0}
   .gal-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:34px}
-  .gal-head h2{font-size:clamp(30px,4vw,46px);margin-top:12px}
-  .gal-ribbon{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;background:var(--noir)}
-  .gal-ribbon img{width:100%;height:200px;object-fit:cover;filter:grayscale(.15)}
-  .gal-ribbon img:hover{filter:none}
+  .gal-head h2{font-size:clamp(34px,4.5vw,54px);margin-top:12px}
 
+  /* visit */
   .visit{background:var(--noir);color:#fff}
-  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px}
-  .loc{background:var(--noir-2);border:1px solid rgba(255,111,175,.14);border-radius:14px;padding:32px}
-  .loc .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:16px}
-  .loc .tag.walkin{background:var(--pink);color:#3A0A1F}
-  .loc .tag.appt{background:var(--deep);color:var(--pink)}
-  .loc h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;margin-bottom:10px}
-  .loc p{color:#B4B2BA;font-size:15px;margin-bottom:6px}
-  .loc .hours{color:var(--pink);font-size:14px;margin:14px 0 20px}
-  .visit-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:36px}
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .visit-photo{border-radius:12px;overflow:hidden;aspect-ratio:5/4;background:var(--noir-2)}
+  .visit-photo img{width:100%;height:100%;object-fit:cover}
+  .visit-copy .walkin{display:block;font-size:13px;font-weight:600;color:var(--pink);margin-bottom:12px}
+  .visit-copy h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-weight:700;font-size:clamp(44px,5.5vw,76px);line-height:.95;margin-bottom:18px}
+  .visit-copy address{font-style:normal;font-size:17px;color:#D7D5DC;line-height:1.5;margin-bottom:10px}
+  .visit-copy .hours{color:var(--pink);font-size:15px;margin-bottom:14px}
+  .visit-copy .note{color:#B4B2BA;font-size:15px;max-width:42ch;margin-bottom:28px}
+  .visit-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* tagline band */
 
   footer{background:#000000;color:#9B99A2;padding:64px 0 40px;font-size:14px}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:44px}
@@ -222,53 +131,25 @@
   .foot-legal{display:flex;gap:18px;flex-wrap:wrap}
   .foot-legal a{display:inline;margin:0}
 
-  @media (max-width:1080px){
-    .menu-grid{gap:16px}
-  }
-  @media (max-width:1000px){
-    .cards-grid{grid-template-columns:repeat(2,1fr)}
-  }
   @media (max-width:900px){
     .nav-links{display:none}
-    .prod-grid{grid-template-columns:repeat(2,1fr)}
-    .rev{flex-basis:calc((100% - 22px)/2)}
-    .aca-grid{grid-template-columns:1fr;gap:36px}
+    .hero-ring{display:none}
+    .aca-grid,.visit-grid{grid-template-columns:1fr;gap:36px}
     .foot-grid{grid-template-columns:1fr 1fr}
-    .stats-grid{grid-template-columns:repeat(2,1fr)}
-    .stat{border-left:none;border-top:1px solid rgba(255,111,175,.14)}
-    .stat:nth-child(2n){border-left:1px solid rgba(255,111,175,.14)}
-    .stat:nth-child(-n+2){border-top:none}
   }
   @media (max-width:640px){
     section{padding:64px 0}
+    .hero{min-height:0}
     .hero-inner{padding:72px 0 88px}
-    .hero-img{background-image:url('images/studio-dark.webp');background-position:center}
-    .cards-grid,.prod-grid,.visit-grid{grid-template-columns:1fr}
-    .rev{flex-basis:86%}
-    .menu-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px;padding:0 24px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .menu-grid::-webkit-scrollbar{display:none}
-    .menu-grid .svc{flex:0 0 76%;scroll-snap-align:center}
-    .ba-frame{aspect-ratio:4/3}
+    .hero-img{background-image:url('images/studio-dark.webp');background-position:center;animation:none;transform:none}
     .foot-grid{grid-template-columns:1fr}
+    .hero-ctas,.visit-cta{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn,.visit-cta .btn{display:block;width:100%;text-align:center}
+    .aca-tag b{font-size:34px}
   }
-
-  @media (max-width:900px){.lu-grid{grid-template-columns:1fr 1fr}.gal-ribbon{grid-template-columns:repeat(3,1fr)}}
-  @media (max-width:640px){.gal-ribbon{grid-template-columns:repeat(2,1fr)}.gal-ribbon img{height:150px}}
-  @media (max-width:640px){.lu-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
-  /* mobile: original cards, stacking over each other as you scroll */
-  @media (max-width:640px){
-    .cards-grid{display:block}
-    .cards-grid .card{position:sticky;top:84px;margin-bottom:16px}
-    .cards-grid .card:nth-child(2){top:92px}
-    .cards-grid .card:nth-child(3){top:100px}
-    .cards-grid .card:nth-child(4){top:108px}
-    .cards-grid .card:nth-child(5){top:116px}
-    .cards-grid .card:nth-child(6){top:124px}
-    .cards-grid .card:hover{transform:none}
-  }
-  @media (max-width:640px){
-    .hero-ctas,.visit-cta,.cta-btns,.a-hero-ctas,.g-actions,.feat-ctas,.buy-btns,.banner-ctas,.svc-more,.ws-inner{flex-direction:column;align-items:stretch}
-    .hero-ctas .btn,.visit-cta .btn,.cta-btns .btn,.a-hero-ctas .btn,.g-actions .btn,.feat-ctas .btn,.buy-btns .btn,.banner-ctas .btn,.svc-more .btn,.ws-inner .btn{display:block;width:100%;text-align:center}
+  @media (prefers-reduced-motion:reduce){
+    .hero-ring,.hero-ring i,.hero-img{animation:none}
+    .hero-img{transform:none}
   }
 
   .menu-btn{display:none;background:none;border:none;padding:6px;cursor:pointer;color:#fff;margin-left:12px}
@@ -318,7 +199,6 @@
   .soc-ic{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,111,175,.35);display:flex;align-items:center;justify-content:center;color:var(--pink);transition:all .15s ease}
   .soc-ic svg{width:18px;height:18px;display:block}
   .soc-ic:hover{background:var(--pink);color:#3A0A1F;border-color:var(--pink)}
-
 </style>
 <link rel="stylesheet" href="/css/reveal.css">
 <link rel="stylesheet" href="/css/cart.css">
@@ -386,17 +266,15 @@
       <a class="btn btn-ghost" href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">See full price list</a>
     </div>
   </div></div>
-</div>
-
-<div class="stats">
-  <div class="wrap stats-grid">
-    <div class="stat"><b>5.0 ★</b><span>Google reviews</span></div>
-    <div class="stat"><b>5,000+</b><span>Cars detailed</span></div>
-    <div class="stat"><b>16.6k</b><span>Instagram followers</span></div>
-    <div class="stat"><b>JB</b><span>Desa Tebrau studio</span></div>
+  <div class="hero-ring" aria-hidden="true">
+    <svg viewBox="0 0 156 156"><defs><path id="ringPath" d="M78,78 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"/></defs><text><textPath href="#ringPath">Detailed to the nines · Johor Bahru · Since 2023 ·</textPath></text></svg>
+    <i>9</i>
   </div>
 </div>
 
+<div class="ticker" data-rv-skip>
+  <div class="tk-track"><div class="tk-set" data-mq="70"><span>5.0 on Google</span><span>5,000+ cars detailed</span><span>16.6k followers on Instagram</span><span>Desa Tebrau, Johor Bahru</span><span>Detailed to the nines</span></div><div class="tk-set" data-mq="70" aria-hidden="true"><span>5.0 on Google</span><span>5,000+ cars detailed</span><span>16.6k followers on Instagram</span><span>Desa Tebrau, Johor Bahru</span><span>Detailed to the nines</span></div></div>
+</div>
 <div class="checker"></div>
 
 <section id="services">
@@ -406,51 +284,47 @@
       <h2 class="h-disp">Pick your treatment</h2>
       <p>Every package is done in-studio by our own detailers. No shortcuts, no outsourcing.</p>
     </div>
-    <div class="cards-grid">
-    <a class="card dark" href="services/">
-      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="13.5" r="6.8"/><circle cx="11" cy="13.5" r="2.4"/><path d="M18.6 3.4l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7z" fill="currentColor" stroke="none"/></svg></div>
-      <h3>Polish &amp; Paint Correction</h3>
-      <p>From 1-step gloss to 3-step advance correction for heavy swirls and acid rain etching.</p>
-      <span class="from">from RM 330 →</span>
-    </a>
-
-    <a class="card feat" href="services/">
-      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5c2.6 3.1 4.4 5.5 4.4 7.6a4.4 4.4 0 0 1-8.8 0c0-2.1 1.8-4.5 4.4-7.6z"/><path d="M5.4 3.5c.8 1 1.3 1.8 1.3 2.5a1.35 1.35 0 1 1-2.7 0c0-.7.6-1.5 1.4-2.5z" fill="currentColor" stroke="none"/><path d="M18.6 3.5c.8 1 1.3 1.8 1.3 2.5a1.35 1.35 0 1 1-2.7 0c0-.7.6-1.5 1.4-2.5z" fill="currentColor" stroke="none"/></svg></div>
-      <h3>9NERS Signature Wash</h3>
-      <p>Our baseline for every car: hand-brushed detailing wash, clay bar, fine gap &amp; edge cleaning, ceramic spray seal and reblack trim.</p>
-      <span class="from">from RM 88 →</span>
-    </a>
-
-    <a class="card dark" href="services/">
-      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l7.2 2.7v5c0 4.7-3 8.8-7.2 10.7C7.8 19.3 4.8 15.2 4.8 10.5v-5L12 2.8z"/><path d="M12 8c1.5 1.8 2.5 3.2 2.5 4.4a2.5 2.5 0 0 1-5 0C9.5 11.2 10.5 9.8 12 8z" fill="currentColor" stroke="none"/></svg></div>
-      <h3>Ceramic Coating</h3>
-      <p>8H and 9H crystallised coatings. Glossier than new paint, protected for one or two years, with free mirror treatments included.</p>
-      <span class="from">from RM 850 →</span>
-    </a>
-
-    <a class="card lite" href="services/">
-      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7.5" width="13" height="13" rx="2.2"/><path d="M8 7.5V6a2.5 2.5 0 0 1 2.5-2.5H18A2.5 2.5 0 0 1 20.5 6v7.5A2.5 2.5 0 0 1 18 16h-1.5"/></svg></div>
-      <h3>Paint Protection Film</h3>
-      <p>Clear armour against stone chips, scratches and UV. Full front in 2–3 days, or panel by panel: mirrors, headlamps, even door handles.</p>
-      <span class="from">from RM 120 →</span>
-    </a>
-
-    <a class="card lite" href="services/">
-      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 11V7.5a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3V11"/><path d="M4.5 13.8A2.3 2.3 0 0 1 6.8 11.5h10.4a2.3 2.3 0 0 1 2.3 2.3v4.7h-15v-4.7z"/><path d="M6.8 18.5v1.7M17.2 18.5v1.7"/></svg></div>
-      <h3>Interior, Leather &amp; Babygear</h3>
-      <p>Leather refresh, fabric extraction cleans, seat-out interior resets, plus deep-cleaned and sanitised car seats and strollers.</p>
-      <span class="from">from RM 40 →</span>
-    </a>
-
-    <a class="card lite" href="services/">
-      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5a8 8 0 0 1 16 0v2.7a2 2 0 0 1-2 2h-3.2l-1.6-2.2H6a2 2 0 0 1-2-2v-.5z"/><path d="M4.3 12.5h8.9"/><circle cx="17" cy="14.2" r=".4" fill="currentColor"/></svg></div>
-      <h3>Bike Spa, Coating &amp; Helmet</h3>
-      <p>Tank-to-spokes spa with chain care, 1-year ceramic coating for the bike, and scratch removal plus coating for your helmet.</p>
-      <span class="from">from RM 40 →</span>
-    </a>
-    </div>
+    <ul class="svc-list">
+      <li><a class="svc-row" href="services/" data-img="0">
+        <img class="sr-thumb" src="images/paint-correction.webp" alt="" width="1042" height="1280" loading="lazy" decoding="async">
+        <span class="sr-name">Polish &amp; Paint Correction</span>
+        <span class="sr-desc">From 1-step gloss to 3-step advance correction for heavy swirls and acid rain etching.</span>
+        <span class="sr-from"><span>from RM 330</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a class="svc-row" href="services/" data-img="1">
+        <img class="sr-thumb" src="images/wash-foam.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+        <span class="sr-name">9NERS Signature Wash</span>
+        <span class="sr-desc">Our baseline for every car: hand-brushed detailing wash, clay bar, fine gap &amp; edge cleaning, ceramic spray seal and reblack trim.</span>
+        <span class="sr-from"><span>from RM 88</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a class="svc-row" href="services/" data-img="2">
+        <img class="sr-thumb" src="images/ceramic-gloss.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+        <span class="sr-name">Ceramic Coating</span>
+        <span class="sr-desc">8H and 9H crystallised coatings. Glossier than new paint, protected for one or two years, with free mirror treatments included.</span>
+        <span class="sr-from"><span>from RM 850</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a class="svc-row" href="services/" data-img="3">
+        <img class="sr-thumb" src="images/ppf-headlamp.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+        <span class="sr-name">Paint Protection Film</span>
+        <span class="sr-desc">Clear armour against stone chips, scratches and UV. Full front in 2–3 days, or panel by panel: mirrors, headlamps, even door handles.</span>
+        <span class="sr-from"><span>from RM 120</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a class="svc-row" href="services/" data-img="4">
+        <img class="sr-thumb" src="images/babygear-refresh.webp" alt="" width="810" height="1080" loading="lazy" decoding="async">
+        <span class="sr-name">Interior, Leather &amp; Babygear</span>
+        <span class="sr-desc">Leather refresh, fabric extraction cleans, seat-out interior resets, plus deep-cleaned and sanitised car seats and strollers.</span>
+        <span class="sr-from"><span>from RM 40</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><a class="svc-row" href="services/" data-img="5">
+        <img class="sr-thumb" src="images/bike-front.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+        <span class="sr-name">Bike Spa, Coating &amp; Helmet</span>
+        <span class="sr-desc">Tank-to-spokes spa with chain care, 1-year ceramic coating for the bike, and scratch removal plus coating for your helmet.</span>
+        <span class="sr-from"><span>from RM 40</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+    </ul>
     <div class="svc-more"><a class="btn btn-ghost-dk" href="services/">See all services</a></div>
   </div>
+  <div class="svc-float" aria-hidden="true"><img src="images/paint-correction.webp" alt="" width="1042" height="1280" loading="lazy" decoding="async"><img src="images/wash-foam.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"><img src="images/ceramic-gloss.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"><img src="images/ppf-headlamp.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"><img src="images/babygear-refresh.webp" alt="" width="810" height="1080" loading="lazy" decoding="async"><img src="images/bike-front.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"></div>
 </section>
 
 <section class="menus" id="prices">
@@ -463,38 +337,23 @@
     <div class="menu-grid">
       <a class="svc" href="https://drive.google.com/file/d/1UOLvAGJGzJl90gwknaz9Wiwe8ryFdf1G/view" target="_blank" rel="noopener">
         <div class="ph"><span class="badge">Wash</span><img src="images/wash-foam.webp" alt="Car covered in thick wash foam" width="1200" height="800" decoding="async" loading="lazy"></div>
-        <div class="svc-body">
-          <h3>Detailing Wash</h3>
-          <div class="svc-foot"><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </div>
+        <div class="svc-body"><h3>Detailing Wash</h3><div class="svc-foot"><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
       </a>
       <a class="svc" href="https://drive.google.com/file/d/17AQiYk-XgbrOcrwCU5XvAwpyGWbLXtR3/view" target="_blank" rel="noopener">
         <div class="ph"><span class="badge">Polish</span><img src="images/paint-correction.webp" alt="The 9NERS team machine-polishing a red sports car in the studio" width="1042" height="1280" decoding="async" loading="lazy"></div>
-        <div class="svc-body">
-          <h3>Car Polishing &amp; Coating</h3>
-          <div class="svc-foot"><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </div>
+        <div class="svc-body"><h3>Car Polishing &amp; Coating</h3><div class="svc-foot"><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
       </a>
       <a class="svc" href="https://drive.google.com/file/d/1vDQN81bvgRBIgWH3_YUu1CON7hXmoJHO/view" target="_blank" rel="noopener">
         <div class="ph"><span class="badge">Interior</span><img src="images/leather-interior.webp" alt="Dark leather car interior with red stitching" width="1200" height="1800" decoding="async" loading="lazy"></div>
-        <div class="svc-body">
-          <h3>Detailing &amp; Interior</h3>
-          <div class="svc-foot"><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </div>
+        <div class="svc-body"><h3>Detailing &amp; Interior</h3><div class="svc-foot"><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
       </a>
       <a class="svc" href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">
         <div class="ph"><span class="badge">PPF</span><img src="images/ppf-headlamp.webp" alt="Headlamp with water beads on protective film" width="1200" height="800" decoding="async" loading="lazy"></div>
-        <div class="svc-body">
-          <h3>Paint Protection Film</h3>
-          <div class="svc-foot"><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </div>
+        <div class="svc-body"><h3>Paint Protection Film</h3><div class="svc-foot"><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
       </a>
       <a class="svc" href="https://drive.google.com/file/d/1I-0eqjmppTQpnp3ejYCzXSmQMuL-uQQa/view" target="_blank" rel="noopener">
-        <div class="ph"><span class="badge bike">Bike</span><img src="images/bike-front.webp" alt="Matte black motorcycle front close-up" width="1200" height="800" decoding="async" loading="lazy"></div>
-        <div class="svc-body">
-          <h3>Bike Detailing</h3>
-          <div class="svc-foot"><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </div>
+        <div class="ph"><span class="badge">Bike</span><img src="images/bike-front.webp" alt="Matte black motorcycle front close-up" width="1200" height="800" decoding="async" loading="lazy"></div>
+        <div class="svc-body"><h3>Bike Detailing</h3><div class="svc-foot"><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></div>
       </a>
     </div>
   </div>
@@ -507,15 +366,15 @@
       <h2 class="h-disp">Before / after</h2>
       <p>Drag the handle. Real results, straight from the studio.</p>
     </div>
-    <div class="ba-frame" id="baFrame">
-      <img src="images/ba-car-before.webp" alt="Grey BMW covered in mud and dirt before detailing" width="1408" height="768" decoding="async" loading="lazy">
-      <img class="after" src="images/ba-car-after.webp" alt="The same BMW spotless and glossy after detailing" width="1408" height="768" decoding="async" loading="lazy">
-      <div class="ba-divider"></div>
-      <div class="ba-handle">↔</div>
-      <span class="ba-tag before">Before</span>
-      <span class="ba-tag after-t">After</span>
-      <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
-    </div>
+  </div>
+  <div class="ba-frame" id="baFrame">
+    <img src="images/ba-car-before.webp" alt="Grey BMW covered in mud and dirt before detailing" width="1408" height="768" decoding="async" loading="lazy">
+    <img class="after" src="images/ba-car-after.webp" alt="The same BMW spotless and glossy after detailing" width="1408" height="768" decoding="async" loading="lazy">
+    <div class="ba-divider"></div>
+    <div class="ba-handle">↔</div>
+    <span class="ba-tag before">Before</span>
+    <span class="ba-tag after-t">After</span>
+    <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
   </div>
 </section>
 
@@ -528,30 +387,25 @@
       <h2 class="h-disp">Take the studio home</h2>
       <p>Products we developed and tested in our own bays, starting with Rain Off.</p>
     </div>
-    <div class="lu-grid">
-      <a class="lu real" href="shop/rain-off/">
-        <div class="lu-stage"><video src="videos/rainoff-360-sq.mp4" poster="videos/rainoff-360-sq-poster.webp" muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees" data-lazy></video></div>
-        <div class="lu-body">
-          <h3>Rain Off</h3>
-          <div class="cat">Hydrophobic glass coating spray</div>
-          <span class="go">View product →</span>
-        </div>
-      </a>
-      <div class="lu soon">
-        <div class="lu-stage"><div class="soon-can"></div></div>
-        <div class="lu-body">
-          <span class="soon-pill">Coming soon</span>
-          <h3>Still under wraps</h3>
-          <div class="cat">In testing at the studio</div>
-        </div>
+    <div class="stage">
+      <div class="stage-art">
+        <span class="stage-word" aria-hidden="true">Rain Off</span>
+        <video class="stage-can" poster="videos/rainoff-360-alpha-poster.webp" muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees" data-lazy>
+          <source src="videos/rainoff-360-alpha.mov" type="video/quicktime">
+          <source src="videos/rainoff-360-alpha.webm" type="video/webm">
+        </video>
       </div>
-      <div class="lu soon">
-        <div class="lu-stage"><div class="soon-can"></div></div>
-        <div class="lu-body">
-          <span class="soon-pill">Coming soon</span>
-          <h3>Still under wraps</h3>
-          <div class="cat">In testing at the studio</div>
+      <div class="stage-copy">
+        <span class="eyebrow">Hydrophobic glass coating spray</span>
+        <h3>Rain Off</h3>
+        <p class="cat">100g can · Spray, spread, buff, wipe and go</p>
+        <p class="desc">Rain Off puts a strong hydrophobic layer on your windscreen and glass: rain beads up and rolls away with the airflow, wipers work less, and night driving in a downpour stops being a guessing game.</p>
+        <div class="price-line"><b>RM 38</b><span>per 100g can</span></div>
+        <div class="stage-btns">
+          <a class="btn btn-purple" href="https://niners-buy.zebwan00.workers.dev/rain-off" data-add="rain-off">Add to cart</a>
+          <a class="btn btn-ghost-dk" href="shop/rain-off/">View product</a>
         </div>
+        <p class="soon-line">Two more products are in testing at the studio.</p>
       </div>
     </div>
     <a class="ws-strip" href="shop/#wholesale">
@@ -564,6 +418,10 @@
 
 <section class="academy" id="academy">
   <div class="wrap aca-grid">
+    <div class="aca-photo">
+      <img src="images/academy-class.webp" alt="Nina teaching a paint correction class to students in 9NERS Academy shirts" width="1280" height="1024" decoding="async" loading="lazy">
+      <div class="aca-tag"><b>RM 1,300</b><span>per participant · Detailing class</span></div>
+    </div>
     <div>
       <span class="eyebrow" style="color:var(--pink)">9NERS Academy</span>
       <h2 class="h-disp">Learn. Practice.<br><span style="color:var(--pink)">Master.</span></h2>
@@ -573,51 +431,27 @@
         <li>Paint correction from wash and decontamination to masking, polishing and protection</li>
         <li>Taught by Nina, founder and head trainer</li>
       </ul>
+      <p class="aca-covers">The class covers wash and decontamination, masking and machine polishing, compound, polish and finish, then protection and aftercare.</p>
       <div class="hero-ctas">
         <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20enquiry%20pasal%209NERS%20Academy." target="_blank" rel="noopener">Enquiry now</a>
         <a class="btn btn-ghost" href="academy/">See the academy</a>
       </div>
-    </div>
-    <div class="aca-card">
-      <div class="aca-photo"><img src="images/academy-class.webp" alt="Nina teaching a paint correction class to students in 9NERS Academy shirts" width="1280" height="1024" decoding="async" loading="lazy"></div>
-      <span class="eyebrow">Detailing class</span>
-      <div class="aca-price">RM 1,300</div>
-      <div class="per">per participant</div>
-      <ul>
-        <li>Wash &amp; decontamination</li>
-        <li>Masking &amp; machine polishing</li>
-        <li>Compound, polish, finish</li>
-        <li>Protection &amp; aftercare</li>
-      </ul>
-      <a class="btn btn-ghost" href="https://www.instagram.com/9ners__academy/" target="_blank" rel="noopener">Follow @9ners__academy</a>
+      <a class="aca-follow" href="https://www.instagram.com/9ners__academy/" target="_blank" rel="noopener">Follow @9ners__academy →</a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="rev-head">
-      <div class="sec-head">
-        <span class="eyebrow">5.0 on Google · 187 reviews</span>
-        <h2 class="h-disp">What owners say</h2>
-      </div>
-      <div class="rev-nav">
-        <button id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-        <button id="revNext" aria-label="Next reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-      </div>
+<section class="reviews">
+  <div class="wrap rev-head">
+    <div class="sec-head">
+      <span class="eyebrow">Google reviews</span>
+      <h2 class="h-disp">What owners say</h2>
     </div>
-    <div class="rev-track" id="revTrack">
-      <div class="rev"><div class="stars">★★★★★</div><p>“I chose the 2-year coating package and leather seat cleaning, and the results were excellent. The car is now much shinier and smoother, with all the heavy watermarks removed through polishing.”</p><b>Afif Jefri · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“My car shine back like new! Dulu just nampak 9NERS keep posting, end up try the signature wash — its damn worth my money! Surprisingly all the nail scratch gone. Will repeat? For sure 🫡”</p><b>Sahrul Nizam · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“The level of care and attention to detail really stood out. Nina was friendly, attentive, and recommended only the necessary services without any pressure to upsell.”</p><b>Iskan · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“My wrapped car had quite a lot of watermarks and swirl marks, and they took the time to carefully polish it properly. Appreciate that the boss personally worked on the car as well.”</p><b>Keith Wong · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“Left my bike with them and trusted the process. Came back four hours later to find my beautifully groomed bike ready for pickup. Four hours for a year worth of ceramic coating — can’t ask for a better deal.”</p><b>Farhan Mazlan · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“The team is very professional and knowledgeable when it comes to car care and paint condition. Before starting, they patiently explained the condition of my paint and what contamination was on the surface.”</p><b>Zhen Yu · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“My car look brand new again, thank you team 9NERS. All professional and friendly — they even sent before &amp; after photos and videos. Overall very satisfied 💯”</p><b>R F · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“My first time here after a whole year following them on TikTok. I love the result on my 10-year-old car — worth the money and would definitely recommend their signature detailing wash!”</p><b>Sarah Ibrahim · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“Excellent bike wash service! My motorcycle looks spotless. Friendly staff and great attention to detail. Highly recommended!”</p><b>Faiq Fadhlullah · Google review</b></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“First time washing my car here and I would say they did a great job. The owners were friendly and have extensive knowledge about detailing cars. 10/10 recommended.”</p><b>Hidayat Mohd · Google review</b></div>
-    </div>
+    <div class="rev-score"><b>5.0</b><div><span class="stars">★★★★★</span><span class="n">187 reviews on Google</span></div></div>
+  </div>
+  <div class="rev-mq" data-rv-skip>
+    <div class="rev-row"><div class="rev-set" data-mq="58"><div class="rev"><div class="stars">★★★★★</div><p>“I chose the 2-year coating package and leather seat cleaning, and the results were excellent. The car is now much shinier and smoother, with all the heavy watermarks removed through polishing.”</p><b>Afif Jefri <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My car shine back like new! Dulu just nampak 9NERS keep posting, end up try the signature wash — its damn worth my money! Surprisingly all the nail scratch gone. Will repeat? For sure 🫡”</p><b>Sahrul Nizam <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“The level of care and attention to detail really stood out. Nina was friendly, attentive, and recommended only the necessary services without any pressure to upsell.”</p><b>Iskan <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My wrapped car had quite a lot of watermarks and swirl marks, and they took the time to carefully polish it properly. Appreciate that the boss personally worked on the car as well.”</p><b>Keith Wong <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“Left my bike with them and trusted the process. Came back four hours later to find my beautifully groomed bike ready for pickup. Four hours for a year worth of ceramic coating — can’t ask for a better deal.”</p><b>Farhan Mazlan <span>· Google review</span></b></div></div><div class="rev-set" data-mq="58" aria-hidden="true"><div class="rev"><div class="stars">★★★★★</div><p>“I chose the 2-year coating package and leather seat cleaning, and the results were excellent. The car is now much shinier and smoother, with all the heavy watermarks removed through polishing.”</p><b>Afif Jefri <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My car shine back like new! Dulu just nampak 9NERS keep posting, end up try the signature wash — its damn worth my money! Surprisingly all the nail scratch gone. Will repeat? For sure 🫡”</p><b>Sahrul Nizam <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“The level of care and attention to detail really stood out. Nina was friendly, attentive, and recommended only the necessary services without any pressure to upsell.”</p><b>Iskan <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My wrapped car had quite a lot of watermarks and swirl marks, and they took the time to carefully polish it properly. Appreciate that the boss personally worked on the car as well.”</p><b>Keith Wong <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“Left my bike with them and trusted the process. Came back four hours later to find my beautifully groomed bike ready for pickup. Four hours for a year worth of ceramic coating — can’t ask for a better deal.”</p><b>Farhan Mazlan <span>· Google review</span></b></div></div></div>
+    <div class="rev-row rev-row-r"><div class="rev-set" data-mq="58"><div class="rev"><div class="stars">★★★★★</div><p>“The team is very professional and knowledgeable when it comes to car care and paint condition. Before starting, they patiently explained the condition of my paint and what contamination was on the surface.”</p><b>Zhen Yu <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My car look brand new again, thank you team 9NERS. All professional and friendly — they even sent before &amp; after photos and videos. Overall very satisfied 💯”</p><b>R F <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My first time here after a whole year following them on TikTok. I love the result on my 10-year-old car — worth the money and would definitely recommend their signature detailing wash!”</p><b>Sarah Ibrahim <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“Excellent bike wash service! My motorcycle looks spotless. Friendly staff and great attention to detail. Highly recommended!”</p><b>Faiq Fadhlullah <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“First time washing my car here and I would say they did a great job. The owners were friendly and have extensive knowledge about detailing cars. 10/10 recommended.”</p><b>Hidayat Mohd <span>· Google review</span></b></div></div><div class="rev-set" data-mq="58" aria-hidden="true"><div class="rev"><div class="stars">★★★★★</div><p>“The team is very professional and knowledgeable when it comes to car care and paint condition. Before starting, they patiently explained the condition of my paint and what contamination was on the surface.”</p><b>Zhen Yu <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My car look brand new again, thank you team 9NERS. All professional and friendly — they even sent before &amp; after photos and videos. Overall very satisfied 💯”</p><b>R F <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My first time here after a whole year following them on TikTok. I love the result on my 10-year-old car — worth the money and would definitely recommend their signature detailing wash!”</p><b>Sarah Ibrahim <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“Excellent bike wash service! My motorcycle looks spotless. Friendly staff and great attention to detail. Highly recommended!”</p><b>Faiq Fadhlullah <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“First time washing my car here and I would say they did a great job. The owners were friendly and have extensive knowledge about detailing cars. 10/10 recommended.”</p><b>Hidayat Mohd <span>· Google review</span></b></div></div></div>
   </div>
 </section>
 
@@ -629,44 +463,28 @@
     </div>
     <a class="btn btn-ghost-dk" href="gallery/">See the gallery</a>
   </div>
-  <div class="gal-ribbon">
-    <img src="images/studio-floor.webp" alt="The 9NERS bay with the pink 9 on the checkered floor" width="960" height="1280" decoding="async" loading="lazy">
-    <img src="images/academy-class.webp" alt="A 9NERS Academy paint correction class in session" width="1280" height="1024" decoding="async" loading="lazy">
-    <img src="images/ba-car-after.webp" alt="Glossy grey BMW after a full detail" width="1408" height="768" decoding="async" loading="lazy">
-    <img src="images/journey-outlet2.webp" alt="The studio entrance with the pink flame wall" width="900" height="985" decoding="async" loading="lazy">
-    <img src="images/nina-polish.webp" alt="Nina machine-polishing a bonnet" width="854" height="1138" decoding="async" loading="lazy">
-    <img src="images/journey-outlet1.webp" alt="The 9NERS Detailing Studio shopfront in Desa Tebrau" width="900" height="722" decoding="async" loading="lazy">
-  </div>
+  <div class="gal-mq" data-rv-skip><div class="gal-set" data-mq="42"><img src="images/studio-floor.webp" alt="The 9NERS bay with the pink 9 on the checkered floor" width="960" height="1280" decoding="async" loading="lazy"><img src="images/academy-class.webp" alt="A 9NERS Academy paint correction class in session" width="1280" height="1024" decoding="async" loading="lazy"><img src="images/ba-car-after.webp" alt="Glossy grey BMW after a full detail" width="1408" height="768" decoding="async" loading="lazy"><img src="images/journey-outlet2.webp" alt="The studio entrance with the pink flame wall" width="900" height="985" decoding="async" loading="lazy"><img src="images/nina-polish.webp" alt="Nina machine-polishing a bonnet" width="854" height="1138" decoding="async" loading="lazy"><img src="images/journey-outlet1.webp" alt="The 9NERS Detailing Studio shopfront in Desa Tebrau" width="900" height="722" decoding="async" loading="lazy"></div><div class="gal-set" data-mq="42" aria-hidden="true"><img src="images/studio-floor.webp" alt="The 9NERS bay with the pink 9 on the checkered floor" width="960" height="1280" decoding="async" loading="lazy"><img src="images/academy-class.webp" alt="A 9NERS Academy paint correction class in session" width="1280" height="1024" decoding="async" loading="lazy"><img src="images/ba-car-after.webp" alt="Glossy grey BMW after a full detail" width="1408" height="768" decoding="async" loading="lazy"><img src="images/journey-outlet2.webp" alt="The studio entrance with the pink flame wall" width="900" height="985" decoding="async" loading="lazy"><img src="images/nina-polish.webp" alt="Nina machine-polishing a bonnet" width="854" height="1138" decoding="async" loading="lazy"><img src="images/journey-outlet1.webp" alt="The 9NERS Detailing Studio shopfront in Desa Tebrau" width="900" height="722" decoding="async" loading="lazy"></div></div>
 </section>
 
 <section class="visit" id="visit">
-  <div class="wrap">
-    <div class="sec-head on-dark">
-      <span class="eyebrow">One studio, Johor Bahru</span>
-      <h2 class="h-disp">Come say hi</h2>
-    </div>
-    <div class="visit-grid">
-      <div class="loc">
-        <span class="tag walkin">Walk-in welcome</span>
-        <h3>Desa Tebrau</h3>
-        <p>79, Jalan Harmonium 33/1,<br>Taman Desa Tebrau, Johor Bahru</p>
-        <p class="hours">Tue–Sun · 10 am – 7 pm · Closed Monday</p>
+  <div class="wrap visit-grid">
+    <div class="visit-copy">
+      <span class="walkin">Walk-in welcome</span>
+      <h3>Come say hi</h3>
+      <address>79, Jalan Harmonium 33/1,<br>Taman Desa Tebrau, Johor Bahru</address>
+      <p class="hours">Tue–Sun · 10 am – 7 pm · Closed Monday</p>
+      <p class="note">Detailing, car care and the 9NERS Academy all run from our Desa Tebrau studio. Big jobs and classes: WhatsApp to book a slot.</p>
+      <div class="visit-cta">
+        <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp 016-756 5222</a>
         <a class="btn btn-ghost" href="https://waze.com/ul?q=9NERS%20Detailing%20Studio%20Desa%20Tebrau" target="_blank" rel="noopener">Open in Waze</a>
-      </div>
-      <div class="loc">
-        <span class="tag appt">Detailing &amp; academy</span>
-        <h3>All under one roof</h3>
-        <p>Detailing, car care and the 9NERS Academy<br>all run from our Desa Tebrau studio.</p>
-        <p class="hours">Big jobs &amp; classes: WhatsApp to book a slot</p>
-        <a class="btn btn-ghost" href="https://wa.me/60167565222" target="_blank" rel="noopener">Book a slot</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/9ners__studio/" target="_blank" rel="noopener">Follow @9ners__studio</a>
       </div>
     </div>
-    <div class="visit-cta">
-      <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Saya%20nak%20book%20detailing." target="_blank" rel="noopener">WhatsApp 016-756 5222</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/9ners__studio/" target="_blank" rel="noopener">Follow @9ners__studio</a>
-    </div>
+    <div class="visit-photo"><img src="images/journey-outlet1.webp" alt="The 9NERS Detailing Studio shopfront in Desa Tebrau" width="900" height="722" decoding="async" loading="lazy"></div>
   </div>
 </section>
+
+<div class="tag-band" aria-hidden="true"><div class="wrap"><span class="tb-in"><span class="tb-line">Detailed to the</span> <span class="tb-line"><em>nines.</em></span></span></div></div>
 
 <footer>
   <div class="wrap">
@@ -701,36 +519,7 @@
     </div>
   </div>
 </footer>
-<script>
-  var revTrack = document.getElementById('revTrack');
-  if (revTrack) {
-    var revStep = function(){ var c = revTrack.querySelector('.rev'); return c ? c.offsetWidth + 22 : 300; };
-    document.getElementById('revPrev').addEventListener('click', function(){ revTrack.scrollBy({left: -revStep(), behavior: 'smooth'}); });
-    document.getElementById('revNext').addEventListener('click', function(){ revTrack.scrollBy({left: revStep(), behavior: 'smooth'}); });
-  }
-  var baFrame = document.getElementById('baFrame');
-  if (baFrame) {
-    var baRange = baFrame.querySelector('.ba-range');
-    baRange.addEventListener('input', function(){
-      baFrame.style.setProperty('--p', this.value + '%');
-    });
-    var wiggled = false;
-    new IntersectionObserver(function(entries, obs){
-      if (!entries[0].isIntersecting || wiggled) return;
-      wiggled = true; obs.disconnect();
-      var t0 = null;
-      function step(ts){
-        if (!t0) t0 = ts;
-        var t = Math.min(1, (ts - t0) / 1400);
-        var p = 50 + Math.sin(t * Math.PI * 2) * 6 * (1 - t);
-        baFrame.style.setProperty('--p', p + '%');
-        baRange.value = p;
-        if (t < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }, {threshold: .5}).observe(baFrame);
-  }
-</script>
+<script src="/js/pages.js" defer></script>
 <style>
   html.lenis,html.lenis body{height:auto}
   .lenis.lenis-smooth{scroll-behavior:auto!important}

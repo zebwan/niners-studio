@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=3">
+<link rel="stylesheet" href="/css/pages.css">
 <title>9NERS Academy — detailing training in Johor Bahru</title>
 <style>
   :root{
@@ -65,18 +66,21 @@
 
   .learn{background:var(--noir)}
   .learn-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
-  .mods{display:grid;gap:2px;background:var(--line-dk);border:1px solid var(--line-dk);border-radius:14px;overflow:hidden}
-  .mod{background:var(--noir-2);padding:22px 26px;display:flex;gap:18px;align-items:baseline}
-  .mod b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:24px;color:var(--pink);flex:0 0 34px}
-  .mod h3{font-size:17px;font-weight:600;color:#fff;margin-bottom:2px}
+  .mods{display:grid;border-top:1px solid rgba(255,111,175,.18)}
+  .mod{padding:24px 0;display:flex;gap:22px;align-items:baseline;border-bottom:1px solid rgba(255,111,175,.18)}
+  .mod b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:40px;line-height:1;color:var(--pink);flex:0 0 44px}
+  .mod h3{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:26px;line-height:1;color:#fff;margin-bottom:6px}
   .mod p{font-size:14px;color:#9B99A2}
-  .class-card{background:var(--noir-2);border:1px solid var(--line-dk);border-radius:16px;padding:32px;position:sticky;top:100px}
-  .class-card .price{font-family:var(--disp);font-style:italic;font-weight:700;font-size:54px;color:#fff;line-height:1;margin:10px 0 4px}
-  .class-card .per{color:#9B99A2;font-size:14px;margin-bottom:22px}
+  .class-card{background:var(--pink);color:#3A0A1F;padding:34px 32px 32px;position:sticky;top:100px}
+  .class-card .eyebrow{color:#4A0F27}
+  .class-card .btn-wa{background:#12060B;color:#fff}
+  .class-card .btn-wa:hover{background:#26050F}
+  .class-card .price{font-family:var(--disp);font-style:italic;font-weight:700;font-size:54px;color:#12060B;line-height:1;margin:10px 0 4px}
+  .class-card .per{color:#4A0F27;font-size:14px;margin-bottom:24px;font-weight:500}
   .class-card ul{list-style:none;display:grid;gap:11px;margin-bottom:26px}
-  .class-card li{font-size:14px;color:#D7D5DC;padding-left:22px;position:relative}
-  .class-card li::before{content:"—";position:absolute;left:0;color:var(--pink)}
-  .class-note{font-size:13px;color:#9B99A2;margin-top:16px}
+  .class-card li{font-size:14.5px;color:#3A0A1F;padding-left:26px;position:relative;font-weight:500}
+  .class-card li::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;background:repeating-conic-gradient(#12060B 0% 25%, transparent 0% 50%);background-size:6px 6px;border:1px solid #12060B}
+  .class-note{font-size:13px;color:#4A0F27;margin-top:16px}
 
   .feed{background:var(--noir-2)}
   .feed-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
@@ -270,7 +274,9 @@
   </div></div>
 </section>
 
-<div class="checker"></div>
+<div class="ticker" data-rv-skip>
+  <div class="tk-track"><div class="tk-set" data-mq="70"><span>Small classes</span><span>Real cars, real tools</span><span>Taught by Nina</span><span>3-day personal class</span><span>Desa Tebrau studio</span></div><div class="tk-set" data-mq="70" aria-hidden="true"><span>Small classes</span><span>Real cars, real tools</span><span>Taught by Nina</span><span>3-day personal class</span><span>Desa Tebrau studio</span></div></div>
+</div>
 
 <section class="learn">
   <div class="wrap">
@@ -491,6 +497,8 @@
   </div>
 </section>
 
+<div class="tag-band" aria-hidden="true"><div class="wrap"><span class="tb-in"><span class="tb-line">Detailed to the</span> <span class="tb-line"><em>nines.</em></span></span></div></div>
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -558,6 +566,7 @@
 })();
 </script>
 <script src="../js/reveal.js"></script>
+<script src="/js/pages.js" defer></script>
 <script src="/js/cart.js" defer></script>
 </body>
 </html>

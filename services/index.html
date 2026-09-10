@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=3">
+<link rel="stylesheet" href="/css/pages.css">
 <title>Services — 9NERS Detailing Studio</title>
 <style>
   :root{
@@ -56,92 +57,60 @@
   .mega span{color:var(--pink)}
   .a-hero-side p{color:#E3E1E8;font-size:16px;margin-bottom:26px;max-width:44ch}
 
-  .mission{background:var(--white);padding:96px 0 60px;text-align:center}
+  .mission{background:var(--white);padding:96px 0 60px}
   .mission .eyebrow{display:block;margin-bottom:14px}
-  .mission h2{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(30px,4.4vw,50px);line-height:1.1;max-width:820px;margin:0 auto}
-  .mission h2 .hl{background:var(--pink);color:#3A0A1F;padding:2px 16px;border-radius:8px;display:inline-block}
-  .mission p{color:var(--muted);max-width:60ch;margin:18px auto 0}
+  .mission h2{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(32px,4.6vw,56px);line-height:1.06;max-width:20ch}
+  .mission h2 .hl{background:var(--pink);color:#3A0A1F;padding:0 12px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .mission p{color:var(--muted);max-width:56ch;margin:20px 0 0}
 
+  /* the service list: big names, the photo follows the cursor, prices drop open underneath */
   .svc-cards{background:var(--white);padding:40px 0 96px}
-  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
-  .svc{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1/1;cursor:pointer;background:var(--noir-2);transition:transform .15s ease;outline:2px solid transparent;outline-offset:-2px}
-  .svc:hover{transform:translateY(-3px)}
-  .svc.active{outline-color:var(--purple)}
-  .ph{position:absolute;inset:0;overflow:hidden}
-  .ph img{width:100%;height:100%;object-fit:cover}
-  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,12,.62),rgba(10,8,12,.26) 34%,rgba(10,8,12,.24))}
-  .badge{position:absolute;top:14px;left:16px;z-index:1;color:#fff;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
-  .svc-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 16px}
-  .svc h3{font-size:17px;font-weight:600;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.45)}
-  .svc-foot{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:#fff;margin-top:4px}
-  .arr svg{display:block;transition:transform .25s ease}
-  .svc.active .arr svg{transform:rotate(180deg)}
-  .arr svg{transition:transform .2s ease}
-  .svc-detail{display:none}
-
-  .svc-panel{grid-column:1/-1;display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
-  .svc-panel.open{grid-template-rows:1fr}
-  .svc-panel-in{overflow:hidden;min-height:0}
-  .svc-panel-box{position:relative;background:var(--lilac);border:1px solid var(--line);border-radius:16px;padding:30px 34px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px}
-  .svc-panel-box h3{font-size:22px;font-weight:600;margin-bottom:10px}
-  .svc-panel .d-intro{border-top:none;padding-top:0;margin-top:0;font-size:14px}
-  .svc-panel .d-rows{margin:14px 0 0;gap:10px}
-  .svc-panel .d-rows li{font-size:14px}
-  .svc-panel .d-actions{margin-top:22px}
-  .svc-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;padding:0}
-  .svc-close:hover{border-color:var(--purple);color:var(--purple)}
-
-  .svc-sheet{position:fixed;inset:0;z-index:200;background:var(--white);overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}
-  .svc-sheet.open{display:block}
-  .sheet-ph{position:relative;aspect-ratio:4/3;background:var(--noir-2)}
-  .sheet-ph img{width:100%;height:100%;object-fit:cover;display:block}
-  .sheet-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,12,.66),rgba(10,8,12,.08) 45%)}
-  .sheet-title{position:absolute;left:20px;right:20px;bottom:16px;z-index:1;color:#fff;font-size:24px;font-weight:600;text-shadow:0 1px 12px rgba(0,0,0,.45)}
-  .sheet-close{position:absolute;top:16px;right:16px;z-index:2;width:38px;height:38px;border-radius:50%;border:none;background:rgba(10,8,12,.55);color:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
-  .sheet-body{padding:22px 20px 36px}
-  .sheet-body .d-intro{border-top:none;padding-top:0;margin:0 0 16px;font-size:14.5px}
-  .sheet-body .d-rows{margin:0}
-  .sheet-body .d-rows li{font-size:14.5px}
-  .sheet-body .d-actions{margin-top:24px;flex-direction:column;align-items:stretch}
-  .sheet-body .d-actions .btn{text-align:center;padding:13px;font-size:15px}
-  .sheet-body .d-link{text-align:center}
-  body.sheet-lock{overflow:hidden}
-  .d-intro{font-size:13px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
-  .d-rows{list-style:none;display:grid;gap:8px;margin:12px 0 0}
-  .d-rows li{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:var(--muted)}
+  .svc-item{position:relative}
+  button.svc-row{width:100%;background:none;border:0;font:inherit;text-align:left;cursor:pointer}
+  .svc-cards .svc-row:hover .sr-from svg{transform:none}
+  .sr-from svg{transition:transform .3s ease}
+  .svc-item.open .svc-row::before{transform:scaleX(1)}
+  .svc-item.open .sr-desc{color:#4A0F27}
+  .svc-item.open .sr-from{color:#12060B}
+  .svc-item.open .sr-from svg{transform:rotate(180deg)}
+  .svc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,.61,.36,1);border-bottom:1px solid var(--line)}
+  .svc-item.open .svc-panel{grid-template-rows:1fr}
+  .sp-in{overflow:hidden;min-height:0}
+  .sp-box{background:var(--lilac);border-radius:12px;margin:0 18px 22px;padding:26px 30px}
+  .sp-box .d-rows{margin:0}
+  .svc-hint{margin-top:26px;font-size:14px;color:var(--muted)}
+  .d-rows{list-style:none;display:grid;gap:10px}
+  .d-rows li{display:flex;justify-content:space-between;gap:14px;font-size:14.5px;color:var(--muted);border-bottom:1px dotted var(--line);padding-bottom:9px}
+  .d-rows li:last-child{border-bottom:none;padding-bottom:0}
   .d-rows b{color:var(--ink);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
-  .d-actions{display:flex;gap:12px;align-items:center;margin-top:16px;flex-wrap:wrap}
-  .d-actions .btn{padding:9px 16px;font-size:13px}
-  .d-link{font-size:13px;font-weight:600;color:var(--purple);text-decoration:none}
+  .d-actions{display:flex;gap:14px;align-items:center;margin-top:22px;flex-wrap:wrap}
+  .d-actions .btn{padding:11px 20px;font-size:14px}
+  .d-link{font-size:14px;font-weight:600;color:var(--purple);text-decoration:none}
   .d-link:hover{color:var(--purple-d)}
-  .svc-foot em{font-style:normal}
-  .svc-foot .arr{font-size:17px}
 
-  .plans{background:var(--lilac);padding:96px 0}
-  .plans-head{text-align:center;max-width:640px;margin:0 auto 56px}
-  .plans-head h2{font-size:clamp(32px,4.4vw,50px);margin:14px 0 12px;color:var(--ink)}
-  .plans-head p{color:var(--muted)}
-  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
-  .plan{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:36px 32px;display:flex;flex-direction:column}
-  .plan h3{font-size:19px;font-weight:600;margin-bottom:14px}
-  .plan .price{font-family:var(--disp);font-style:italic;font-weight:700;font-size:46px;color:var(--purple);line-height:1}
-  .plan .price small{font-family:var(--body);font-style:normal;font-weight:500;font-size:14px;color:var(--muted)}
-  .plan .fit{font-size:14px;font-weight:600;margin:16px 0 8px}
-  .plan .desc{font-size:14px;color:var(--muted);margin-bottom:18px}
-  .plan ul{list-style:none;display:grid;gap:10px;margin-bottom:28px;flex:1}
-  .plan li{font-size:14px;color:var(--muted);padding-left:26px;position:relative}
-  .plan li::before{content:"✓";position:absolute;left:0;color:var(--purple);font-weight:700}
-  .plan.feat-plan{background:var(--noir);border-color:var(--noir);position:relative}
-  .plan.feat-plan h3{color:#fff}
-  .plan.feat-plan .price{color:var(--pink)}
-  .plan.feat-plan .price small{color:#9B99A2}
-  .plan.feat-plan .fit{color:#fff}
-  .plan.feat-plan .desc,.plan.feat-plan li{color:#B4B2BA}
-  .plan.feat-plan li::before{color:var(--pink)}
-  .plan .tag{position:absolute;top:-13px;left:32px;background:var(--pink);color:#3A0A1F;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:99px}
-  .plans-foot{text-align:center;margin-top:36px;font-size:15px}
-  .plans-foot a{color:var(--purple);font-weight:600;text-decoration:none}
-  .plans-foot a:hover{color:var(--purple-d)}
+  /* the three most booked packages: columns on black, hairlines, no boxes */
+  .plans{background:var(--noir);color:#fff;padding:96px 0}
+  .plans .sec-head{max-width:640px}
+  .plans .sec-head h2{color:#fff;font-size:clamp(34px,4.6vw,54px)}
+  .plans .sec-head p{color:#B4B2BA}
+  .plan-row{display:grid;grid-template-columns:repeat(3,1fr)}
+  .plan{padding:8px 34px 0;border-left:1px solid rgba(255,111,175,.16);display:flex;flex-direction:column}
+  .plan:first-child{border-left:none;padding-left:0}
+  .plan:last-child{padding-right:0}
+  .plan-note{display:block;font-size:13px;font-weight:600;color:var(--pink);margin-bottom:8px}
+  .plan h3{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(24px,2.4vw,30px);line-height:1.05;color:#fff;margin-bottom:16px}
+  .plan .price{font-family:var(--disp);font-style:italic;font-weight:700;font-size:clamp(44px,4.4vw,58px);line-height:1;color:#fff}
+  .plan.on .price{color:var(--pink)}
+  .plan .price small{font-family:var(--body);font-style:normal;font-weight:500;font-size:14px;color:#9B99A2}
+  .plan .fit{font-size:14px;font-weight:600;color:var(--pink);margin:10px 0 6px}
+  .plan .desc{font-size:14px;color:#9B99A2;margin-bottom:20px}
+  .plan ul{list-style:none;display:grid;gap:11px;margin-bottom:28px;flex:1}
+  .plan li{font-size:14px;color:#D7D5DC;padding-left:26px;position:relative}
+  .plan li::before{content:"";position:absolute;left:0;top:5px;width:12px;height:12px;background:repeating-conic-gradient(var(--pink) 0% 25%, transparent 0% 50%);background-size:6px 6px;border:1px solid var(--pink)}
+  .plan .btn{align-self:flex-start}
+  .plans-foot{margin-top:44px;font-size:15px;color:#9B99A2}
+  .plans-foot a{color:var(--pink);font-weight:600;text-decoration:none}
+  .plans-foot a:hover{color:#fff}
 
   .cta{background:var(--deep);color:#fff;padding:88px 0;text-align:center}
   .cta h2{font-size:clamp(36px,5vw,58px);color:#fff;margin-bottom:14px}
@@ -161,15 +130,15 @@
   @media (max-width:900px){
     .nav-links{display:none}
     .a-hero-grid{grid-template-columns:1fr;gap:40px}
-    .svc-grid,.plan-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+    .plan-row{grid-template-columns:1fr}
+    .plan{border-left:none;border-top:1px solid rgba(255,111,175,.16);padding:26px 0 0;margin-top:26px}
+    .plan:first-child{border-top:none;margin-top:0;padding-top:0}
+    .sp-box{margin:0 0 22px;padding:22px 20px}
     .foot-grid{grid-template-columns:1fr 1fr}
   }
   @media (max-width:640px){
     .a-hero{padding:64px 0 72px}
     .foot-grid{grid-template-columns:1fr}
-  }
-  @media (min-width:641px) and (max-width:900px){
-    .svc-grid,.plan-grid{grid-template-columns:1fr 1fr;max-width:none}
   }
 
   @media (max-width:640px){
@@ -292,6 +261,10 @@
   </div>
 </section>
 
+<div class="ticker on-dark" data-rv-skip>
+  <div class="tk-track"><div class="tk-set" data-mq="70"><span>Signature wash</span><span>Paint correction</span><span>Ceramic coating</span><span>Paint protection film</span><span>Leather &amp; fabric</span><span>Babygear refresh</span><span>Watermark removal</span><span>Bike spa</span></div><div class="tk-set" data-mq="70" aria-hidden="true"><span>Signature wash</span><span>Paint correction</span><span>Ceramic coating</span><span>Paint protection film</span><span>Leather &amp; fabric</span><span>Babygear refresh</span><span>Watermark removal</span><span>Bike spa</span></div></div>
+</div>
+
 <section class="mission">
   <div class="wrap">
     <span class="eyebrow">What we do</span>
@@ -300,219 +273,181 @@
   </div>
 </section>
 
-<section class="svc-cards">
-  <div class="wrap svc-grid">
-    <article class="svc">
-      <div class="ph"><span class="badge">Car</span><img src="../images/wash-foam.webp" alt="Car covered in thick wash foam" width="1200" height="800" decoding="async"></div>
-      <div class="svc-body">
-        <h3>9NERS Signature Wash</h3>
-        <div class="svc-foot"><em>from RM 88</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
-        <div class="svc-detail">
-          <p class="d-intro">Hand-brushed wash, tar removal, clay bar, fine gap &amp; edge cleaning, ceramic spray seal, reblack trim and interior vacuum.</p>
-          <ul class="d-rows">
-          <li><span>Cars</span><b>RM 88</b></li>
+<section class="svc-cards" id="services">
+  <div class="wrap">
+    <ul class="svc-list">
+      <li class="svc-item">
+        <button class="svc-row" type="button" data-img="0" aria-expanded="false">
+          <img class="sr-thumb" src="../images/wash-foam.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          <span class="sr-name">9NERS Signature Wash</span>
+          <span class="sr-desc">Hand-brushed wash, tar removal, clay bar, fine gap &amp; edge cleaning, ceramic spray seal, reblack trim and interior vacuum.</span>
+          <span class="sr-from"><span>from RM 88</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="svc-panel" data-rv-skip><div class="sp-in"><div class="sp-box">
+          <ul class="d-rows"><li><span>Cars</span><b>RM 88</b></li>
           <li><span>SUV</span><b>RM 95</b></li>
           <li><span>Large</span><b>RM 110</b></li>
-          <li><span>Also: Advance Wash</span><b>RM 50–65</b></li>
-          </ul>
-          <div class="d-actions">
-            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20Signature%20Wash." target="_blank" rel="noopener">Book via WhatsApp</a>
-            <a class="d-link" href="https://drive.google.com/file/d/1UOLvAGJGzJl90gwknaz9Wiwe8ryFdf1G/view" target="_blank" rel="noopener">Price menu →</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="ph"><span class="badge">Our specialty</span><img src="../images/paint-correction.webp" alt="The 9NERS team machine-polishing a red sports car in the studio" width="1042" height="1280" decoding="async" loading="lazy"></div>
-      <div class="svc-body">
-        <h3>Polish &amp; Paint Correction</h3>
-        <div class="svc-foot"><em>from RM 330</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
-        <div class="svc-detail">
-          <p class="d-intro">Every package includes the Signature Wash, sealant wax, interior UV dressing and reblack trim.</p>
-          <ul class="d-rows">
-          <li><span>Basic Polish · 3–4 hrs</span><b>RM 330–510</b></li>
+          <li><span>Also: Advance Wash</span><b>RM 50–65</b></li></ul>
+          <div class="d-actions"><a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20Signature%20Wash." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="https://drive.google.com/file/d/1UOLvAGJGzJl90gwknaz9Wiwe8ryFdf1G/view" target="_blank" rel="noopener">Price menu →</a></div>
+        </div></div></div>
+      </li>
+      <li class="svc-item">
+        <button class="svc-row" type="button" data-img="1" aria-expanded="false">
+          <img class="sr-thumb" src="../images/paint-correction.webp" alt="" width="1042" height="1280" loading="lazy" decoding="async">
+          <span class="sr-name">Polish &amp; Paint Correction</span>
+          <span class="sr-desc">Every package includes the Signature Wash, sealant wax, interior UV dressing and reblack trim.</span>
+          <span class="sr-from"><span>from RM 330</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="svc-panel" data-rv-skip><div class="sp-in"><div class="sp-box">
+          <ul class="d-rows"><li><span>Basic Polish · 3–4 hrs</span><b>RM 330–510</b></li>
           <li><span>2-Step Correction · up to 1 day</span><b>RM 550–750</b></li>
-          <li><span>Advance Correction · 2–3 days</span><b>RM 670–850</b></li>
-          </ul>
-          <div class="d-actions">
-            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20polish%20%2F%20paint%20correction." target="_blank" rel="noopener">Book via WhatsApp</a>
-            <a class="d-link" href="https://drive.google.com/file/d/17AQiYk-XgbrOcrwCU5XvAwpyGWbLXtR3/view" target="_blank" rel="noopener">Price menu →</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="ph"><span class="badge">Car</span><img src="../images/ceramic-gloss.webp" alt="Glossy sports car in a dark studio" width="1200" height="800" decoding="async" loading="lazy"></div>
-      <div class="svc-body">
-        <h3>Ceramic Coating</h3>
-        <div class="svc-foot"><em>from RM 850</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
-        <div class="svc-detail">
-          <p class="d-intro">Crystallised coating over an advance polish, with free mirror treatments and washes thrown in.</p>
-          <ul class="d-rows">
-          <li><span>1 Year · 8H · 2 days</span><b>RM 850–1,200</b></li>
-          <li><span>2 Years · 9H · 2 days</span><b>RM 1,399–1,899</b></li>
-          </ul>
-          <div class="d-actions">
-            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20Ceramic%20Coating." target="_blank" rel="noopener">Book via WhatsApp</a>
-            <a class="d-link" href="https://drive.google.com/file/d/17AQiYk-XgbrOcrwCU5XvAwpyGWbLXtR3/view" target="_blank" rel="noopener">Price menu →</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="ph"><span class="badge">New</span><img src="../images/ppf-headlamp.webp" alt="Headlamp with water beads on protective film" width="1200" height="800" decoding="async" loading="lazy"></div>
-      <div class="svc-body">
-        <h3>Paint Protection Film</h3>
-        <div class="svc-foot"><em>from RM 120</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
-        <div class="svc-detail">
-          <p class="d-intro">Clear armour against stone chips, scratches and UV. Lasts 3–5 years with proper care.</p>
-          <ul class="d-rows">
-          <li><span>Full Front · 2–3 days</span><b>RM 2,500–2,600</b></li>
+          <li><span>Advance Correction · 2–3 days</span><b>RM 670–850</b></li></ul>
+          <div class="d-actions"><a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20polish%20%2F%20paint%20correction." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="https://drive.google.com/file/d/17AQiYk-XgbrOcrwCU5XvAwpyGWbLXtR3/view" target="_blank" rel="noopener">Price menu →</a></div>
+        </div></div></div>
+      </li>
+      <li class="svc-item">
+        <button class="svc-row" type="button" data-img="2" aria-expanded="false">
+          <img class="sr-thumb" src="../images/ceramic-gloss.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          <span class="sr-name">Ceramic Coating</span>
+          <span class="sr-desc">Crystallised coating over an advance polish, with free mirror treatments and washes thrown in.</span>
+          <span class="sr-from"><span>from RM 850</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="svc-panel" data-rv-skip><div class="sp-in"><div class="sp-box">
+          <ul class="d-rows"><li><span>1 Year · 8H · 2 days</span><b>RM 850–1,200</b></li>
+          <li><span>2 Years · 9H · 2 days</span><b>RM 1,399–1,899</b></li></ul>
+          <div class="d-actions"><a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20Ceramic%20Coating." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="https://drive.google.com/file/d/17AQiYk-XgbrOcrwCU5XvAwpyGWbLXtR3/view" target="_blank" rel="noopener">Price menu →</a></div>
+        </div></div></div>
+      </li>
+      <li class="svc-item">
+        <button class="svc-row" type="button" data-img="3" aria-expanded="false">
+          <img class="sr-thumb" src="../images/ppf-headlamp.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          <span class="sr-name">Paint Protection Film</span>
+          <span class="sr-desc">Clear armour against stone chips, scratches and UV. Lasts 3–5 years with proper care.</span>
+          <span class="sr-from"><span>from RM 120</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="svc-panel" data-rv-skip><div class="sp-in"><div class="sp-box">
+          <ul class="d-rows"><li><span>Full Front · 2–3 days</span><b>RM 2,500–2,600</b></li>
           <li><span>Front / rear bumper</span><b>RM 1,300</b></li>
           <li><span>Front hood</span><b>RM 1,000</b></li>
           <li><span>Mirrors or headlamps</span><b>RM 400 / both</b></li>
-          <li><span>Door handles</span><b>RM 120 / all</b></li>
-          </ul>
-          <div class="d-actions">
-            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20PPF." target="_blank" rel="noopener">Book via WhatsApp</a>
-            <a class="d-link" href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">Price menu →</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="ph"><span class="badge">Car</span><img src="../images/leather-interior.webp" alt="Dark leather car interior with red stitching" width="1200" height="1800" decoding="async" loading="lazy"></div>
-      <div class="svc-body">
-        <h3>Leather &amp; Fabric Interior</h3>
-        <div class="svc-foot"><em>from RM 180</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
-        <div class="svc-detail">
-          <p class="d-intro">Deep cleans finished with interior UV dressing for a protected finish.</p>
-          <ul class="d-rows">
-          <li><span>Leather Refresh · ±2 hrs</span><b>RM 180–320</b></li>
+          <li><span>Door handles</span><b>RM 120 / all</b></li></ul>
+          <div class="d-actions"><a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20tanya%20pasal%20PPF." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">Price menu →</a></div>
+        </div></div></div>
+      </li>
+      <li class="svc-item">
+        <button class="svc-row" type="button" data-img="4" aria-expanded="false">
+          <img class="sr-thumb" src="../images/leather-interior.webp" alt="" width="1200" height="1800" loading="lazy" decoding="async">
+          <span class="sr-name">Leather &amp; Fabric Interior</span>
+          <span class="sr-desc">Deep cleans finished with interior UV dressing for a protected finish.</span>
+          <span class="sr-from"><span>from RM 180</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="svc-panel" data-rv-skip><div class="sp-in"><div class="sp-box">
+          <ul class="d-rows"><li><span>Leather Refresh · ±2 hrs</span><b>RM 180–320</b></li>
           <li><span>Fabric Clean · ±4 hrs</span><b>RM 250–650</b></li>
-          <li><span>Full Interior Reset · 1–2 days</span><b>from RM 650</b></li>
-          </ul>
-          <div class="d-actions">
-            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20interior%20cleaning." target="_blank" rel="noopener">Book via WhatsApp</a>
-            <a class="d-link" href="https://drive.google.com/file/d/1vDQN81bvgRBIgWH3_YUu1CON7hXmoJHO/view" target="_blank" rel="noopener">Price menu →</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="ph"><span class="badge">Family</span><img src="../images/babygear-refresh.webp" alt="Steam-cleaning a child car seat at the 9NERS studio" width="810" height="1080" decoding="async" loading="lazy"></div>
-      <div class="svc-body">
-        <h3>Babygear Refresh</h3>
-        <div class="svc-foot"><em>from RM 40</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
-        <div class="svc-detail">
-          <p class="d-intro">Car seats and strollers deep-cleaned, steamed and sanitised with gentle products only.</p>
-          <ul class="d-rows">
-          <li><span>Seats &amp; strollers · 1 day</span><b>from RM 40</b></li>
-          </ul>
-          <div class="d-actions">
-            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20hantar%20baby%20seat%20%2F%20stroller." target="_blank" rel="noopener">Book via WhatsApp</a>
-            <a class="d-link" href="https://drive.google.com/file/d/1vDQN81bvgRBIgWH3_YUu1CON7hXmoJHO/view" target="_blank" rel="noopener">Price menu →</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="ph"><span class="badge">Car</span><img src="../images/watermark-removal.webp" alt="Machine-polishing watermarks off a windscreen" width="1280" height="853" decoding="async" loading="lazy"></div>
-      <div class="svc-body">
-        <h3>Window Watermark Removal</h3>
-        <div class="svc-foot"><em>from RM 270</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
-        <div class="svc-detail">
-          <p class="d-intro">Polish and coat every mirror for clear glass and safer rainy-day driving.</p>
-          <ul class="d-rows">
-          <li><span>All mirrors · 1–2 hrs</span><b>RM 270–380</b></li>
-          </ul>
-          <div class="d-actions">
-            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20remove%20watermark%20cermin." target="_blank" rel="noopener">Book via WhatsApp</a>
-            <a class="d-link" href="https://drive.google.com/file/d/17AQiYk-XgbrOcrwCU5XvAwpyGWbLXtR3/view" target="_blank" rel="noopener">Price menu →</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="svc">
-      <div class="ph"><span class="badge bike">Bike</span><img src="../images/bike-front.webp" alt="Matte black motorcycle front close-up" width="1200" height="800" decoding="async" loading="lazy"></div>
-      <div class="svc-body">
-        <h3>Bike Spa, Coating &amp; Helmet</h3>
-        <div class="svc-foot"><em>from RM 40</em><span class="arr"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div>
-        <div class="svc-detail">
-          <p class="d-intro">Tank-to-spokes detail with chain care. Helmets polished and coated too.</p>
-          <ul class="d-rows">
-          <li><span>Bike Spa</span><b>RM 40–50</b></li>
+          <li><span>Full Interior Reset · 1–2 days</span><b>from RM 650</b></li></ul>
+          <div class="d-actions"><a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20interior%20cleaning." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="https://drive.google.com/file/d/1vDQN81bvgRBIgWH3_YUu1CON7hXmoJHO/view" target="_blank" rel="noopener">Price menu →</a></div>
+        </div></div></div>
+      </li>
+      <li class="svc-item">
+        <button class="svc-row" type="button" data-img="5" aria-expanded="false">
+          <img class="sr-thumb" src="../images/babygear-refresh.webp" alt="" width="810" height="1080" loading="lazy" decoding="async">
+          <span class="sr-name">Babygear Refresh</span>
+          <span class="sr-desc">Car seats and strollers deep-cleaned, steamed and sanitised with gentle products only.</span>
+          <span class="sr-from"><span>from RM 40</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="svc-panel" data-rv-skip><div class="sp-in"><div class="sp-box">
+          <ul class="d-rows"><li><span>Seats &amp; strollers · 1 day</span><b>from RM 40</b></li></ul>
+          <div class="d-actions"><a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20hantar%20baby%20seat%20%2F%20stroller." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="https://drive.google.com/file/d/1vDQN81bvgRBIgWH3_YUu1CON7hXmoJHO/view" target="_blank" rel="noopener">Price menu →</a></div>
+        </div></div></div>
+      </li>
+      <li class="svc-item">
+        <button class="svc-row" type="button" data-img="6" aria-expanded="false">
+          <img class="sr-thumb" src="../images/watermark-removal.webp" alt="" width="1280" height="853" loading="lazy" decoding="async">
+          <span class="sr-name">Window Watermark Removal</span>
+          <span class="sr-desc">Polish and coat every mirror for clear glass and safer rainy-day driving.</span>
+          <span class="sr-from"><span>from RM 270</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="svc-panel" data-rv-skip><div class="sp-in"><div class="sp-box">
+          <ul class="d-rows"><li><span>All mirrors · 1–2 hrs</span><b>RM 270–380</b></li></ul>
+          <div class="d-actions"><a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20remove%20watermark%20cermin." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="https://drive.google.com/file/d/17AQiYk-XgbrOcrwCU5XvAwpyGWbLXtR3/view" target="_blank" rel="noopener">Price menu →</a></div>
+        </div></div></div>
+      </li>
+      <li class="svc-item">
+        <button class="svc-row" type="button" data-img="7" aria-expanded="false">
+          <img class="sr-thumb" src="../images/bike-front.webp" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          <span class="sr-name">Bike Spa, Coating &amp; Helmet</span>
+          <span class="sr-desc">Tank-to-spokes detail with chain care. Helmets polished and coated too.</span>
+          <span class="sr-from"><span>from RM 40</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="svc-panel" data-rv-skip><div class="sp-in"><div class="sp-box">
+          <ul class="d-rows"><li><span>Bike Spa</span><b>RM 40–50</b></li>
           <li><span>Steam cleaning add-on</span><b>+ RM 30</b></li>
           <li><span>Bike Ceramic · 3–4 hrs</span><b>RM 290–550</b></li>
-          <li><span>Helmet Polish &amp; Coating · ±2 hrs</span><b>RM 70–100</b></li>
-          </ul>
-          <div class="d-actions">
-            <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20bike%20spa." target="_blank" rel="noopener">Book via WhatsApp</a>
-            <a class="d-link" href="https://drive.google.com/file/d/1I-0eqjmppTQpnp3ejYCzXSmQMuL-uQQa/view" target="_blank" rel="noopener">Price menu →</a>
-          </div>
-        </div>
-      </div>
-    </article>
+          <li><span>Helmet Polish &amp; Coating · ±2 hrs</span><b>RM 70–100</b></li></ul>
+          <div class="d-actions"><a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20bike%20spa." target="_blank" rel="noopener">Book via WhatsApp</a>
+            <a class="d-link" href="https://drive.google.com/file/d/1I-0eqjmppTQpnp3ejYCzXSmQMuL-uQQa/view" target="_blank" rel="noopener">Price menu →</a></div>
+        </div></div></div>
+      </li>
+    </ul>
+    <p class="svc-hint">Tap a service to see the sizes and prices.</p>
   </div>
+  <div class="svc-float" aria-hidden="true"><img src="../images/wash-foam.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"><img src="../images/paint-correction.webp" alt="" width="1042" height="1280" loading="lazy" decoding="async"><img src="../images/ceramic-gloss.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"><img src="../images/ppf-headlamp.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"><img src="../images/leather-interior.webp" alt="" width="1200" height="1800" loading="lazy" decoding="async"><img src="../images/babygear-refresh.webp" alt="" width="810" height="1080" loading="lazy" decoding="async"><img src="../images/watermark-removal.webp" alt="" width="1280" height="853" loading="lazy" decoding="async"><img src="../images/bike-front.webp" alt="" width="1200" height="800" loading="lazy" decoding="async"></div>
 </section>
 
 <div class="checker"></div>
 
 <section class="plans" id="plans">
   <div class="wrap">
-    <div class="plans-head">
+    <div class="sec-head">
       <span class="eyebrow">Most booked</span>
       <h2 class="h-disp">Simple, honest pricing</h2>
       <p>Three packages our customers book the most. Sized as Cars / SUV / Large. WhatsApp us a photo if you're not sure which is yours.</p>
     </div>
-    <div class="plan-grid">
-
+    <div class="plan-row">
       <div class="plan">
         <h3>9NERS Signature Wash</h3>
         <div class="price">RM 88 <small>/ car</small></div>
-        <div class="fit">The proper fortnightly wash</div>
+        <p class="fit">The proper fortnightly wash</p>
         <p class="desc">Everything a basic wash should have been.</p>
-        <ul>
-          <li>Wash &amp; tar removal, hand-brushed</li>
+        <ul><li>Wash &amp; tar removal, hand-brushed</li>
           <li>Clay bar treatment</li>
           <li>Fine gap &amp; edge cleaning</li>
           <li>Ceramic spray seal + reblack trim</li>
-          <li>Vacuum &amp; interior wipe down</li>
-        </ul>
+          <li>Vacuum &amp; interior wipe down</li></ul>
         <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20Signature%20Wash." target="_blank" rel="noopener">Book via WhatsApp</a>
       </div>
-
-      <div class="plan feat-plan">
-        <span class="tag">Most popular</span>
+      <div class="plan on">
+        <span class="plan-note">Most popular</span>
         <h3>Ceramic Coating · 1 year</h3>
         <div class="price">RM 850 <small>/ car</small></div>
-        <div class="fit">Gloss + protection that lasts</div>
+        <p class="fit">Gloss + protection that lasts</p>
         <p class="desc">The glossier-than-new-paint finish.</p>
-        <ul>
-          <li>Includes 9NERS Signature Wash</li>
+        <ul><li>Includes 9NERS Signature Wash</li>
           <li>Advance polishing before coating</li>
           <li>1 layer of 8H ceramic coating</li>
           <li>Free front mirror watermark removal</li>
-          <li>Free 1× Advance Wash</li>
-        </ul>
+          <li>Free 1× Advance Wash</li></ul>
         <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%20Ceramic%20Coating." target="_blank" rel="noopener">Book via WhatsApp</a>
       </div>
-
       <div class="plan">
         <h3>2-Step Correction</h3>
         <div class="price">RM 550 <small>/ car</small></div>
-        <div class="fit">For swirls &amp; acid rain</div>
+        <p class="fit">For swirls &amp; acid rain</p>
         <p class="desc">Eliminates up to 70% of paint defects.</p>
-        <ul>
-          <li>Includes 9NERS Signature Wash</li>
+        <ul><li>Includes 9NERS Signature Wash</li>
           <li>2-step machine polish</li>
           <li>1 layer of sealant wax</li>
           <li>Interior UV dressing</li>
-          <li>Exterior reblack rubber trim</li>
-        </ul>
+          <li>Exterior reblack rubber trim</li></ul>
         <a class="btn btn-wa" href="https://wa.me/60167565222?text=Hi%209NERS!%20Nak%20book%202-Step%20Correction." target="_blank" rel="noopener">Book via WhatsApp</a>
       </div>
-
     </div>
     <p class="plans-foot">Need something else? <a href="https://drive.google.com/drive/folders/1-5YQfzSESEH5O_NGSfwuKkrT6rpEL6R6" target="_blank" rel="noopener">See the full price list for every service →</a></p>
   </div>
@@ -528,6 +463,8 @@
     </div>
   </div>
 </section>
+
+<div class="tag-band" aria-hidden="true"><div class="wrap"><span class="tb-in"><span class="tb-line">Detailed to the</span> <span class="tb-line"><em>nines.</em></span></span></div></div>
 
 <footer>
   <div class="wrap">
@@ -562,91 +499,22 @@
     </div>
   </div>
 </footer>
-<div class="svc-sheet" id="svcSheet" role="dialog" aria-modal="true" aria-label="Service details">
-  <div class="sheet-ph">
-    <img id="sheetImg" src="" alt="">
-    <button class="sheet-close" id="sheetClose" aria-label="Close">✕</button>
-    <h3 class="sheet-title" id="sheetTitle"></h3>
-  </div>
-  <div class="sheet-body" id="sheetBody"></div>
-</div>
 
 <script>
+  /* each row opens its own prices; only one at a time */
   (function(){
-    var grid = document.querySelector('.svc-grid');
-    var cards = Array.prototype.slice.call(grid.querySelectorAll('.svc'));
-    var mqMobile = window.matchMedia('(max-width:640px)');
-    var panel = null, activeCard = null;
-
-    function cols(){ return getComputedStyle(grid).gridTemplateColumns.split(' ').length; }
-    function rowEndCard(card){
-      var i = cards.indexOf(card), c = cols();
-      return cards[Math.min(cards.length - 1, Math.floor(i / c) * c + c - 1)];
-    }
-    function closePanel(){
-      if (!panel) return;
-      var p = panel; panel = null;
-      p.classList.remove('open');
-      if (activeCard){ activeCard.classList.remove('active'); activeCard = null; }
-      setTimeout(function(){ if (p.parentNode) p.parentNode.removeChild(p); }, 360);
-    }
-    function openPanel(card){
-      if (panel){ var old = panel; panel = null; if (old.parentNode) old.parentNode.removeChild(old); }
-      if (activeCard) activeCard.classList.remove('active');
-      var d = card.querySelector('.svc-detail');
-      var el = document.createElement('div');
-      el.className = 'svc-panel';
-      el.innerHTML = '<div class="svc-panel-in"><div class="svc-panel-box"><button class="svc-close" aria-label="Close">✕</button><div class="svc-panel-l"><h3></h3></div><div class="svc-panel-r"></div></div></div>';
-      el.querySelector('h3').textContent = card.querySelector('.svc-body h3').textContent;
-      var L = el.querySelector('.svc-panel-l'), R = el.querySelector('.svc-panel-r');
-      L.appendChild(d.querySelector('.d-intro').cloneNode(true));
-      L.appendChild(d.querySelector('.d-actions').cloneNode(true));
-      R.appendChild(d.querySelector('.d-rows').cloneNode(true));
-      el.querySelector('.svc-close').addEventListener('click', function(e){ e.stopPropagation(); closePanel(); });
-      var anchor = rowEndCard(card);
-      anchor.parentNode.insertBefore(el, anchor.nextSibling);
-      panel = el; activeCard = card; card.classList.add('active');
-      el.getBoundingClientRect();
-      el.classList.add('open');
-      setTimeout(function(){ el.style.transition = 'none'; el.style.gridTemplateRows = '1fr'; }, 450);
-      setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 250);
-    }
-
-    var sheet = document.getElementById('svcSheet');
-    function openSheet(card){
-      var d = card.querySelector('.svc-detail');
-      var img = card.querySelector('.ph img');
-      document.getElementById('sheetImg').src = img.src;
-      document.getElementById('sheetImg').alt = img.alt;
-      document.getElementById('sheetTitle').textContent = card.querySelector('.svc-body h3').textContent;
-      var body = document.getElementById('sheetBody'); body.innerHTML = '';
-      body.appendChild(d.querySelector('.d-intro').cloneNode(true));
-      body.appendChild(d.querySelector('.d-rows').cloneNode(true));
-      body.appendChild(d.querySelector('.d-actions').cloneNode(true));
-      sheet.scrollTop = 0;
-      sheet.classList.add('open');
-      document.body.classList.add('sheet-lock');
-    }
-    function closeSheet(){
-      sheet.classList.remove('open');
-      document.body.classList.remove('sheet-lock');
-    }
-    document.getElementById('sheetClose').addEventListener('click', closeSheet);
-    document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ closeSheet(); closePanel(); } });
-
-    cards.forEach(function(card){
-      card.addEventListener('click', function(e){
-        if (e.target.closest('a')) return;
-        if (mqMobile.matches){ openSheet(card); return; }
-        if (activeCard === card){ closePanel(); return; }
-        openPanel(card);
+    var items = Array.prototype.slice.call(document.querySelectorAll('.svc-item'));
+    items.forEach(function(item){
+      var btn = item.querySelector('.svc-row');
+      btn.addEventListener('click', function(){
+        var wasOpen = item.classList.contains('open');
+        items.forEach(function(o){ o.classList.remove('open'); o.querySelector('.svc-row').setAttribute('aria-expanded','false'); });
+        if (!wasOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
       });
     });
-    window.addEventListener('resize', function(){
-      if (panel && activeCard){
-        var anchor = rowEndCard(activeCard);
-        if (anchor.nextSibling !== panel) anchor.parentNode.insertBefore(panel, anchor.nextSibling);
-      }
+    document.addEventListener('keydown', function(e){
+      if (e.key !== 'Escape') return;
+      items.forEach(function(o){ o.classList.remove('open'); o.querySelector('.svc-row').setAttribute('aria-expanded','false'); });
     });
   })();
 </script>
@@ -684,6 +552,7 @@
 })();
 </script>
 <script src="../js/reveal.js"></script>
+<script src="/js/pages.js" defer></script>
 <script src="/js/cart.js" defer></script>
 </body>
 </html>

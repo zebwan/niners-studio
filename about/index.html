@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=3">
+<link rel="stylesheet" href="/css/pages.css">
 <title>About 9NERS — Detailing Studio, Johor Bahru</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,16 +65,6 @@
   .statement p{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(28px,4.4vw,46px);line-height:1.12;color:#fff}
   .statement p b{color:var(--pink);font-weight:700}
 
-  .stats-a{background:var(--noir);color:#fff;padding:0 0 130px}
-  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
-  .sbox{border:1px solid var(--line-dk);border-radius:12px;padding:110px 24px 24px;background:transparent}
-  .sbox:nth-child(2){margin-top:44px;background:var(--pink);border-color:var(--pink)}
-  .sbox:nth-child(3){margin-top:88px}
-  .sbox:nth-child(4){margin-top:132px}
-  .sbox small{display:block;font-size:13px;color:#9B99A2;margin-bottom:8px}
-  .sbox b{font-family:var(--disp);font-style:italic;font-weight:700;font-size:56px;line-height:1;color:#fff}
-  .sbox:nth-child(2) small{color:#6B0F33}
-  .sbox:nth-child(2) b{color:#3A0A1F}
 
   .journey{background:var(--noir);color:#fff;padding:20px 0 96px}
   .jr-head{margin-bottom:56px}
@@ -86,7 +77,7 @@
   .jr h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px;margin:10px 0 10px;color:#fff}
   .jr p{color:#B4B2BA;font-size:16px;max-width:46ch}
   .press-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:38px}
-  .press{background:var(--noir-2);border:1px solid var(--line-dk);border-radius:14px;overflow:hidden}
+  .press{background:var(--noir-2);border-top:1px solid rgba(255,111,175,.18)}
   .press img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
   .press img.p-metro{object-position:center 30%}
   .press-txt{padding:24px 26px 28px}
@@ -94,7 +85,7 @@
   .press p{color:#B4B2BA;font-size:14px}
 
   .founders{background:var(--noir);color:#fff;padding:20px 0 100px}
-  .fnd{display:grid;grid-template-columns:.72fr 1.28fr;align-items:center;background:var(--noir-2);border:1px solid var(--line-dk);border-radius:16px;overflow:hidden;margin-bottom:22px}
+  .fnd{display:grid;grid-template-columns:.72fr 1.28fr;align-items:center;background:var(--noir-2);border-top:1px solid rgba(255,111,175,.18);margin-bottom:22px}
   .fnd img{width:100%;height:400px;object-fit:cover;object-position:center 22%}
   .fnd.flip{grid-template-columns:1.28fr .72fr}
   .fnd.flip img{order:2}
@@ -123,6 +114,25 @@
   .founder h4{font-size:17px;margin-bottom:4px}
   .founder p{font-size:14px;color:var(--muted)}
 
+  /* values: a plain row, no icon badges */
+  .vals{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,111,175,.18)}
+  .val{padding:26px 26px 0 0;border-right:1px solid rgba(255,111,175,.18)}
+  .val:last-child{border-right:none;padding-right:0}
+  .val:not(:first-child){padding-left:26px}
+  .val p{font-family:var(--disp);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(20px,2.1vw,26px);line-height:1.05;color:#fff}
+  .five .rev-mq{margin-top:44px}
+  .five .rev{background:var(--noir-2);border:1px solid rgba(255,111,175,.16)}
+  .five .rev p{color:#D7D5DC}
+  .five .rev b{color:#fff}
+  .five .rev b span{color:#9B99A2}
+  @media (max-width:900px){
+    .vals{grid-template-columns:1fr 1fr}
+    .val{padding:20px 20px 20px 0}
+    .val:nth-child(2n){border-right:none;padding-right:0}
+    .val:nth-child(n+3){border-top:1px solid rgba(255,111,175,.18)}
+    .val:not(:first-child){padding-left:0}
+    .val:nth-child(2n){padding-left:20px}
+  }
   .brands{background:var(--noir);color:#fff;padding:96px 0}
   .brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
   .bcell{padding:34px 16px;display:flex;align-items:center;justify-content:center;min-height:110px;text-align:center}
@@ -140,16 +150,6 @@
   .five .num small{font-size:.35em;vertical-align:super}
   .five h2{font-size:clamp(30px,3.6vw,42px);color:#fff;margin-bottom:22px}
   .five .sub{color:#B4B2BA;font-size:15px;margin-bottom:26px;max-width:44ch}
-  .grev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
-  .grev{background:var(--noir-2);border:1px solid var(--line-dk);border-radius:14px;padding:22px;display:flex;flex-direction:column}
-  .grev-head{display:flex;gap:12px;align-items:center;margin-bottom:12px}
-  .grev-av{width:40px;height:40px;border-radius:50%;background:var(--pink);color:#3A0A1F;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:0 0 40px}
-  .grev-name b{display:block;font-size:14px;color:#fff;font-weight:600}
-  .grev-name span{font-size:12px;color:#9B99A2}
-  .grev-stars{color:#FBBC04;letter-spacing:2px;font-size:14px;margin-bottom:10px}
-  .grev p{font-size:14px;color:#D7D5DC;flex:1}
-  .grev-g{margin-top:16px;font-size:12px;color:#9B99A2}
-  .grev-g b{color:#7BA4E8;font-weight:700}
 
   .cta{background:var(--deep);color:#fff;padding:88px 0;text-align:center}
   .cta h2{font-size:clamp(36px,5vw,58px);color:#fff;margin-bottom:14px}
@@ -175,12 +175,6 @@
     .fnd-txt{padding:26px}
     .press-grid,.vals{grid-template-columns:1fr 1fr}
     .a-hero-grid,.story-grid,.five-grid{grid-template-columns:1fr;gap:40px}
-    .grev-grid{grid-template-columns:1fr}
-    .stat-grid{grid-template-columns:1fr 1fr}
-    .sbox{padding-top:70px}
-    .sbox:nth-child(2){margin-top:24px}
-    .sbox:nth-child(3){margin-top:0}
-    .sbox:nth-child(4){margin-top:24px}
     .brand-grid{grid-template-columns:1fr 1fr}
     .bcell.center{grid-column:1/-1;order:-1}
     .foot-grid{grid-template-columns:1fr 1fr}
@@ -190,10 +184,6 @@
     .press-grid,.vals{grid-template-columns:1fr}
     .jr img{height:220px}
     .a-hero{padding:64px 0 72px}
-    .stat-grid{grid-template-columns:1fr 1fr;gap:14px}
-    .sbox{padding:70px 18px 20px}
-    .sbox b{font-size:40px}
-    .sbox small{font-size:12px}
     .foot-grid{grid-template-columns:1fr}
     .founder{flex-direction:column;text-align:center}
   }
@@ -324,14 +314,9 @@
   </div>
 </section>
 
-<section class="stats-a">
-  <div class="wrap stat-grid">
-    <div class="sbox"><small>Google rating</small><b>5.0 ★</b></div>
-    <div class="sbox"><small>Instagram followers</small><b>16.6k</b></div>
-    <div class="sbox"><small>Cars detailed</small><b>5,000+</b></div>
-    <div class="sbox"><small>Own-brand shampoos</small><b>3</b></div>
-  </div>
-</section>
+<div class="ticker" data-rv-skip>
+  <div class="tk-track"><div class="tk-set" data-mq="70"><span>5.0 Google rating</span><span>16.6k Instagram followers</span><span>5,000+ cars detailed</span><span>3 own-brand shampoos</span></div><div class="tk-set" data-mq="70" aria-hidden="true"><span>5.0 Google rating</span><span>16.6k Instagram followers</span><span>5,000+ cars detailed</span><span>3 own-brand shampoos</span></div></div>
+</div>
 
 <div class="checker"></div>
 
@@ -418,22 +403,10 @@
 
     <div class="vals-head"><span class="eyebrow">Together, we believe in</span></div>
     <div class="vals">
-      <div class="val">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M6 3h12l3 5-9 13L3 8z"/><path d="M3 8h18M9 3 6 8l6 13M15 3l3 5-6 13"/></svg>
-        <p>Quality over quantity</p>
-      </div>
-      <div class="val">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 4 2.5 8.5 12 13l9.5-4.5L12 4z"/><path d="M6.5 10.8V15c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-4.2M21 9v5"/></svg>
-        <p>Educating &amp; raising industry standards</p>
-      </div>
-      <div class="val">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 3l7.5 2.8v5.4c0 4.7-3.1 8.9-7.5 10.6-4.4-1.7-7.5-5.9-7.5-10.6V5.8L12 3z"/><path d="m8.6 12 2.3 2.4 4.5-4.7"/></svg>
-        <p>Honest work, real results</p>
-      </div>
-      <div class="val">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 20.3 4.7 13a4.4 4.4 0 0 1 6.2-6.2l1.1 1.1 1.1-1.1A4.4 4.4 0 1 1 19.3 13z"/></svg>
-        <p>Passion for cars, people &amp; the craft</p>
-      </div>
+      <div class="val"><p>Quality over quantity</p></div>
+      <div class="val"><p>Educating &amp; raising industry standards</p></div>
+      <div class="val"><p>Honest work, real results</p></div>
+      <div class="val"><p>Passion for cars, people &amp; the craft</p></div>
     </div>
   </div>
 </section>
@@ -462,25 +435,9 @@
         <a class="btn btn-ghost" href="https://www.google.com/maps/search/9NERS+Detailing+Studio+Johor+Bahru" target="_blank" rel="noopener">Read all reviews on Google</a>
       </div>
     </div>
-    <div class="grev-grid">
-      <div class="grev">
-        <div class="grev-head"><div class="grev-av">A</div><div class="grev-name"><b>Reviewer name</b><span>2 months ago</span></div></div>
-        <div class="grev-stars">★★★★★</div>
-        <p>"Hasil memang padu. Swirl marks semua hilang, kereta macam baru keluar showroom."</p>
-        <div class="grev-g"><b>G</b> Posted on Google</div>
-      </div>
-      <div class="grev">
-        <div class="grev-head"><div class="grev-av">S</div><div class="grev-name"><b>Reviewer name</b><span>4 months ago</span></div></div>
-        <div class="grev-stars">★★★★★</div>
-        <p>"Sent my bike for the spa — every corner spotless, even parts I never reach. Worth every ringgit."</p>
-        <div class="grev-g"><b>G</b> Posted on Google</div>
-      </div>
-      <div class="grev">
-        <div class="grev-head"><div class="grev-av">N</div><div class="grev-name"><b>Reviewer name</b><span>6 months ago</span></div></div>
-        <div class="grev-stars">★★★★★</div>
-        <p>"Baby car seat came back like new. Very detailed team and they explain everything they do."</p>
-        <div class="grev-g"><b>G</b> Posted on Google</div>
-      </div>
+    <div class="rev-mq" data-rv-skip>
+      <div class="rev-row"><div class="rev-set" data-mq="58"><div class="rev"><div class="stars">★★★★★</div><p>“I chose the 2-year coating package and leather seat cleaning, and the results were excellent. The car is now much shinier and smoother, with all the heavy watermarks removed through polishing.”</p><b>Afif Jefri <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My car shine back like new! Dulu just nampak 9NERS keep posting, end up try the signature wash — its damn worth my money! Surprisingly all the nail scratch gone. Will repeat? For sure 🫡”</p><b>Sahrul Nizam <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“The level of care and attention to detail really stood out. Nina was friendly, attentive, and recommended only the necessary services without any pressure to upsell.”</p><b>Iskan <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My wrapped car had quite a lot of watermarks and swirl marks, and they took the time to carefully polish it properly. Appreciate that the boss personally worked on the car as well.”</p><b>Keith Wong <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“Left my bike with them and trusted the process. Came back four hours later to find my beautifully groomed bike ready for pickup. Four hours for a year worth of ceramic coating — can’t ask for a better deal.”</p><b>Farhan Mazlan <span>· Google review</span></b></div></div><div class="rev-set" data-mq="58" aria-hidden="true"><div class="rev"><div class="stars">★★★★★</div><p>“I chose the 2-year coating package and leather seat cleaning, and the results were excellent. The car is now much shinier and smoother, with all the heavy watermarks removed through polishing.”</p><b>Afif Jefri <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My car shine back like new! Dulu just nampak 9NERS keep posting, end up try the signature wash — its damn worth my money! Surprisingly all the nail scratch gone. Will repeat? For sure 🫡”</p><b>Sahrul Nizam <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“The level of care and attention to detail really stood out. Nina was friendly, attentive, and recommended only the necessary services without any pressure to upsell.”</p><b>Iskan <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My wrapped car had quite a lot of watermarks and swirl marks, and they took the time to carefully polish it properly. Appreciate that the boss personally worked on the car as well.”</p><b>Keith Wong <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“Left my bike with them and trusted the process. Came back four hours later to find my beautifully groomed bike ready for pickup. Four hours for a year worth of ceramic coating — can’t ask for a better deal.”</p><b>Farhan Mazlan <span>· Google review</span></b></div></div></div>
+      <div class="rev-row rev-row-r"><div class="rev-set" data-mq="58"><div class="rev"><div class="stars">★★★★★</div><p>“The team is very professional and knowledgeable when it comes to car care and paint condition. Before starting, they patiently explained the condition of my paint and what contamination was on the surface.”</p><b>Zhen Yu <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My car look brand new again, thank you team 9NERS. All professional and friendly — they even sent before &amp; after photos and videos. Overall very satisfied 💯”</p><b>R F <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My first time here after a whole year following them on TikTok. I love the result on my 10-year-old car — worth the money and would definitely recommend their signature detailing wash!”</p><b>Sarah Ibrahim <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“Excellent bike wash service! My motorcycle looks spotless. Friendly staff and great attention to detail. Highly recommended!”</p><b>Faiq Fadhlullah <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“First time washing my car here and I would say they did a great job. The owners were friendly and have extensive knowledge about detailing cars. 10/10 recommended.”</p><b>Hidayat Mohd <span>· Google review</span></b></div></div><div class="rev-set" data-mq="58" aria-hidden="true"><div class="rev"><div class="stars">★★★★★</div><p>“The team is very professional and knowledgeable when it comes to car care and paint condition. Before starting, they patiently explained the condition of my paint and what contamination was on the surface.”</p><b>Zhen Yu <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My car look brand new again, thank you team 9NERS. All professional and friendly — they even sent before &amp; after photos and videos. Overall very satisfied 💯”</p><b>R F <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“My first time here after a whole year following them on TikTok. I love the result on my 10-year-old car — worth the money and would definitely recommend their signature detailing wash!”</p><b>Sarah Ibrahim <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“Excellent bike wash service! My motorcycle looks spotless. Friendly staff and great attention to detail. Highly recommended!”</p><b>Faiq Fadhlullah <span>· Google review</span></b></div><div class="rev"><div class="stars">★★★★★</div><p>“First time washing my car here and I would say they did a great job. The owners were friendly and have extensive knowledge about detailing cars. 10/10 recommended.”</p><b>Hidayat Mohd <span>· Google review</span></b></div></div></div>
     </div>
   </div>
 </section>
@@ -497,6 +454,8 @@
     </div>
   </div>
 </section>
+
+<div class="tag-band" aria-hidden="true"><div class="wrap"><span class="tb-in"><span class="tb-line">Detailed to the</span> <span class="tb-line"><em>nines.</em></span></span></div></div>
 
 <footer>
   <div class="wrap">
@@ -565,6 +524,7 @@
 })();
 </script>
 <script src="../js/reveal.js"></script>
+<script src="/js/pages.js" defer></script>
 <script src="/js/cart.js" defer></script>
 </body>
 </html>

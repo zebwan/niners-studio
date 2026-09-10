@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png?v=3">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png?v=3">
+<link rel="stylesheet" href="/css/pages.css">
 <title>Car care — 9NERS Studio Line</title>
 <style>
   :root{
@@ -59,40 +60,20 @@
   .a-hero-side p{color:#E3E1E8;font-size:16px;margin-bottom:26px;max-width:44ch}
 
   .featured{background:var(--white);padding:96px 0}
-  .feat-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
-  .feat-stage{aspect-ratio:4/5;align-self:start}
-  .feat-stage video,.feat-stage img{width:100%;height:100%;object-fit:contain;display:block}
-  .feat-info h2{font-size:clamp(44px,6vw,72px);color:var(--ink);margin:12px 0 4px}
-  .feat-info .sub{font-size:16px;color:var(--muted);margin-bottom:20px}
-  .feat-info .desc{color:var(--muted);max-width:52ch;margin-bottom:24px}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
-  .chip{font-size:13px;font-weight:600;color:#3A0A1F;background:var(--pink);padding:7px 14px;border-radius:99px}
-  .feat-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .feat-ctas .note{width:100%}
+  .featured .stage{grid-template-columns:.95fr 1.05fr}
+  .featured .stage-copy h2{font-size:clamp(44px,6vw,72px);color:var(--ink);margin:10px 0 6px}
+  .featured .cat{font-size:16px;color:var(--muted);margin-bottom:18px}
+  .feat-list{list-style:none;display:grid;gap:10px;margin:0 0 26px}
+  .feat-list li{font-size:15px;color:var(--ink);padding-left:26px;position:relative}
+  .feat-list li::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;background:repeating-conic-gradient(var(--pink) 0% 25%, transparent 0% 50%);background-size:6px 6px;border:1px solid var(--pink)}
 
   .lineup{background:var(--lilac);padding:96px 0}
-  .lineup-head{max-width:560px;margin-bottom:52px}
-  .lineup-head h2{font-size:clamp(32px,4.4vw,50px);margin:14px 0 12px;color:var(--ink)}
-  .lineup-head p{color:var(--muted)}
-  .lu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .lu{position:relative;border-radius:16px;overflow:hidden;text-decoration:none;aspect-ratio:1/1;transition:transform .15s ease}
-  .lu:hover{transform:translateY(-4px)}
-  .lu-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-  .lu.real{background:var(--white);border:1px solid var(--line)}
-  .lu.real .lu-stage video,.lu.real .lu-stage img{width:100%;height:100%;object-fit:cover;display:block}
-  .lu.real .lu-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,26,.84),rgba(20,16,26,.38) 32%,rgba(20,16,26,0) 58%)}
-  .lu-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:20px 24px 22px}
-  .lu h3{font-size:19px;font-weight:600;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.4)}
-  .lu .cat{font-size:13px;color:#D7D5DC;margin:3px 0 10px}
-  .lu .go{font-size:14px;font-weight:600;color:var(--pink)}
-  .lu.soon{background:var(--noir);border:1px solid var(--line-dk)}
-  .lu.soon .lu-stage{padding-bottom:74px}
-  .lu.soon h3{color:#fff}
-  .lu.soon .cat{color:#9B99A2}
-  .soon-can{width:120px;height:210px;border-radius:14px;background:var(--noir-2);border:1px solid var(--line-dk);position:relative}
-  .soon-can::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:64px;height:30px;background:var(--noir-2);border:1px solid var(--line-dk);border-bottom:none;border-radius:8px 8px 0 0}
-  .soon-can::after{content:"?";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-style:italic;font-weight:700;font-size:64px;color:#2B2830}
-  .soon-pill{display:inline-block;background:var(--deep);color:var(--pink);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:99px;margin-bottom:10px}
+  .lineup .svc-list{border-top-color:#DCDAE1}
+  .lineup .svc-row{border-bottom-color:#DCDAE1}
+  .svc-row.is-soon{cursor:default;color:var(--muted)}
+  .svc-row.is-soon:hover::before{transform:scaleX(0)}
+  .svc-row.is-soon .sr-name{color:#B9B7C0}
+  .svc-row.is-soon .sr-from{color:var(--muted)}
 
   .ws{background:var(--pink);color:#3A0A1F;padding:76px 0;position:relative;overflow:hidden}
   .ws::after{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;transform:rotate(12deg);
@@ -104,7 +85,7 @@
   .ws-btn:hover{background:#26050F}
 
   .nice{background:var(--white);padding:80px 0}
-  .nice-box{border:1px solid var(--line);border-radius:16px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .nice-box{border-top:1px solid var(--line);padding:34px 0 0;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap}
   .nice-box h3{font-family:var(--disp);font-style:italic;text-transform:uppercase;font-size:26px}
   .nice-box p{color:var(--muted);font-size:15px;max-width:52ch}
   .nice-names{color:var(--rose);font-weight:600}
@@ -127,13 +108,7 @@
   @media (max-width:900px){
     .nav-links{display:none}
     .a-hero-grid{grid-template-columns:1fr;gap:40px}
-    .feat-grid{grid-template-columns:1fr;gap:36px}
-    .feat-stage{max-width:480px;margin:0 auto;width:100%}
-    .lu-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
     .foot-grid{grid-template-columns:1fr 1fr}
-  }
-  @media (min-width:641px) and (max-width:900px){
-    .lu-grid{grid-template-columns:1fr 1fr;max-width:none}
   }
   @media (max-width:640px){
     .a-hero{padding:64px 0 72px}
@@ -261,29 +236,35 @@
   </div>
 </section>
 
+<div class="ticker on-dark" data-rv-skip>
+  <div class="tk-track"><div class="tk-set" data-mq="70"><span>Made in our own bays</span><span>Rain Off is out now</span><span>Wholesale available</span><span>Two more in testing</span><span>9ice with OSREN</span></div><div class="tk-set" data-mq="70" aria-hidden="true"><span>Made in our own bays</span><span>Rain Off is out now</span><span>Wholesale available</span><span>Two more in testing</span><span>9ice with OSREN</span></div></div>
+</div>
+
 <section class="featured" id="rainoff">
-  <div class="wrap feat-grid">
-    <div class="feat-stage">
-      <video poster="../videos/rainoff-360-alpha-poster.webp" muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees" data-lazy>
+  <div class="wrap stage">
+    <div class="stage-art">
+      <span class="stage-word" aria-hidden="true">Rain Off</span>
+      <video class="stage-can" poster="../videos/rainoff-360-alpha-poster.webp" muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees" data-lazy>
         <source src="../videos/rainoff-360-alpha.mov" type="video/quicktime">
         <source src="../videos/rainoff-360-alpha.webm" type="video/webm">
       </video>
     </div>
-    <div class="feat-info">
-      <span class="eyebrow">New · 9NERS Studio Line</span>
+    <div class="stage-copy">
+      <span class="eyebrow">New &middot; 9NERS Studio Line</span>
       <h2 class="h-disp">Rain Off</h2>
-      <p class="sub">Hydrophobic glass coating spray for clear vision and better driving.</p>
+      <p class="cat">Hydrophobic glass coating spray for clear vision and better driving.</p>
       <p class="desc">A spray-on windscreen &amp; glass coating with a strong hydrophobic effect: rain beads up and rolls off, so you see more and squint less. One application protects for up to 3 months.</p>
-      <div class="chips">
-        <span class="chip">Easy spray application</span>
-        <span class="chip">Strong water repellent</span>
-        <span class="chip">Lasts up to 3 months</span>
-        <span class="chip">Safe on all auto glass</span>
-        <span class="chip">Compact 100g can</span>
-      </div>
-      <div class="feat-ctas">
-        <a class="btn btn-purple" href="../shop/rain-off/">View product</a>
-        <a class="btn btn-ghost-dk" href="https://niners-buy.zebwan00.workers.dev/rain-off" data-add="rain-off">Add to cart</a>
+      <ul class="feat-list">
+        <li>Easy spray application</li>
+        <li>Strong water repellent</li>
+        <li>Lasts up to 3 months</li>
+        <li>Safe on all auto glass</li>
+        <li>Compact 100g can</li>
+      </ul>
+      <div class="price-line"><b>RM 38</b><span>per 100g can</span></div>
+      <div class="stage-btns">
+        <a class="btn btn-purple" href="https://niners-buy.zebwan00.workers.dev/rain-off" data-add="rain-off">Add to cart</a>
+        <a class="btn btn-ghost-dk" href="../shop/rain-off/">View product</a>
       </div>
     </div>
   </div>
@@ -293,38 +274,31 @@
 
 <section class="lineup">
   <div class="wrap">
-    <div class="lineup-head">
+    <div class="sec-head">
       <span class="eyebrow">The line-up</span>
       <h2 class="h-disp">One out, two brewing</h2>
       <p>Every Studio Line product earns its place the same way: by working in our own bays first.</p>
     </div>
-    <div class="lu-grid">
-      <a class="lu real" href="../shop/rain-off/">
-        <div class="lu-stage"><video src="../videos/rainoff-360-sq.mp4" poster="../videos/rainoff-360-sq-poster.webp" muted loop playsinline preload="metadata" aria-label="Rain Off can rotating 360 degrees" data-lazy></video></div>
-        <div class="lu-body">
-          <h3>Rain Off</h3>
-          <div class="cat">Hydrophobic glass coating spray</div>
-          <span class="go">View product →</span>
-        </div>
-      </a>
-      <div class="lu soon">
-        <div class="lu-stage"><div class="soon-can"></div></div>
-        <div class="lu-body">
-          <span class="soon-pill">Coming soon</span>
-          <h3>Still under wraps</h3>
-          <div class="cat">In testing at the studio</div>
-        </div>
-      </div>
-      <div class="lu soon">
-        <div class="lu-stage"><div class="soon-can"></div></div>
-        <div class="lu-body">
-          <span class="soon-pill">Coming soon</span>
-          <h3>Still under wraps</h3>
-          <div class="cat">In testing at the studio</div>
-        </div>
-      </div>
-    </div>
+    <ul class="svc-list">
+      <li><a class="svc-row" href="../shop/rain-off/" data-img="0">
+        <img class="sr-thumb" src="../images/rainoff-front-cut.webp" alt="" width="1200" height="1500" loading="lazy" decoding="async">
+        <span class="sr-name">Rain Off</span>
+        <span class="sr-desc">Hydrophobic glass coating spray, 100g. Out now, in the studio and online.</span>
+        <span class="sr-from"><span>RM 38</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a></li>
+      <li><div class="svc-row is-soon">
+        <span class="sr-name">Still under wraps</span>
+        <span class="sr-desc">In testing at the studio.</span>
+        <span class="sr-from"><span>Coming soon</span></span>
+      </div></li>
+      <li><div class="svc-row is-soon">
+        <span class="sr-name">Still under wraps</span>
+        <span class="sr-desc">In testing at the studio.</span>
+        <span class="sr-from"><span>Coming soon</span></span>
+      </div></li>
+    </ul>
   </div>
+  <div class="svc-float" aria-hidden="true"><img src="../images/rainoff-front-cut.webp" alt="" width="1200" height="1500" loading="lazy" decoding="async"></div>
 </section>
 
 <section class="ws" id="wholesale">
@@ -358,6 +332,8 @@
     </div>
   </div>
 </section>
+
+<div class="tag-band" aria-hidden="true"><div class="wrap"><span class="tb-in"><span class="tb-line">Detailed to the</span> <span class="tb-line"><em>nines.</em></span></span></div></div>
 
 <footer>
   <div class="wrap">
@@ -426,6 +402,7 @@
 })();
 </script>
 <script src="../js/reveal.js"></script>
+<script src="/js/pages.js" defer></script>
 <script src="/js/cart.js" defer></script>
 </body>
 </html>

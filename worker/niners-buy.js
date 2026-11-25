@@ -2,6 +2,7 @@
 // Turns a plain link on 9nersstudio.com into a HitPay checkout with the products already in the cart.
 //   GET /rain-off                      -> 1 can
 //   GET /rain-off?qty=2                -> 2 cans (1..10)
+//   GET /spray-bottle, /spray-bottle-plain -> the two spray bottle options
 //   GET /checkout?items=rain-off:2     -> any number of lines, "slug:qty" comma-separated (the site's cart drawer)
 // Flow: mint a cart id, create the cart on HitPay's storefront API with the lines, 302 the customer
 // to https://hitpay.shop/9ners/checkout/<cart>. If anything fails, fall back to the normal product URL.
@@ -18,6 +19,19 @@ const PRODUCTS = {
     id: 'a2b08c63-e189-4f9f-afbc-3bd6036a7e5c',
     name: 'Rain Off | Hydrophobic Glass Coating Spray (100g)',
     fallback: STORE + '/product/rain-off-hydrophobic-glass-coating-spray-100g?express_checkout=true',
+  },
+  // One HitPay product with two variations; the cart needs the parent id plus the variation id.
+  'spray-bottle': {
+    id: 'a34f614e-8c92-4ccd-8cb5-9fab5b8b56af',
+    variation: 'a34f614e-b9dd-4f12-9fed-4641701802fc', // With 9NERS Logo
+    name: '9NERS 300ML Black Trigger Spray Bottle | Wide & Sharp Spray',
+    fallback: STORE + '/product/9ners-300ml-black-trigger-spray-bottle-wide-and-sharp-spray',
+  },
+  'spray-bottle-plain': {
+    id: 'a34f614e-8c92-4ccd-8cb5-9fab5b8b56af',
+    variation: 'a34f614e-d194-4d2e-b24b-718626bbc301', // Without Logo (Plain)
+    name: '9NERS 300ML Black Trigger Spray Bottle | Wide & Sharp Spray',
+    fallback: STORE + '/product/9ners-300ml-black-trigger-spray-bottle-wide-and-sharp-spray',
   },
 };
 
@@ -64,7 +78,10 @@ async function addLine(cart, line, signal) {
       'hitpay-domain': 'hitpay.shop',
       'hitpay-identifier': BUSINESS_ID,
     },
-    body: JSON.stringify({ product_id: line.product.id, quantity: line.qty, product_item_name: line.product.name, remark: null }),
+    body: JSON.stringify(Object.assign(
+      { product_id: line.product.id, quantity: line.qty, product_item_name: line.product.name, remark: null },
+      line.product.variation ? { variation_id: line.product.variation } : {}
+    )),
   });
   if (!res.ok) throw new Error('cart create ' + res.status);
   const data = await res.json();

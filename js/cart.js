@@ -6,7 +6,9 @@
   var KEY = 'niners_cart';
   var MAX = 10;
   var CATALOG = {
-    'rain-off': { name: 'Rain Off', cat: 'Hydrophobic glass coating spray · 100g', price: 38, img: '/images/rainoff-front-cut.webp', url: '/shop/rain-off/' }
+    'rain-off': { name: 'Rain Off', cat: 'Hydrophobic glass coating spray · 100g', price: 38, img: '/images/rainoff-front-cut.webp', url: '/shop/rain-off/' },
+    'spray-bottle': { name: 'Spray Bottle', cat: '300ml · With 9NERS logo', price: 10, img: '/images/bottle-front-cut.webp', url: '/shop/spray-bottle/' },
+    'spray-bottle-plain': { name: 'Spray Bottle', cat: '300ml · Plain, no logo', price: 10, img: '/images/bottle-front-cut.webp', url: '/shop/spray-bottle/' }
   };
   var BAG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>';
   var X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
